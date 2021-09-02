@@ -1,0 +1,19 @@
+RewriteEngine On
+
+#----------
+#client
+
+#home
+RewriteRule ^home$ /index.php [L]
+
+#----------
+#auth
+
+#logout
+RewriteRule ^admin/logout$ admin.php?controller=logout&type=auth
+
+#login
+RewriteRule ^login$ admin.php?controller=login&type=auth
+
+#register
+RewriteRule ^register$ admin.php?controller=register&type=auth
