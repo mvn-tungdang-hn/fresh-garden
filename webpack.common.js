@@ -3,7 +3,8 @@ const path = require("path");
 module.exports = {
   entry: {
     home: "./src/js/home.js",
-    about: "./src/js/about.js"
+    about: "./src/js/about.js",
+    product: "./src/js/product.js"
   },
   output: {
     path: path.resolve(__dirname, "./public"),
