@@ -1,2 +1,1 @@
-# fresh-garden
-Bài tập lớn PHP
+# fresh garden frontend

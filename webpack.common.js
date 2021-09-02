@@ -1,14 +1,14 @@
 const path = require("path");
 
 module.exports = {
-  mode: "development",
   entry: {
-    main: "./src/js/main.js",
-    home: "./src/js/home.js"
+    home: "./src/js/home.js",
+    about: "./src/js/about.js"
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "js/[name].js"
+    path: path.resolve(__dirname, "./dist"),
+    filename: "[name].js",
+    clean: true
   },
   module: {
     rules: [
@@ -37,12 +37,5 @@ module.exports = {
         use: ["style-loader", "css-loader"]
       }
     ]
-  },
-  devServer: {
-    static: {
-      directory: path.join(__dirname, "public")
-    },
-    compress: true,
-    port: 9000
   }
 };
