@@ -9,6 +9,13 @@ RewriteRule ^home$ /index.php [L]
 #about
 RewriteRule ^about$ index.php?controller=about
 
+#product
+RewriteRule ^product$ index.php?controller=product
+RewriteRule ^product/([0-9]+) index.php?controller=productdetail&id=$1
+
+#category-product
+RewriteRule ^category-product/([0-9]+) index.php?controller=categoryproduct&id=$1
+
 #----------
 #auth
 

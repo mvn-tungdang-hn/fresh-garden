@@ -1,23 +1,20 @@
 <!-- Banner -->
 <section class="swiper" id="banner">
   <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="https://freshgarden.vn/pic/banner/web-p_636897140007748317.jpg" class="img-fluid" alt="..." />
-    </div>
-    <div class="swiper-slide">
-      <img src="https://freshgarden.vn/pic/banner/banh-trun_637633515860320595.jpg" class="img-fluid" alt="..." />
-    </div>
-    <div class="swiper-slide">
-      <img src="https://freshgarden.vn/pic/banner/mien-phi-_637643627396567719.jpg" class="img-fluid" alt="..." />
-    </div>
+    <?php foreach ($banners as $item) { ?>
+      <a class="swiper-slide d-block" href="<?php echo isset($item->link) ? $item->link : "#" ?>" target="<?php echo $item->is_external === 1 ? "_blank" : "_self" ?>">
+        <img src="<?php echo $item->thumbnail ?>" class="img-fluid" alt="<?php echo $item->title ?>" />
+      </a>
+    <?php } ?>
   </div>
 </section>
 
 <!-- Main categories -->
 <section class="row g-0">
-  <a href="#" class="main-category col-sm-6 position-relative overflow-hidden">
-    <img src="https://freshgarden.vn/pic/Product/fresh-gar_637335417967779505_HasThumb.jpg" class="img-fluid w-100" alt="..." />
-    <div class="
+  <?php foreach ($collections as $collection) { ?>
+    <a href="#" class="main-category col-sm-6 position-relative overflow-hidden">
+      <img src="<?php echo $collection->thumbnail ?>" class="img-fluid w-100" alt="..." />
+      <div class="
             position-absolute
             top-50
             start-50
@@ -30,75 +27,13 @@
             align-items-center
             flex-column
           ">
-      <h3 class="fs-1 text-white fw-bold mb-3">Sáng</h3>
-      <button class="btn btn-secondary rounded-pill">
-        <i class="bi bi-hand-thumbs-up pe-2"></i>Xem chi tiết
-      </button>
-    </div>
-  </a>
-  <a href="#" class="main-category col-sm-6 position-relative overflow-hidden">
-    <img src="https://freshgarden.vn/pic/Product/fresh-gar_637335419469144130_HasThumb.jpg" class="img-fluid w-100" alt="..." />
-    <div class="
-            position-absolute
-            top-50
-            start-50
-            translate-middle
-            w-75
-            h-75
-            border border-white
-            d-flex
-            justify-content-center
-            align-items-center
-            flex-column
-          ">
-      <h3 class="fs-1 text-white fw-bold mb-3">Trưa</h3>
-      <button class="btn btn-secondary rounded-pill">
-        <i class="bi bi-hand-thumbs-up pe-2"></i>Xem chi tiết
-      </button>
-    </div>
-  </a>
-  <a href="#" class="main-category col-sm-6 position-relative overflow-hidden">
-    <img src="https://freshgarden.vn/pic/Product/fresh-gar_637593450060370955_HasThumb.jpg" class="img-fluid w-100" alt="..." />
-    <div class="
-            position-absolute
-            top-50
-            start-50
-            translate-middle
-            w-75
-            h-75
-            border border-white
-            d-flex
-            justify-content-center
-            align-items-center
-            flex-column
-          ">
-      <h3 class="fs-1 text-white fw-bold mb-3">Chiều</h3>
-      <button class="btn btn-secondary rounded-pill">
-        <i class="bi bi-hand-thumbs-up pe-2"></i>Xem chi tiết
-      </button>
-    </div>
-  </a>
-  <a href="#" class="main-category col-sm-6 position-relative overflow-hidden">
-    <img src="https://freshgarden.vn/pic/Product/fresh-gar_637593450240057450_HasThumb.jpg" class="img-fluid w-100" alt="..." />
-    <div class="
-            position-absolute
-            top-50
-            start-50
-            translate-middle
-            w-75
-            h-75
-            border border-white
-            d-flex
-            justify-content-center
-            align-items-center
-            flex-column
-          ">
-      <h3 class="fs-1 text-white fw-bold mb-3">Tối</h3>
-      <button class="btn btn-secondary rounded-pill">
-        <i class="bi bi-hand-thumbs-up pe-2"></i>Xem chi tiết
-      </button>
-    </div>
-  </a>
+        <h3 class="fs-1 text-white fw-bold mb-3"><?php echo $collection->title ?></h3>
+        <button class="btn btn-secondary rounded-pill">
+          <i class="bi bi-hand-thumbs-up pe-2"></i>Xem chi tiết
+        </button>
+      </div>
+    </a>
+  <?php } ?>
 </section>
 
 <!-- Main news -->

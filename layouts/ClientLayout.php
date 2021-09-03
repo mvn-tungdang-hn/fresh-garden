@@ -12,6 +12,12 @@
   echo $this->headTag;
   ?>
 </head>
+<?php
+include_once "app/models/CategoryModel.php";
+$categoryModel = new CategoryModel();
+
+$categories = $categoryModel->getListCategory("where type = 1");
+?>
 
 <body class="d-flex flex-column min-vh-100">
   <!-- Top header -->
@@ -50,11 +56,18 @@
               Sản phẩm
             </a>
             <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
               <li>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item text-capitalize" href="<?php echo $APP_URL ?>/product">
+                  Tất cả sản phẩm
+                </a>
               </li>
+              <?php foreach ($categories as $item) { ?>
+                <li>
+                  <a class="dropdown-item text-capitalize" href="<?php echo $APP_URL ?>/category-product/<?php echo $item->id ?>">
+                    <?php echo $item->title ?>
+                  </a>
+                </li>
+              <?php } ?>
             </ul>
           </li>
           <li class="nav-item">
