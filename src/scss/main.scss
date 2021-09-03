@@ -1,6 +1,21 @@
 @import "variables";
 @import "bootstrap";
 
+h6,
+.h6,
+h5,
+.h5,
+h4,
+.h4,
+h3,
+.h3,
+h2,
+.h2,
+h1,
+.h1 {
+  font-weight: 700;
+}
+
 .main-category {
   img {
     transition: all 0.3s ease-in-out;
@@ -26,10 +41,23 @@
   font-weight: 500;
 }
 
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .about-image {
   padding-bottom: 60%;
 }
 
 .product-image {
   padding-bottom: 56.25%;
+}
+
+.btn-plus {
+  min-width: 35px;
+  max-width: 35px;
+  height: 35px;
+  padding: 0;
 }

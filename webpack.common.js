@@ -5,7 +5,8 @@ module.exports = {
     home: "./src/js/home.js",
     about: "./src/js/about.js",
     product: "./src/js/product.js",
-    "category-product": "./src/js/category-product.js"
+    "category-product": "./src/js/category-product.js",
+    "product-detail": "./src/js/product-detail.js"
   },
   output: {
     path: path.resolve(__dirname, "./public"),

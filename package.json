@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fancyapps/ui": "^4.0.0",
     "@popperjs/core": "^2.9.3",
     "bootstrap": "^5.1.0",
     "swiper": "^7.0.2"
