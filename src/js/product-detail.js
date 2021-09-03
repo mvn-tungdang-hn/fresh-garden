@@ -1,5 +1,3 @@
-import "./main.js";
-
 import "@fancyapps/ui/dist/fancybox.css";
 import { Fancybox } from "@fancyapps/ui";
 

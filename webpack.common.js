@@ -2,6 +2,7 @@ const path = require("path");
 
 module.exports = {
   entry: {
+    main: "./src/js/main.js",
     home: "./src/js/home.js",
     about: "./src/js/about.js",
     product: "./src/js/product.js",
@@ -10,8 +11,10 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "./public"),
-    filename: "[name].js",
-    clean: true
+    filename: "js/[name].js",
+    clean: {
+      dry: true
+    }
   },
   module: {
     rules: [

@@ -105,7 +105,7 @@
 <section class="row g-0">
   <div class="col-sm-6 p-5 d-flex flex-column justify-content-center">
     <div class="mb-3">
-      <img src="https://freshgarden.vn/pic/Video/log_636790835426168936_HasThumb_Thumb.png" alt="" />
+      <img src="public/images/static/logo.png" alt="" />
     </div>
     <p>
       Các sản phẩm của Fresh Garden được sản xuất trên dây chuyền hiện đại,

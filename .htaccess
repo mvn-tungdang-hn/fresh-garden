@@ -6,6 +6,9 @@ RewriteEngine On
 #home
 RewriteRule ^home$ /index.php [L]
 
+#about
+RewriteRule ^about$ index.php?controller=about
+
 #----------
 #auth
 

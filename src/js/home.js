@@ -1,5 +1,3 @@
-import "./main.js";
-
 import "swiper/css/bundle";
 import Swiper from "swiper";
 

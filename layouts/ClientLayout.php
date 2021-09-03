@@ -7,11 +7,13 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fresh Garden</title>
-  <script src="public/home.js" defer></script>
+  <script src="public/js/main.js" defer></script>
+  <?php
+  echo $this->headTag;
+  ?>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
   <!-- Top header -->
   <section class="container d-flex justify-content-end align-items-center py-2">
     <div class="me-3">
@@ -29,17 +31,19 @@
   <!-- Nav -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="#">LOGO</a>
+      <a class="navbar-brand" href="<?php echo $APP_URL ?>">
+        <img src="public/images/static/logo.png" width="100" alt="logo" />
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav fw-medium">
           <li class="nav-item">
-            <a class="nav-link active text-uppercase" aria-current="page" href="#">Trang chủ</a>
+            <a class="nav-link active text-uppercase" aria-current="page" href="<?php echo $APP_URL ?>">Trang chủ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-uppercase" href="#">Giới thiệu</a>
+            <a class="nav-link text-uppercase" href="<?php echo $APP_URL ?>/about">Giới thiệu</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -74,9 +78,11 @@
   </nav>
 
   <!-- Content -->
-  <?php
-  echo $this->content;
-  ?>
+  <main class="flex-grow-1">
+    <?php
+    echo $this->content;
+    ?>
+  </main>
 
   <!-- Footer -->
   <footer class="container-fluid">
