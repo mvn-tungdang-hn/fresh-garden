@@ -20,10 +20,13 @@ RewriteRule ^category-product/([0-9]+) index.php?controller=CategoryProduct&id=$
 #auth
 
 #logout
-RewriteRule ^admin/logout$ admin.php?controller=Logout
+RewriteRule ^admin/logout$ admin.php?controller=Logout&type=auth
 
-#login
-RewriteRule ^login$ admin.php?controller=Login
+#sign in
+RewriteRule ^sign-in$ admin.php?controller=SignIn&type=auth
 
-#register
-RewriteRule ^register$ admin.php?controller=Register
+#sign up
+RewriteRule ^sign-up$ admin.php?controller=SignUp&type=auth
+
+#404
+ErrorDocument 404 http://localhost/fresh-garden/
