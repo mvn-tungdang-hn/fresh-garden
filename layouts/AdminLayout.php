@@ -2,10 +2,13 @@
 <html lang="en">
 
 <head>
+  <?php global $APP_URL; ?>
+  <base href="<?php echo $APP_URL ?>/">
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="public/js/main.js"></script>
+  <script src="public/js/admin.js" defer></script>
   <?php
   echo $this->headTag;
   ?>
@@ -30,16 +33,16 @@
         <small>Staff</small>
       </div>
       <!-- Nav -->
-      <ul class="sidebar-nav">
+      <ul class="sidebar-nav" id="sidebarNav">
         <li class="sidebar-header">Main</li>
-        <li class="sidebar-item active">
+        <li class="sidebar-item">
           <a class="sidebar-link" href="admin">
             <i class="align-middle me-2 bi bi-house-fill fs-5 text-info"></i>
             <span class="align-middle">Dashboard</span>
           </a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="#">
+          <a class="sidebar-link" href="admin/categories-product/1">
             <i class="align-middle me-2 bi bi-calendar3-range-fill fs-5 text-info"></i>
             <span class="align-middle">Categories product</span>
           </a>
@@ -79,7 +82,7 @@
   <!-- Main -->
   <section class="main">
     <!-- Top nav -->
-    <nav class="bg-info px-3 py-2 text-white d-flex align-items-center justify-content-between">
+    <nav class="bg-info px-3 py-2 text-white d-flex align-items-center justify-content-between sticky-top shadow-sm">
       <i class="bi bi-list pointer fs-2"></i>
       <div class="d-flex align-items-center">
         <a href="#" class="btn text-white">
@@ -106,17 +109,17 @@
     </nav>
 
     <!-- Content -->
-    <main class="flex-grow-1 container-fluid px-3">
+    <main class="flex-grow-1 container-fluid px-3 mb-3">
       <?php
       echo $this->content;
       ?>
     </main>
 
     <!-- Footer -->
-    <footer class="container-fluid py-2 text-center bg-white shadow-sm">
+    <footer class="container-fluid py-2 text-center bg-white border-top">
       <p class="mb-0">
         © 2021 -
-        <a href="dashboard-default.html" class="text-muted text-decoration-none">Fresh Garden</a>
+        <a href="admin" class="text-muted text-decoration-none">Fresh Garden</a>
       </p>
     </footer>
   </section>

@@ -1,0 +1,1 @@
+Array.from(document.querySelectorAll("#sidebarNav .sidebar-link")).forEach((function(r){r.href===window.location.href&&r.classList.add("active")}));

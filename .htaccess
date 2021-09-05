@@ -33,5 +33,9 @@ RewriteRule ^sign-up$ admin.php?controller=SignUp&type=auth
 
 RewriteRule ^admin$ admin.php
 
+#category-product 
+RewriteRule ^admin/categories-product/([0-9]+)$ admin.php?controller=CategoryProduct&page=$1
+RewriteRule ^admin/category-product/create$ admin.php?controller=CategoryProduct&action=create
+
 #404
 ErrorDocument 404 http://localhost/fresh-garden/

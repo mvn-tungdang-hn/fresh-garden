@@ -100,13 +100,6 @@ h1,
     padding: 0.375rem 1.5rem;
   }
 
-  &-item.active {
-    .sidebar-link {
-      color: #212529;
-      background: #e9ecef;
-    }
-  }
-
   &-link {
     border-radius: 0.2rem;
     color: #6c757d;
@@ -120,6 +113,11 @@ h1,
     transition: all 0.1s ease-in-out;
 
     &:hover {
+      color: #212529;
+      background: #e9ecef;
+    }
+
+    &.active {
       color: #212529;
       background: #e9ecef;
     }

@@ -6,9 +6,9 @@ class CategoryModel extends Model
   /**
    * Lấy danh sách phần tử
    */
-  public function getListCategory($where = "")
+  public function getListCategory($where = "", $pagination = "")
   {
-    $result = parent::getListAll("Select * from `$this->table` $where order by display_order asc");
+    $result = parent::getListAll("Select * from `$this->table` $where order by display_order asc $pagination");
 
     return $result;
   }
