@@ -28,5 +28,10 @@ RewriteRule ^sign-in$ admin.php?controller=SignIn&type=auth
 #sign up
 RewriteRule ^sign-up$ admin.php?controller=SignUp&type=auth
 
+#----------
+#admin
+
+RewriteRule ^admin$ admin.php
+
 #404
 ErrorDocument 404 http://localhost/fresh-garden/

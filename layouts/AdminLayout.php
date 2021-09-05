@@ -5,8 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <script src="js/main.js"></script>
+  <script src="public/js/main.js"></script>
   <?php
   echo $this->headTag;
   ?>
@@ -27,28 +26,22 @@
       <!-- Info -->
       <div class="text-center px-2 py-4">
         <img src="https://images.pexels.com/photos/133472/pexels-photo-133472.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="avatar" class="img-fluid avatar rounded-circle shadow-sm" />
-        <div class="fw-bold mt-2">Linda Miller</div>
-        <small>Front-end Developer </small>
+        <div class="fw-bold mt-2"><?php echo $_SESSION['user']->email ?></div>
+        <small>Staff</small>
       </div>
       <!-- Nav -->
       <ul class="sidebar-nav">
         <li class="sidebar-header">Main</li>
         <li class="sidebar-item active">
-          <a class="sidebar-link" href="#">
+          <a class="sidebar-link" href="admin">
             <i class="align-middle me-2 bi bi-house-fill fs-5 text-info"></i>
             <span class="align-middle">Dashboard</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="#">
-            <i class="
-                  align-middle
-                  me-2
-                  bi bi-calendar3-range-fill
-                  fs-5
-                  text-info
-                "></i>
-            <span class="align-middle">Categories</span>
+            <i class="align-middle me-2 bi bi-calendar3-range-fill fs-5 text-info"></i>
+            <span class="align-middle">Categories product</span>
           </a>
         </li>
         <li class="sidebar-item">
@@ -74,7 +67,7 @@
 
         <li class="sidebar-header">Actions</li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="#">
+          <a class="sidebar-link" href="admin/logout">
             <i class="align-middle me-2 bi bi-box-arrow-right fs-5 text-info"></i>
             <span class="align-middle">Logout</span>
           </a>
@@ -106,7 +99,7 @@
             <li>
               <hr class="dropdown-divider bg-secondary" />
             </li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li><a class="dropdown-item" href="admin/logout" ?>Logout</a></li>
           </ul>
         </div>
       </div>

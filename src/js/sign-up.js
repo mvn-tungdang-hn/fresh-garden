@@ -1,8 +1,14 @@
 import $ from "jquery/dist/jquery";
 import "jquery-validation/dist/jquery.validate";
 
+import { Toast } from "bootstrap";
+
 $().ready(function () {
-  $("#form-sign-up").validate({
+  const form = $("#form-sign-up"),
+    toast = Toast.getOrCreateInstance($("#toast")),
+    action = new URLSearchParams(window.location.search).get("action");
+
+  form.validate({
     rules: {
       firstName: {
         required: true
@@ -21,4 +27,8 @@ $().ready(function () {
       }
     }
   });
+
+  if (action === "fail") {
+    toast.show();
+  }
 });

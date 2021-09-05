@@ -8,6 +8,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="public/js/main.js"></script>
+  <style>
+    .toast {
+      position: fixed;
+      bottom: 10px;
+    }
+  </style>
   <?php
   echo $this->headTag;
   ?>
