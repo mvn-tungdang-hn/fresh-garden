@@ -160,3 +160,14 @@ h1,
   color: #fff;
   @extend .flex-center;
 }
+
+label.error {
+  position: relative !important;
+  top: unset !important;
+  bottom: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  color: #dc3545 !important;
+  transform: none !important;
+  font-size: 12px !important;
+}

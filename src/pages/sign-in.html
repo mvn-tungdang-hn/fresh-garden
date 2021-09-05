@@ -32,13 +32,14 @@
           ></i>
           <h1 class="fs-2 fw-light mb-5">Sign In</h1>
         </div>
-        <form action="">
+        <form id="form-sign-in" action="" method="POST">
           <div class="form-floating mb-3">
             <input
               type="email"
               class="form-control"
               id="email"
               placeholder="email"
+              name="email"
             />
             <label for="email">Email address</label>
           </div>
@@ -48,6 +49,7 @@
               class="form-control"
               id="password"
               placeholder="password"
+              name="password"
             />
             <label for="password">Password</label>
           </div>
@@ -63,7 +65,10 @@
             </div>
           </div>
           <div class="mt-3">
-            <button class="btn btn-primary w-100 btn-lg text-white">
+            <button
+              class="btn btn-primary w-100 btn-lg text-white"
+              type="submit"
+            >
               Sign In
             </button>
           </div>

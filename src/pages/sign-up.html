@@ -34,24 +34,26 @@
           ></i>
           <h1 class="fs-2 fw-light mb-5">Sign Up</h1>
         </div>
-        <form action="">
+        <form id="form-sign-up" action="" method="POST">
           <div class="form-floating mb-3">
             <input
               class="form-control"
-              id="first-name"
+              id="firstName"
+              name="firstName"
               placeholder="first-name"
             />
-            <label for="first-name"
+            <label for="firstName"
               >First name <span class="text-danger">*</span></label
             >
           </div>
           <div class="form-floating mb-3">
             <input
               class="form-control"
-              id="last-name"
+              id="lastName"
+              name="lastName"
               placeholder="last-name"
             />
-            <label for="last-name"
+            <label for="lastName"
               >Last name <span class="text-danger">*</span></label
             >
           </div>
@@ -64,6 +66,7 @@
               type="email"
               class="form-control"
               id="email"
+              name="email"
               placeholder="email"
             />
             <label for="email"
@@ -75,6 +78,7 @@
               type="password"
               class="form-control"
               id="password"
+              name="password"
               placeholder="password"
             />
             <label for="password"
@@ -85,14 +89,15 @@
             <input
               type="password"
               class="form-control"
-              id="confirm-password"
+              id="passwordConfirm"
+              name="passwordConfirm"
               placeholder="confirm-password"
             />
-            <label for="confirm-password"
+            <label for="passwordConfirm"
               >Confirm password <span class="text-danger">*</span></label
             >
           </div>
-          <button class="btn btn-primary w-100 btn-lg text-white">
+          <button class="btn btn-primary w-100 btn-lg text-white" type="submit">
             Sign Up
           </button>
         </form>
