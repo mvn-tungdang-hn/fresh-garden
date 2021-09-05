@@ -7,7 +7,9 @@ module.exports = {
     about: "./src/js/about.js",
     product: "./src/js/product.js",
     "category-product": "./src/js/category-product.js",
-    "product-detail": "./src/js/product-detail.js"
+    "product-detail": "./src/js/product-detail.js",
+    "sign-in": "./src/js/sign-in.js",
+    "sign-up": "./src/js/sign-up.js"
   },
   output: {
     path: path.resolve(__dirname, "./public"),

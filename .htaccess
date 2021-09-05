@@ -7,23 +7,23 @@ RewriteEngine On
 RewriteRule ^home$ /index.php [L]
 
 #about
-RewriteRule ^about$ index.php?controller=about
+RewriteRule ^about$ index.php?controller=About
 
 #product
-RewriteRule ^product$ index.php?controller=product
-RewriteRule ^product/([0-9]+) index.php?controller=productdetail&id=$1
+RewriteRule ^product$ index.php?controller=Product
+RewriteRule ^product/([0-9]+) index.php?controller=ProductDetail&id=$1
 
 #category-product
-RewriteRule ^category-product/([0-9]+) index.php?controller=categoryproduct&id=$1
+RewriteRule ^category-product/([0-9]+) index.php?controller=CategoryProduct&id=$1
 
 #----------
 #auth
 
 #logout
-RewriteRule ^admin/logout$ admin.php?controller=logout&type=auth
+RewriteRule ^admin/logout$ admin.php?controller=Logout
 
 #login
-RewriteRule ^login$ admin.php?controller=login&type=auth
+RewriteRule ^login$ admin.php?controller=Login
 
 #register
-RewriteRule ^register$ admin.php?controller=register&type=auth
+RewriteRule ^register$ admin.php?controller=Register
