@@ -97,7 +97,7 @@ $categories = $categoryModel->getListCategory("where type = 1");
   <!-- Footer -->
   <footer class="container-fluid">
     <div class="row bg-light pb-3 pt-4">
-      <div class="col-3">
+      <div class="col-sm-6 col-lg-3">
         <div class="p-3">
           <h5 class="text-uppercase mb-4">CÔNG TY Fresh Garden</h5>
           <p class="fst-italic text-secondary">
@@ -111,17 +111,17 @@ $categories = $categoryModel->getListCategory("where type = 1");
           <p>Website: www.freshgarden.vn</p>
         </div>
       </div>
-      <div class="col-3">
+      <div class="col-sm-6 col-lg-3">
         <div class="p-3">
           <h5 class="text-uppercase mb-4">ĐĂNG KÝ NHẬN BẢN TIN</h5>
         </div>
       </div>
-      <div class="col-3">
+      <div class="col-sm-6 col-lg-3">
         <div class="p-3">
           <h5 class="text-uppercase mb-4">HỖ TRỢ KHÁCH HÀNG</h5>
         </div>
       </div>
-      <div class="col-3">
+      <div class="col-sm-6 col-lg-3">
         <div class="p-3">
           <h5 class="text-uppercase mb-4">LIÊN HỆ VỚI FRESH GARDEN</h5>
         </div>

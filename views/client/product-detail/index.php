@@ -3,7 +3,7 @@
 
 <!-- Breadcrumbs -->
 <nav aria-label="breadcrumb" class="py-2 bg-secondary">
-  <ol class="breadcrumb container mb-0">
+  <ol class="breadcrumb container mb-0 px-2">
     <li class="breadcrumb-item">
       <a href="" class="text-decoration-none">Trang chủ</a>
     </li>
@@ -22,10 +22,10 @@
 </nav>
 
 <!-- Product -->
-<section class="container-fluid p-4">
+<section class="container-fluid py-3 p-lg-4">
   <!-- Product detail -->
   <div class="row mb-5">
-    <div class="col-sm-6">
+    <div class="col-sm-6 mb-3">
       <div class="mb-3">
         <img src="<?php echo $product->thumbnail ?>" class="img-fluid w-100 shadow rounded" alt="">
       </div>
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="px-2">
+      <div class="px-0 px-lg-2">
         <h1 class="fs-2 text-uppercase">
           <?php echo $product->title ?>
         </h1>

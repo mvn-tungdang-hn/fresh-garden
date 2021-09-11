@@ -48,20 +48,29 @@
     <table class="table table-hover align-middle">
       <thead>
         <tr>
-          <th style="width: 40%; min-width: 100px">Tiêu đề</th>
-          <th style="width: 25%; min-width: 100px">Ảnh</th>
-          <th style="width: 25%; min-width: 100px">Ngày tạo</th>
-          <th style="width: 10%; min-width: 100px">Hành động</th>
+          <th style="width: 15%; min-width: 100px;">Tiêu đề</th>
+          <th style="width: 15%; min-width: 100px;">Ảnh</th>
+          <th style="width: 15%; min-width: 120px;">Giá ban đầu</th>
+          <th style="width: 15%; min-width: 100px;">Giá bán ra</th>
+          <th style="width: 15%; min-width: 120px;">Số lượng còn</th>
+          <th style="width: 15%; min-width: 100px;">Nổi bật</th>
+          <th style="width: 10%; min-width: 100px;">Hành động</th>
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($categories as $item) { ?>
+        <?php foreach ($products as $item) { ?>
           <tr>
             <td><?php echo $item->title ?></td>
             <td>
               <img src="<?php echo $item->thumbnail ?>" width="60" height="60" style="object-fit: cover;" alt="">
             </td>
-            <td><?php echo $item->created_at ?></td>
+            <td><?php echo number_format($item->original_price) ?>đ</td>
+            <td><?php echo number_format($item->price) ?>đ</td>
+            <td><?php echo $item->quatity ?></td>
+            <td><?php if ($item->is_hot == 1) { ?>
+                <span class="badge bg-danger">Hot</span>
+              <?php } ?>
+            </td>
             <td>
               <a href="admin/<?php echo $pathForm ?>/edit/<?php echo $item->id ?>" class="text-decoration-none text-info me-2">
                 <i class="bi bi-pencil-square"></i>

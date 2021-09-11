@@ -3,7 +3,7 @@
 
 <!-- Breadcrumbs -->
 <nav aria-label="breadcrumb" class="py-2 bg-secondary">
-  <ol class="breadcrumb container mb-0">
+  <ol class="breadcrumb container mb-0 px-2">
     <li class="breadcrumb-item">
       <a href="#" class="text-decoration-none">Trang chủ</a>
     </li>
@@ -12,32 +12,13 @@
 </nav>
 
 <!-- Product -->
-<section class="container-fluid p-4">
+<section class="container-fluid py-3 p-lg-4">
   <?php foreach ($categories as $idxCategory => $category) { ?>
     <div class="row mb-4 <?php if ($idxCategory % 2 != 0) { ?>flex-row-reverse<?php } ?>">
-      <div class="col-sm-4">
-        <a href="category-product/<?php echo $category->id ?>" class="
-                main-category
-                d-block
-                col-sm-6
-                position-relative
-                overflow-hidden
-                w-100
-              ">
+      <div class="col-lg-4">
+        <a href="category-product/<?php echo $category->id ?>" class="main-category d-block col-sm-6 position-relative overflow-hidden w-100">
           <img src="<?php echo $category->thumbnail ?>" class="img-fluid w-100" alt="..." />
-          <div class="
-                  position-absolute
-                  top-50
-                  start-50
-                  translate-middle
-                  w-75
-                  h-75
-                  border border-white
-                  d-flex
-                  justify-content-center
-                  align-items-center
-                  flex-column
-                ">
+          <div class="position-absolute top-50 start-50 translate-middle w-75 h-75 border border-white d-flex justify-content-center align-items-center flex-column">
             <h3 class="fs-1 text-white fw-bold mb-3 text-uppercase">
               <?php echo $category->title ?>
             </h3>
@@ -47,12 +28,12 @@
           </div>
         </a>
       </div>
-      <div class="col-sm-8">
+      <div class="col-lg-8">
         <div class="swiper category">
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper py-2">
             <?php if (count($category->products) > 0) { ?>
               <?php foreach ($category->products as $product) { ?>
-                <div class="swiper-slide p-2 h-100">
+                <div class="swiper-slide h-100">
                   <div class="product shadow-sm h-100">
                     <div class="product-image bg-cover" style="
                         background-image: url(<?php echo $product->thumbnail ?>);

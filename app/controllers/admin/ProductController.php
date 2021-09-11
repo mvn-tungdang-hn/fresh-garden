@@ -1,39 +1,45 @@
 <?php
+include_once "app/models/ProductModel.php";
 include_once "app/models/CategoryModel.php";
+include_once "app/models/CollectionModel.php";
 
-class CategoryProductController extends BaseController
+class ProductController extends BaseController
 {
+  public $productModel;
   public $categoryModel;
-  public $pathList = "categories-product";
-  public $pathForm = "category-product";
-  public $imageFolder = "category";
-  public $title = "Danh mục sản phẩm";
+  public $collectionModel;
+  public $pathList = "products";
+  public $pathForm = "product";
+  public $imageFolder = "product";
+  public $title = "Sản phẩm";
 
   public function __construct()
   {
+    $this->productModel = new ProductModel();
     $this->categoryModel = new CategoryModel();
+    $this->collectionModel = new CollectionModel();
 
     $action = $_GET['action'] ?? null;
     $id = $_GET['id'] ?? null;
 
     switch ($action) {
       case 'create':
-        $this->redirectCreateCategoryProduct();
+        $this->redirectCreateProduct();
         break;
       case 'do_create':
-        $this->createCategoryProduct();
+        $this->createProduct();
         break;
       case 'show':
-        $this->showCategoryProduct($id);
+        $this->showProduct($id);
         break;
       case 'update':
-        $this->updateCategoryProduct($id);
+        $this->updateProduct($id);
         break;
       case 'delete':
-        $this->deleteCategoryProduct($id);
+        $this->deleteProduct($id);
         break;
       default:
-        $this->getListCategoryProduct();
+        $this->getListProduct();
         break;
     }
   }
@@ -41,10 +47,10 @@ class CategoryProductController extends BaseController
   /**
    * Lấy danh sách phần tử
    */
-  public function getListCategoryProduct()
+  public function getListProduct()
   {
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
-    $totalRecord = $this->categoryModel->getRowCountCategory();
+    $totalRecord = $this->productModel->getRowCountProduct();
     $limit = 10;
     $totalPage = ceil($totalRecord / $limit);
 
@@ -61,7 +67,7 @@ class CategoryProductController extends BaseController
     }
 
     $result = [
-      'categories' => $this->categoryModel->getListCategory("where type = 1", "limit $start, $limit"),
+      'products' => $this->productModel->getListProduct("", "limit $start, $limit"),
       'page' => $page,
       'totalPage' => $totalPage,
       'totalRecord' => $totalRecord,
@@ -80,14 +86,15 @@ class CategoryProductController extends BaseController
   /**
    * Mở trang thêm phần tử
    */
-  public function redirectCreateCategoryProduct()
+  public function redirectCreateProduct()
   {
     $result = [
       'formAction' => "admin/$this->pathForm/do_create",
       'title' => $this->title,
       'pathForm' => $this->pathForm,
       'pathList' => $this->pathList,
-      'categories' => $this->categoryModel->getListCategory(),
+      'categories' => $this->categoryModel->getListCategory("where type = 1"),
+      'collections' => $this->collectionModel->getListCollection(""),
     ];
 
     $this->setTemplate("admin/$this->pathForm/edit", $result);
@@ -97,7 +104,7 @@ class CategoryProductController extends BaseController
   /**
    * Thêm phần tử
    */
-  public function createCategoryProduct()
+  public function createProduct()
   {
     global $APP_URL;
 
@@ -109,12 +116,18 @@ class CategoryProductController extends BaseController
       $thumbnail = $APP_URL . "/public/images/upload/$this->imageFolder/" . $fileName;
     }
 
-    $this->categoryModel->addNewCategory([
+    $this->productModel->addNewProduct([
       'title' => $_POST['title'],
-      'parent_id' => $_POST['parent_id'],
-      'type' => $_POST['type'],
+      'original_price' => $_POST['original_price'],
+      'price' => $_POST['price'],
+      'description' => $_POST['description'],
+      'content' => $_POST['content'],
+      'include' => $_POST['include'],
+      'quatity' => $_POST['quatity'],
+      'is_hot' => $_POST['is_hot'],
+      'category_id' => $_POST['category_id'],
+      'collection_id' => $_POST['collection_id'],
       'status' => $_POST['status'],
-      'display_order' => $_POST['display_order'],
       'thumbnail' => $thumbnail,
     ]);
 
@@ -124,15 +137,16 @@ class CategoryProductController extends BaseController
   /**
    * Hiển thị chi tiết phần tử
    */
-  public function showCategoryProduct($id)
+  public function showProduct($id)
   {
     $result = [
       'formAction' => "admin/$this->pathForm/update/$id",
       'title' => $this->title,
-      'detail' => $this->categoryModel->getDetailCategory($id),
+      'detail' => $this->productModel->getDetailProduct($id),
       'pathForm' => $this->pathForm,
       'pathList' => $this->pathList,
-      'categories' => $this->categoryModel->getListCategory("where id != $id && type = 1"),
+      'categories' => $this->categoryModel->getListCategory("where type = 1"),
+      'collections' => $this->collectionModel->getListCollection(""),
     ];
 
     $this->setTemplate("admin/$this->pathForm/edit", $result);
@@ -142,7 +156,7 @@ class CategoryProductController extends BaseController
   /**
    * Cập nhật phần tử
    */
-  public function updateCategoryProduct($id)
+  public function updateProduct($id)
   {
     global $APP_URL;
 
@@ -151,17 +165,23 @@ class CategoryProductController extends BaseController
       move_uploaded_file($_FILES['thumbnail']['tmp_name'], "public/images/upload/$this->imageFolder/$fileName");
       $thumbnail = $APP_URL . "/public/images/upload/$this->imageFolder/" . $fileName;
 
-      $this->categoryModel->updateCategory($id, [
+      $this->productModel->updateProduct($id, [
         'thumbnail' => $thumbnail,
       ]);
     }
 
-    $this->categoryModel->updateCategory($id, [
+    $this->productModel->updateProduct($id, [
       'title' => $_POST['title'],
-      'parent_id' => $_POST['parent_id'],
-      'type' => $_POST['type'],
+      'original_price' => $_POST['original_price'],
+      'price' => $_POST['price'],
+      'description' => $_POST['description'],
+      'content' => $_POST['content'],
+      'include' => $_POST['include'],
+      'quatity' => $_POST['quatity'],
+      'is_hot' => $_POST['is_hot'],
+      'category_id' => $_POST['category_id'],
+      'collection_id' => $_POST['collection_id'],
       'status' => $_POST['status'],
-      'display_order' => $_POST['display_order'],
     ]);
 
     header("location:$APP_URL/admin/$this->pathList/1");
@@ -170,11 +190,11 @@ class CategoryProductController extends BaseController
   /**
    * Xoá phần tử
    */
-  public function deleteCategoryProduct($id)
+  public function deleteProduct($id)
   {
     global $APP_URL;
 
-    $this->categoryModel->deleteCategory($id);
+    $this->productModel->deleteProduct($id);
 
     header("location:$APP_URL/admin/$this->pathList/1");
   }

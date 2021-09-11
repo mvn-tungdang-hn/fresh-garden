@@ -48,11 +48,11 @@
     <table class="table table-hover align-middle">
       <thead>
         <tr>
-          <th style="width: 20%">Ảnh</th>
-          <th style="width: 20%">Đường dẫn</th>
-          <th style="width: 20%">Tiêu đề</th>
-          <th style="width: 20%">Ngày tạo</th>
-          <th style="width: 10%">Hành động</th>
+          <th style="width: 20%; min-width: 100px">Ảnh</th>
+          <th style="width: 20%; min-width: 100px">Đường dẫn</th>
+          <th style="width: 20%; min-width: 100px">Tiêu đề</th>
+          <th style="width: 20%; min-width: 100px">Ngày tạo</th>
+          <th style="width: 10%; min-width: 100px">Hành động</th>
         </tr>
       </thead>
       <tbody>
@@ -113,15 +113,15 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Delete?</h5>
+        <h5 class="modal-title">Xoá bản ghi?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Do you want delete record?
+        Bạn có chắc chắn muốn xoá dữ liệu bản ghi này?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirmBtn" data-link="<?php echo $pathForm ?>" href="#" type="button" class="btn btn-info">Save changes</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <a id="deleteConfirmBtn" data-link="<?php echo $pathForm ?>" href="#" type="button" class="btn btn-info">Xác nhận</a>
       </div>
     </div>
   </div>

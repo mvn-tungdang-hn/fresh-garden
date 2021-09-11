@@ -52,11 +52,12 @@
 
         <div class="form-custom">
           <label for="display_order" class="form-label">Thứ tự hiển thị</label>
-          <input class="form-control" id="display_order" name="display_order" placeholder="1" type="number" min="1" value="<?php echo $detail->display_order ?? 1 ?>" />
+          <input class="form-control" id="display_order" name="display_order" placeholder="example: 1" value="<?php echo $detail->display_order ?? 1 ?>" />
         </div>
 
         <div class="form-check mb-3">
-          <input class="form-check-input" type="checkbox" id="status" name="status" checked />
+          <input type="hidden" name="status" value="0" />
+          <input class="form-check-input" type="checkbox" id="status" name="status" <?php if (isset($detail) && $detail->status == 1 || !isset($detail)) { ?>checked <?php } ?> value="1" />
           <label class="form-check-label" for="status">
             Hiển thị
           </label>

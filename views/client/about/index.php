@@ -3,7 +3,7 @@
 
 <!-- Breadcrumbs -->
 <nav aria-label="breadcrumb" class="py-2 bg-secondary">
-  <ol class="breadcrumb container mb-0">
+  <ol class="breadcrumb container mb-0 px-2">
     <li class="breadcrumb-item">
       <a href="#" class="text-decoration-none">Trang chủ</a>
     </li>
@@ -15,7 +15,7 @@
 <section class="container-fluid py-4">
   <div class="row align-items-center mb-3">
     <div class="col-sm-6">
-      <div class="p-4">
+      <div class="p-lg-4">
         <h2 class="text-uppercase fw-bold fs-1">GIỚI THIỆU CHUNG</h2>
         <p>
           Fresh Garden bánh và cà phê khởi nguồn từ năm 2011 là thương
@@ -41,14 +41,9 @@
               "></div>
     </div>
   </div>
-  <div class="row align-items-center mb-3">
+  <div class="row flex-lg-row-reverse align-items-center mb-3">
     <div class="col-sm-6">
-      <div class="about-image bg-cover shadow rounded-3" style="
-                background-image: url(https://freshgarden.vn/pic/AboutUs/Fresh-Gar_637248804160767564_HasThumb.jpg);
-              "></div>
-    </div>
-    <div class="col-sm-6">
-      <div class="p-4">
+      <div class="p-lg-4">
         <h2 class="text-uppercase fw-bold fs-1">LỊCH SỬ RA ĐỜI</h2>
         <p>
           Năm 2018 là dấu mốc đánh dấu Fresh Garden đã có 60 cửa hàng ở
@@ -69,10 +64,15 @@
         </p>
       </div>
     </div>
+    <div class="col-sm-6">
+      <div class="about-image bg-cover shadow rounded-3" style="
+                background-image: url(https://freshgarden.vn/pic/AboutUs/Fresh-Gar_637248804160767564_HasThumb.jpg);
+              "></div>
+    </div>
   </div>
   <div class="row align-items-center mb-3">
     <div class="col-sm-6">
-      <div class="p-4">
+      <div class="p-lg-4">
         <h2 class="text-uppercase fw-bold fs-1">TẦM NHÌN</h2>
         <p>
           Fresh Garden luôn giữ vững giá trị chất lượng, tạo đà vươn lên
@@ -87,19 +87,19 @@
               "></div>
     </div>
   </div>
-  <div class="row align-items-center mb-3">
+  <div class="row flex-lg-row-reverse align-items-center mb-3">
     <div class="col-sm-6">
-      <div class="about-image bg-cover shadow rounded-3" style="
-                background-image: url(https://freshgarden.vn/pic/AboutUs/Fresh-gar_637248804921607571_HasThumb.jpg);
-              "></div>
-    </div>
-    <div class="col-sm-6">
-      <div class="p-4">
+      <div class="p-lg-4">
         <h2 class="text-uppercase fw-bold fs-1">SỨ MỆNH</h2>
         <p>
           Mang đến cho khách hàng những sản phẩm chất lượng và tiện lợi.
         </p>
       </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="about-image bg-cover shadow rounded-3" style="
+                background-image: url(https://freshgarden.vn/pic/AboutUs/Fresh-gar_637248804921607571_HasThumb.jpg);
+              "></div>
     </div>
   </div>
 </section>
