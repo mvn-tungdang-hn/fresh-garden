@@ -126,7 +126,7 @@ h1,
 
 .main {
   position: relative;
-  z-index: 9;
+  z-index: auto;
   margin-left: $aside-width;
   display: flex;
   flex-direction: column;
@@ -173,4 +173,77 @@ label.error {
 .toast {
   position: fixed;
   bottom: 10px;
+}
+
+.form-custom {
+  margin-bottom: 1rem;
+  label {
+    font-weight: 600;
+  }
+}
+
+.layout-edit {
+  max-width: 768px;
+  width: calc(100% - 46px);
+  margin: 0 auto;
+}
+
+.form-upload {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  &-label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  &-container {
+    position: relative;
+    padding-bottom: 36.25%;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: $gray-100;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  &-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      font-size: 30px;
+    }
+    img {
+      object-fit: cover;
+    }
+  }
+}
+
+.modal-content {
+  box-shadow: 0 0.125rem 0.25rem rgba(#000, 0.075);
+  border: 0;
+}
+
+.btn {
+  outline: none !important;
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .form-upload {
+    &-container {
+      padding-bottom: 56.25%;
+    }
+  }
 }

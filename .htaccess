@@ -36,6 +36,10 @@ RewriteRule ^admin$ admin.php
 #category-product 
 RewriteRule ^admin/categories-product/([0-9]+)$ admin.php?controller=CategoryProduct&page=$1
 RewriteRule ^admin/category-product/create$ admin.php?controller=CategoryProduct&action=create
+RewriteRule ^admin/category-product/do_create$ admin.php?controller=CategoryProduct&action=do_create
+RewriteRule ^admin/category-product/edit/([0-9]+)$ admin.php?controller=CategoryProduct&action=show&id=$1
+RewriteRule ^admin/category-product/update/([0-9]+)$ admin.php?controller=CategoryProduct&action=update&id=$1
+RewriteRule ^admin/category-product/delete/([0-9]+)$ admin.php?controller=CategoryProduct&action=delete&id=$1
 
 #404
 ErrorDocument 404 http://localhost/fresh-garden/

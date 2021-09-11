@@ -6,35 +6,36 @@ class CategoryProductController extends BaseController
   public $categoryModel;
   public $pathList = "categories-product";
   public $pathForm = "category-product";
+  public $imageFolder = "category";
+  public $title = "Danh mục sản phẩm";
 
   public function __construct()
   {
     $this->categoryModel = new CategoryModel();
 
     $action = $_GET['action'] ?? null;
+    $id = $_GET['id'] ?? null;
 
     switch ($action) {
       case 'create':
-        //
+        $this->redirectCreateCategoryProduct();
         break;
       case 'do_create':
-        // 
+        $this->createCategoryProduct();
         break;
-      case 'edit':
-        // 
+      case 'show':
+        $this->showCategoryProduct($id);
         break;
-      case 'do_edit':
-        // 
+      case 'update':
+        $this->updateCategoryProduct($id);
         break;
       case 'delete':
-        //
+        $this->deleteCategoryProduct($id);
         break;
       default:
         $this->getListCategoryProduct();
         break;
     }
-
-    $this->setLayout("AdminLayout");
   }
 
   /**
@@ -42,7 +43,6 @@ class CategoryProductController extends BaseController
    */
   public function getListCategoryProduct()
   {
-    global $pathList;
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $totalRecord = $this->categoryModel->getRowCountCategory();
     $limit = 10;
@@ -61,32 +61,121 @@ class CategoryProductController extends BaseController
     }
 
     $result = [
-      "categories" => $this->categoryModel->getListCategory("where type = 1", "limit $start, $limit"),
-      "page" => $page,
-      "totalPage" => $totalPage,
-      "totalRecord" => $totalRecord,
-      "limit" => $limit,
-      "start" => $start,
-      "end" => $end,
-      "pathList" => $pathList,
-      "title" => "Categories Product"
+      'categories' => $this->categoryModel->getListCategory("where type = 1", "limit $start, $limit"),
+      'page' => $page,
+      'totalPage' => $totalPage,
+      'totalRecord' => $totalRecord,
+      'limit' => $limit,
+      'start' => $start,
+      'end' => $end,
+      'pathList' => $this->pathList,
+      'pathForm' => $this->pathForm,
+      'title' => $this->title,
     ];
 
-    $this->setTemplate("admin/category-product/index", $result);
+    $this->setTemplate("admin/$this->pathForm/index", $result);
+    $this->setLayout('AdminLayout');
   }
 
   /**
    * Mở trang thêm phần tử
    */
-  public function createCategoryProduct()
+  public function redirectCreateCategoryProduct()
   {
     $result = [
-      'formAction' => "admin/$this->path/do_add",
-      'title' => 'Thêm mới danh mục bất động sản',
-      'path' => $this->path
+      'formAction' => "admin/$this->pathForm/do_create",
+      'title' => $this->title,
+      'pathForm' => $this->pathForm,
+      'pathList' => $this->pathList,
+      'categories' => $this->categoryModel->getListCategory(),
     ];
 
-    $this->setTemplate("admin/$this->path/edit", $result);
-    $this->setLayout("AdminLayout");
+    $this->setTemplate("admin/$this->pathForm/edit", $result);
+    $this->setLayout('AdminNoSidebarLayout');
+  }
+
+  /**
+   * Thêm phần tử
+   */
+  public function createCategoryProduct()
+  {
+    global $APP_URL;
+
+    $thumbnail = null;
+
+    if ($_FILES['thumbnail']['name'] != '') {
+      $fileName = time() . $_FILES['thumbnail']['name'];
+      move_uploaded_file($_FILES['thumbnail']['tmp_name'], "public/images/upload/$this->imageFolder/$fileName");
+      $thumbnail = $APP_URL . "/public/images/upload/$this->imageFolder/" . $fileName;
+    }
+
+    $this->categoryModel->addNewCategory([
+      'title' => $_POST['title'],
+      'parent_id' => $_POST['parent_id'],
+      'type' => $_POST['type'],
+      'status' => $_POST['status'],
+      'display_order' => $_POST['display_order'],
+      'thumbnail' => $thumbnail,
+    ]);
+
+    header("location:$APP_URL/admin/$this->pathList/1");
+  }
+
+  /**
+   * Hiển thị chi tiết phần tử
+   */
+  public function showCategoryProduct($id)
+  {
+    $result = [
+      'formAction' => "admin/$this->pathForm/update/$id",
+      'title' => $_POST['title'],
+      'detail' => $this->categoryModel->getDetailCategory($id),
+      'pathForm' => $this->pathForm,
+      'pathList' => $this->pathList,
+      'categories' => $this->categoryModel->getListCategory("where id != $id"),
+    ];
+
+    $this->setTemplate("admin/$this->pathForm/edit", $result);
+    $this->setLayout('AdminNoSidebarLayout');
+  }
+
+  /**
+   * Cập nhật phần tử
+   */
+  public function updateCategoryProduct($id)
+  {
+    global $APP_URL;
+
+    if ($_FILES['thumbnail']['name'] != '') {
+      $fileName = time() . $_FILES['thumbnail']['name'];
+      move_uploaded_file($_FILES['thumbnail']['tmp_name'], "public/images/upload/$this->imageFolder/$fileName");
+      $thumbnail = $APP_URL . "/public/images/upload/$this->imageFolder/" . $fileName;
+
+      $this->categoryModel->updateCategory($id, [
+        'thumbnail' => $thumbnail,
+      ]);
+    }
+
+    $this->categoryModel->updateCategory($id, [
+      'title' => $_POST['title'],
+      'parent_id' => $_POST['parent_id'],
+      'type' => $_POST['type'],
+      'status' => $_POST['status'],
+      'display_order' => $_POST['display_order'],
+    ]);
+
+    header("location:$APP_URL/admin/$this->pathList/1");
+  }
+
+  /**
+   * Xoá phần tử
+   */
+  public function deleteCategoryProduct($id)
+  {
+    global $APP_URL;
+
+    $this->categoryModel->deleteCategory($id);
+
+    header("location:$APP_URL/admin/$this->pathList/1");
   }
 }

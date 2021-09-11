@@ -12,14 +12,17 @@ $font-size-base: 0.875rem;
 $primary: #90db07;
 $warning: #b1932d;
 $info: #153d77;
+$gray-100: #eff0f4;
 
 /* Breadcrumb */
 $breadcrumb-divider-color: #fff;
 $breadcrumb-active-color: #fff;
 
 /* Form control */
+$input-padding-y: 0.75rem;
 $input-border-width: 0;
-$input-bg: #eff0f4;
+$input-bg: $gray-100;
+$form-check-input-checked-bg-color: $info;
 
 /* Button */
 $btn-font-weight: 500;

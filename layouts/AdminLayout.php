@@ -27,11 +27,11 @@
       <div class="text-center px-2 py-4">
         <img src="https://images.pexels.com/photos/133472/pexels-photo-133472.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="avatar" class="img-fluid avatar rounded-circle shadow-sm" />
         <div class="fw-bold mt-2"><?php echo $_SESSION['user']->email ?></div>
-        <small>Staff</small>
+        <small>Nhân viên</small>
       </div>
       <!-- Nav -->
       <ul class="sidebar-nav" id="sidebarNav">
-        <li class="sidebar-header">Main</li>
+        <li class="sidebar-header">Mục chính</li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="admin">
             <i class="align-middle me-2 bi bi-house-fill fs-5 text-info"></i>
@@ -41,35 +41,35 @@
         <li class="sidebar-item">
           <a class="sidebar-link" href="admin/categories-product/1">
             <i class="align-middle me-2 bi bi-calendar3-range-fill fs-5 text-info"></i>
-            <span class="align-middle">Categories product</span>
+            <span class="align-middle">Danh mục sản phẩm</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="#">
             <i class="align-middle me-2 bi bi-cloud-moon-fill fs-5 text-info"></i>
-            <span class="align-middle">Products</span>
+            <span class="align-middle">Sản phẩm</span>
           </a>
         </li>
 
-        <li class="sidebar-header">Settings</li>
+        <li class="sidebar-header">Cài đặt</li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="#">
             <i class="align-middle me-2 bi bi-gear-fill fs-5 text-info"></i>
-            <span class="align-middle">Settings</span>
+            <span class="align-middle">Cài đặt</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="#">
             <i class="align-middle me-2 bi bi-person-circle fs-5 text-info"></i>
-            <span class="align-middle">Profile</span>
+            <span class="align-middle">Thông tin cá nhân</span>
           </a>
         </li>
 
-        <li class="sidebar-header">Actions</li>
+        <li class="sidebar-header">Khác</li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="admin/logout">
             <i class="align-middle me-2 bi bi-box-arrow-right fs-5 text-info"></i>
-            <span class="align-middle">Logout</span>
+            <span class="align-middle">Đăng xuất</span>
           </a>
         </li>
       </ul>
