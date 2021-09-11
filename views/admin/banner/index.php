@@ -48,19 +48,21 @@
     <table class="table table-hover align-middle">
       <thead>
         <tr>
-          <th style="width: 40%">Tiêu đề</th>
-          <th style="width: 25%">Ảnh</th>
-          <th style="width: 25%">Ngày tạo</th>
+          <th style="width: 20%">Ảnh</th>
+          <th style="width: 20%">Đường dẫn</th>
+          <th style="width: 20%">Tiêu đề</th>
+          <th style="width: 20%">Ngày tạo</th>
           <th style="width: 10%">Hành động</th>
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($categories as $item) { ?>
+        <?php foreach ($banners as $item) { ?>
           <tr>
-            <td><?php echo $item->title ?></td>
             <td>
               <img src="<?php echo $item->thumbnail ?>" width="60" height="60" style="object-fit: cover;" alt="">
             </td>
+            <td><?php echo $item->title ?></td>
+            <td><?php echo $item->link ?></td>
             <td><?php echo $item->created_at ?></td>
             <td>
               <a href="admin/<?php echo $pathForm ?>/edit/<?php echo $item->id ?>" class="text-decoration-none text-info me-2">

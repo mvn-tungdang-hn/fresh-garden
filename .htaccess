@@ -33,6 +33,14 @@ RewriteRule ^sign-up$ admin.php?controller=SignUp&type=auth
 
 RewriteRule ^admin$ admin.php
 
+#banner
+RewriteRule ^admin/banners/([0-9]+)$ admin.php?controller=Banner&page=$1
+RewriteRule ^admin/banner/create$ admin.php?controller=Banner&action=create
+RewriteRule ^admin/banner/do_create$ admin.php?controller=Banner&action=do_create
+RewriteRule ^admin/banner/edit/([0-9]+)$ admin.php?controller=Banner&action=show&id=$1
+RewriteRule ^admin/banner/update/([0-9]+)$ admin.php?controller=Banner&action=update&id=$1
+RewriteRule ^admin/banner/delete/([0-9]+)$ admin.php?controller=Banner&action=delete&id=$1
+
 #category-product 
 RewriteRule ^admin/categories-product/([0-9]+)$ admin.php?controller=CategoryProduct&page=$1
 RewriteRule ^admin/category-product/create$ admin.php?controller=CategoryProduct&action=create

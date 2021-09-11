@@ -11,7 +11,8 @@ module.exports = {
     "product-detail": "./src/js/product-detail.js",
     "sign-in": "./src/js/sign-in.js",
     "sign-up": "./src/js/sign-up.js",
-    "admin-category-product": "./src/js/admin/category-product.js"
+    "admin-category-product": "./src/js/admin/category-product.js",
+    "admin-banner": "./src/js/admin/banner.js"
   },
   output: {
     path: path.resolve(__dirname, "./public"),

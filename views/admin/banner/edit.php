@@ -1,7 +1,7 @@
 <title><?php echo $title ?> | Fresh garden</title>
-<script src="public/js/admin-category-product.js" defer></script>
+<script src="public/js/admin-banner.js" defer></script>
 
-<form action="<?php echo $formAction ?>" id="form" method="POST" enctype="multipart/form-data">
+<form action="<?php echo $formAction ?>" class="<?php if (isset($detail) && $detail->thumbnail != null) { ?>has-thumbnail<?php } ?>" id="form" method="POST" enctype="multipart/form-data">
   <div class="shadow-sm py-2 bg-white sticky-top mb-4">
     <div class="layout-edit d-flex justify-content-between">
       <a href="admin/<?php echo $pathList ?>/1" class="btn bg-transparent">Quay lại</a>
@@ -15,6 +15,11 @@
         <div class="form-custom">
           <label for="title" class="form-label">Tiêu đề</label>
           <input class="form-control" id="title" name="title" placeholder="example" value="<?php echo $detail->title ?? '' ?>" />
+        </div>
+
+        <div class="form-custom">
+          <label for="link" class="form-label">Đường dẫn</label>
+          <input class="form-control" id="link" name="link" placeholder="https://example" value="<?php echo $detail->link ?? '' ?>" />
         </div>
 
         <div class="form-upload">
@@ -31,24 +36,8 @@
               </div>
             </div>
           </label>
-          <input accept="image/*" type="file" hidden id="thumbnail" name="thumbnail" />
+          <input accept="image/*" type="file" id="thumbnail" name="thumbnail" style="opacity: 0;" class="position-absolute bottom-0" />
         </div>
-
-        <div class="form-custom">
-          <label for="parent_id" class="form-label">Danh mục cha</label>
-          <select class="form-select" id="parent_id" name="parent_id">
-            <?php if (!isset($detail) || $detail->id == null) { ?>
-              <option selected value="">-- Chọn --</option>
-            <?php } ?>
-            <?php foreach ($categories as $category) { ?>
-              <option <?php if (isset($detail) && $detail->id == $category->id) { ?>selected<?php } ?> value="<?php echo $category->id ?>">
-                <?php echo $category->title ?>
-              </option>
-            <?php } ?>
-          </select>
-        </div>
-
-        <input hidden type="text" name="type" value="1" />
 
         <div class="form-custom">
           <label for="display_order" class="form-label">Thứ tự hiển thị</label>

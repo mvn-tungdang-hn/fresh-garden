@@ -39,6 +39,12 @@
           </a>
         </li>
         <li class="sidebar-item">
+          <a class="sidebar-link" href="admin/banners/1">
+            <i class="align-middle me-2 bi bi-image-fill fs-5 text-info"></i>
+            <span class="align-middle">Banner quảng cáo</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
           <a class="sidebar-link" href="admin/categories-product/1">
             <i class="align-middle me-2 bi bi-calendar3-range-fill fs-5 text-info"></i>
             <span class="align-middle">Danh mục sản phẩm</span>

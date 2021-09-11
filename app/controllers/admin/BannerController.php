@@ -1,39 +1,39 @@
 <?php
-include_once "app/models/CategoryModel.php";
+include_once "app/models/BannerModel.php";
 
-class CategoryProductController extends BaseController
+class BannerController extends BaseController
 {
-  public $categoryModel;
-  public $pathList = "categories-product";
-  public $pathForm = "category-product";
-  public $imageFolder = "category";
-  public $title = "Danh mục sản phẩm";
+  public $bannerModel;
+  public $pathList = "banners";
+  public $pathForm = "banner";
+  public $imageFolder = "banner";
+  public $title = "Banner quảng cáo";
 
   public function __construct()
   {
-    $this->categoryModel = new CategoryModel();
+    $this->bannerModel = new BannerModel();
 
     $action = $_GET['action'] ?? null;
     $id = $_GET['id'] ?? null;
 
     switch ($action) {
       case 'create':
-        $this->redirectCreateCategoryProduct();
+        $this->redirectCreateBanner();
         break;
       case 'do_create':
-        $this->createCategoryProduct();
+        $this->createBanner();
         break;
       case 'show':
-        $this->showCategoryProduct($id);
+        $this->showBanner($id);
         break;
       case 'update':
-        $this->updateCategoryProduct($id);
+        $this->updateBanner($id);
         break;
       case 'delete':
-        $this->deleteCategoryProduct($id);
+        $this->deleteBanner($id);
         break;
       default:
-        $this->getListCategoryProduct();
+        $this->getListBanner();
         break;
     }
   }
@@ -41,10 +41,10 @@ class CategoryProductController extends BaseController
   /**
    * Lấy danh sách phần tử
    */
-  public function getListCategoryProduct()
+  public function getListBanner()
   {
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
-    $totalRecord = $this->categoryModel->getRowCountCategory();
+    $totalRecord = $this->bannerModel->getRowCountBanner();
     $limit = 10;
     $totalPage = ceil($totalRecord / $limit);
 
@@ -61,7 +61,7 @@ class CategoryProductController extends BaseController
     }
 
     $result = [
-      'categories' => $this->categoryModel->getListCategory("where type = 1", "limit $start, $limit"),
+      'banners' => $this->bannerModel->getListBanner("", "limit $start, $limit"),
       'page' => $page,
       'totalPage' => $totalPage,
       'totalRecord' => $totalRecord,
@@ -80,14 +80,13 @@ class CategoryProductController extends BaseController
   /**
    * Mở trang thêm phần tử
    */
-  public function redirectCreateCategoryProduct()
+  public function redirectCreateBanner()
   {
     $result = [
       'formAction' => "admin/$this->pathForm/do_create",
       'title' => $this->title,
       'pathForm' => $this->pathForm,
       'pathList' => $this->pathList,
-      'categories' => $this->categoryModel->getListCategory(),
     ];
 
     $this->setTemplate("admin/$this->pathForm/edit", $result);
@@ -97,7 +96,7 @@ class CategoryProductController extends BaseController
   /**
    * Thêm phần tử
    */
-  public function createCategoryProduct()
+  public function createBanner()
   {
     global $APP_URL;
 
@@ -109,10 +108,10 @@ class CategoryProductController extends BaseController
       $thumbnail = $APP_URL . "/public/images/upload/$this->imageFolder/" . $fileName;
     }
 
-    $this->categoryModel->addNewCategory([
+    $this->bannerModel->addNewBanner([
       'title' => $_POST['title'],
-      'parent_id' => $_POST['parent_id'],
-      'type' => $_POST['type'],
+      'link' => $_POST['link'],
+      'is_external' => $_POST['is_external'],
       'status' => $_POST['status'],
       'display_order' => $_POST['display_order'],
       'thumbnail' => $thumbnail,
@@ -124,15 +123,14 @@ class CategoryProductController extends BaseController
   /**
    * Hiển thị chi tiết phần tử
    */
-  public function showCategoryProduct($id)
+  public function showBanner($id)
   {
     $result = [
       'formAction' => "admin/$this->pathForm/update/$id",
       'title' => $this->title,
-      'detail' => $this->categoryModel->getDetailCategory($id),
+      'detail' => $this->bannerModel->getDetailBanner($id),
       'pathForm' => $this->pathForm,
       'pathList' => $this->pathList,
-      'categories' => $this->categoryModel->getListCategory("where id != $id"),
     ];
 
     $this->setTemplate("admin/$this->pathForm/edit", $result);
@@ -142,7 +140,7 @@ class CategoryProductController extends BaseController
   /**
    * Cập nhật phần tử
    */
-  public function updateCategoryProduct($id)
+  public function updateBanner($id)
   {
     global $APP_URL;
 
@@ -151,15 +149,15 @@ class CategoryProductController extends BaseController
       move_uploaded_file($_FILES['thumbnail']['tmp_name'], "public/images/upload/$this->imageFolder/$fileName");
       $thumbnail = $APP_URL . "/public/images/upload/$this->imageFolder/" . $fileName;
 
-      $this->categoryModel->updateCategory($id, [
+      $this->bannerModel->updateBanner($id, [
         'thumbnail' => $thumbnail,
       ]);
     }
 
-    $this->categoryModel->updateCategory($id, [
+    $this->bannerModel->updateBanner($id, [
       'title' => $_POST['title'],
-      'parent_id' => $_POST['parent_id'],
-      'type' => $_POST['type'],
+      'link' => $_POST['link'],
+      'is_external' => $_POST['is_external'],
       'status' => $_POST['status'],
       'display_order' => $_POST['display_order'],
     ]);
@@ -170,11 +168,11 @@ class CategoryProductController extends BaseController
   /**
    * Xoá phần tử
    */
-  public function deleteCategoryProduct($id)
+  public function deleteBanner($id)
   {
     global $APP_URL;
 
-    $this->categoryModel->deleteCategory($id);
+    $this->bannerModel->deleteBanner($id);
 
     header("location:$APP_URL/admin/$this->pathList/1");
   }
