@@ -22,7 +22,6 @@ class ProductController extends BaseController
     ];
 
     $this->setTemplate("client/product/index", $result);
-    $this->setHeadTag("client/product/head");
     $this->setLayout("ClientLayout");
   }
 }

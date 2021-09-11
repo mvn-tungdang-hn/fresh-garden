@@ -1,1 +1,0 @@
-<script src="public/js/category-product.js" defer></script>

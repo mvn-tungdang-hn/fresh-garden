@@ -1,4 +1,5 @@
 <title><?php echo $product->title ?> - Fresh garden</title>
+<script src="public/js/product-detail.js" defer></script>
 
 <!-- Breadcrumbs -->
 <nav aria-label="breadcrumb" class="py-2 bg-secondary">

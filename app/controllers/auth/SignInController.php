@@ -33,7 +33,6 @@ class SignInController extends BaseController
     }
 
     $this->setTemplate("auth/sign-in/index");
-    $this->setHeadTag("auth/sign-in/head");
     $this->setLayout("AuthLayout");
   }
 }

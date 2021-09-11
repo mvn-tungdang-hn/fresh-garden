@@ -18,7 +18,6 @@ class HomeController extends BaseController
     ];
 
     $this->setTemplate("client/home/index", $result);
-    $this->setHeadTag("client/home/head");
     $this->setLayout("ClientLayout");
   }
 }

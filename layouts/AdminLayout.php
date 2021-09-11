@@ -9,9 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="public/js/main.js"></script>
   <script src="public/js/admin.js" defer></script>
-  <?php
-  echo $this->headTag;
-  ?>
 </head>
 
 <body class="bg-light layout-admin">

@@ -1,3 +1,5 @@
+<title>Dashboard - Fresh garden</title>
+
 <div class="text-white my-5">
   <h1 class="fs-2">Welcome back, Linda!</h1>
   <p>You have 24 new messages and 5 new notifications.</p>

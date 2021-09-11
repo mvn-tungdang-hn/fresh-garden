@@ -20,7 +20,6 @@ class CategoryProductController extends BaseController
     ];
 
     $this->setTemplate("client/category-product/index", $result);
-    $this->setHeadTag("client/category-product/head");
     $this->setLayout("ClientLayout");
   }
 }

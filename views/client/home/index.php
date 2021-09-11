@@ -1,3 +1,6 @@
+<title>Fresh garden</title>
+<script src="public/js/home.js" defer></script>
+
 <!-- Banner -->
 <section class="swiper" id="banner">
   <div class="swiper-wrapper">

@@ -1,3 +1,6 @@
+<title>Sản phẩm - Fresh garden</title>
+<script src="public/js/product.js" defer></script>
+
 <!-- Breadcrumbs -->
 <nav aria-label="breadcrumb" class="py-2 bg-secondary">
   <ol class="breadcrumb container mb-0">

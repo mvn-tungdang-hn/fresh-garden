@@ -14,9 +14,6 @@
       bottom: 10px;
     }
   </style>
-  <?php
-  echo $this->headTag;
-  ?>
 </head>
 
 <body class="flex-center flex-column min-vh-100 bg-light">

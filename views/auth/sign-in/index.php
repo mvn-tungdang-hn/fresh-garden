@@ -1,3 +1,6 @@
+<title>Sign In - Fresh garden</title>
+<script src="public/js/sign-in.js" defer></script>
+
 <div class="text-center">
   <i class="bi bi-brightness-alt-high-fill d-inline-block fs-1 text-primary"></i>
   <h1 class="fs-2 fw-light mb-5">Sign In</h1>

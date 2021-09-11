@@ -1,3 +1,6 @@
+<title>Sign Up - Fresh garden</title>
+<script src="public/js/sign-up.js" defer></script>
+
 <div class="text-center">
   <i class="
               bi bi-brightness-alt-high-fill
