@@ -11,9 +11,9 @@
   <script src="public/js/admin.js" defer></script>
 </head>
 
-<body class="bg-light layout-admin">
+<body class="bg-light layout-admin scroll-custom">
   <!-- Sidebar -->
-  <aside class="sidebar position-fixed top-0 start-0 bottom-0 bg-white">
+  <aside class="sidebar position-fixed top-0 start-0 bottom-0 bg-white overflow-auto scroll-custom">
     <!-- Brand -->
     <div class="px-3 py-2 bg-info">
       <a href="#" class="fw-bold text-decoration-none d-flex align-items-center">
@@ -39,6 +39,12 @@
           </a>
         </li>
         <li class="sidebar-item">
+          <a class="sidebar-link" href="admin/users/1">
+            <i class="align-middle me-2 bi bi-people-fill fs-5 text-info"></i>
+            <span class="align-middle">Tài khoản</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
           <a class="sidebar-link" href="admin/banners/1">
             <i class="align-middle me-2 bi bi-image-fill fs-5 text-info"></i>
             <span class="align-middle">Banner quảng cáo</span>
@@ -51,9 +57,27 @@
           </a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="#">
+          <a class="sidebar-link" href="admin/products/1">
             <i class="align-middle me-2 bi bi-cloud-moon-fill fs-5 text-info"></i>
             <span class="align-middle">Sản phẩm</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="admin/categories-news/1">
+            <i class="align-middle me-2 bi bi-book-half fs-5 text-info"></i>
+            <span class="align-middle">Danh mục tin tức</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="admin/news/1">
+            <i class="align-middle me-2 bi bi-newspaper fs-5 text-info"></i>
+            <span class="align-middle">Tin tức</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="admin/orders/1">
+            <i class="align-middle me-2 bi bi-basket-fill fs-5 text-info"></i>
+            <span class="align-middle">Đơn hàng</span>
           </a>
         </li>
 
@@ -85,8 +109,8 @@
   <!-- Main -->
   <section class="main">
     <!-- Top nav -->
-    <nav class="bg-info px-3 py-2 text-white d-flex align-items-center justify-content-between sticky-top shadow-sm">
-      <i class="bi bi-list pointer fs-2"></i>
+    <nav class="bg-info px-3 py-2 text-white d-flex align-items-center justify-content-between justify-content-lg-end sticky-top shadow-sm">
+      <i id="toggleSidebar" class="bi bi-list pointer fs-2 d-block d-lg-none"></i>
       <div class="d-flex align-items-center">
         <a href="#" class="btn text-white">
           <i class="bi bi-bell-fill"></i>

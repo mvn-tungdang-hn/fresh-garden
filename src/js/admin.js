@@ -12,6 +12,10 @@ $().ready(function () {
     }
   });
 
+  $("#toggleSidebar").click(function () {
+    $("body").toggleClass("show");
+  });
+
   /* Upload thumbnail */
   const inputFile = document.querySelector("#thumbnail");
   if (inputFile) {
