@@ -12,7 +12,7 @@
 </nav>
 
 <!-- About -->
-<section class="container-fluid py-4">
+<section class="container py-4">
   <div class="row align-items-center mb-3">
     <div class="col-sm-6">
       <div class="p-lg-4">

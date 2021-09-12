@@ -16,10 +16,10 @@
   </ol>
 </nav>
 
-<section class="container-fluid py-3 p-lg-4">
+<section class="container py-4">
   <h1 class="fw-bold fs-1 mb-4 text-capitalize"><?php echo $category->title ?></h1>
   <div class="row">
-    <div class="col-lg-2">
+    <div class="col-lg-3">
       <div class="mb-4">
         <p class="fs-6 text-uppercase mb-1 fw-medium">Giá</p>
         <div class="d-flex flex-wrap">
@@ -78,11 +78,11 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-10">
+    <div class="col-lg-9">
       <?php if (count($products) > 0) { ?>
         <div class="row mb-4">
           <?php foreach ($products as $item) { ?>
-            <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
               <div class="shadow-sm h-100">
                 <div class="product-image bg-cover" style="
                       background-image: url(<?php echo $item->thumbnail ?? 'public/images/static/noimage.jpg' ?>);
@@ -99,16 +99,11 @@
                   </p>
                   <div class="mt-4">
                     <?php if (isset($item->original_price)) { ?>
-                      <p class="
-                          mb-1
-                          text-secondary
-                          fs-4
-                          text-decoration-line-through
-                        ">
+                      <p class="mb-1 text-secondary fs-4 text-decoration-line-through">
                         <?php echo number_format($item->original_price) ?>đ
                       </p>
                     <?php } ?>
-                    <p class="fw-bold fs-3">
+                    <p class="fw-bold fs-3 mb-0">
                       <?php if (isset($item->price)) { ?>
                         <span class="text-warning"><?php echo number_format($item->price) ?>đ</span>
                       <?php } else { ?>

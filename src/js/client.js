@@ -4,7 +4,6 @@ const sidebarLinks = Array.from(
 );
 
 sidebarLinks.forEach((link) => {
-  console.log(link);
   if (link.href === window.location.href) {
     link.classList.add("active");
   }

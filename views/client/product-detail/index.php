@@ -22,7 +22,7 @@
 </nav>
 
 <!-- Product -->
-<section class="container-fluid py-3 p-lg-4">
+<section class="container py-4">
   <!-- Product detail -->
   <div class="row mb-5">
     <div class="col-sm-6 mb-3">

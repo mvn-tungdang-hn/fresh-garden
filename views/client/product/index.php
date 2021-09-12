@@ -12,7 +12,7 @@
 </nav>
 
 <!-- Product -->
-<section class="container-fluid py-3 p-lg-4">
+<section class="container py-4">
   <?php foreach ($categories as $idxCategory => $category) { ?>
     <div class="row mb-4 <?php if ($idxCategory % 2 != 0) { ?>flex-row-reverse<?php } ?>">
       <div class="col-lg-4">
@@ -54,7 +54,7 @@
                             <?php echo number_format($product->original_price) ?>đ
                           </p>
                         <?php } ?>
-                        <p class="fw-bold fs-3">
+                        <p class="fw-bold fs-3 mb-0">
                           <?php if (isset($product->price)) { ?>
                             <span class="text-warning"><?php echo number_format($product->price) ?>đ</span>
                           <?php } else { ?>

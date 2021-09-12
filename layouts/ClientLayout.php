@@ -27,9 +27,9 @@ $categories = $categoryModel->getListCategory("where type = 1");
     <button class="btn btn-warning btn-sm rounded-pill text-white me-1">
       <i class="bi bi-search"></i>
     </button>
-    <button class="btn btn-warning btn-sm rounded-pill text-white">
+    <a href="cart" class="btn btn-warning btn-sm rounded-pill text-white">
       <i class="bi bi-basket"></i>
-    </button>
+    </a>
   </section>
 
   <!-- Nav -->
@@ -136,35 +136,61 @@ $categories = $categoryModel->getListCategory("where type = 1");
   </main>
 
   <!-- Footer -->
-  <footer class="container-fluid">
-    <div class="row bg-light pb-3 pt-4">
-      <div class="col-sm-6 col-lg-3">
-        <div class="p-3">
-          <h5 class="text-uppercase mb-4">CÔNG TY Fresh Garden</h5>
-          <p class="fst-italic text-secondary">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab
-            expedita amet quo quidem maiores nobis, officiis voluptate cum,
-            rem at vel rerum earum autem accusamus ipsam nam aspernatur
-            molestias quasi?
-          </p>
-          <p>Địa chỉ: 46 An Dương, Yên Phụ, Tây Hồ, Hà Nội</p>
-          <p>Email: crm@freshgarden.vn</p>
-          <p>Website: www.freshgarden.vn</p>
+  <footer class="bg-light">
+    <div class="container">
+      <div class="row pb-3 pt-4">
+        <div class="col-sm-6 col-lg-3">
+          <div class="py-3">
+            <h5 class="text-uppercase mb-4">CÔNG TY Fresh Garden</h5>
+            <p class="fst-italic text-secondary">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab
+              expedita amet quo quidem maiores nobis, officiis voluptate cum,
+              rem at vel rerum earum autem accusamus ipsam nam aspernatur
+              molestias quasi?
+            </p>
+            <p>Địa chỉ: 46 An Dương, Yên Phụ, Tây Hồ, Hà Nội</p>
+            <p>Email: crm@freshgarden.vn</p>
+            <p>Website: www.freshgarden.vn</p>
+          </div>
         </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="p-3">
-          <h5 class="text-uppercase mb-4">ĐĂNG KÝ NHẬN BẢN TIN</h5>
+        <div class="col-sm-6 col-lg-3">
+          <div class="py-3">
+            <h5 class="text-uppercase mb-4">ĐĂNG KÝ NHẬN BẢN TIN</h5>
+            <form action="">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control bg-white" id="email" name="email" placeholder="email" />
+                <label for="email">Email của bạn...</label>
+              </div>
+              <button class="text-uppercase btn btn-primary rounded-pill w-100">Đăng ký nhận bản tin</button>
+            </form>
+          </div>
         </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="p-3">
-          <h5 class="text-uppercase mb-4">HỖ TRỢ KHÁCH HÀNG</h5>
+        <div class="col-sm-6 col-lg-3">
+          <div class="py-3">
+            <h5 class="text-uppercase mb-4">HỖ TRỢ KHÁCH HÀNG</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#" class="text-black text-decoration-none">Hướng dẫn mua hàng</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-black text-decoration-none">Chính sách vận chuyển</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-black text-decoration-none">Hướng dẫn thanh toán</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-black text-decoration-none">Chính sách bảo mật</a>
+              </li>
+              <li class="mb-2">
+                <a href="#" class="text-black text-decoration-none">Chính sách đổi trả</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="p-3">
-          <h5 class="text-uppercase mb-4">LIÊN HỆ VỚI FRESH GARDEN</h5>
+        <div class="col-sm-6 col-lg-3">
+          <div class="py-3">
+            <h5 class="text-uppercase mb-4">LIÊN HỆ VỚI FRESH GARDEN</h5>
+          </div>
         </div>
       </div>
     </div>

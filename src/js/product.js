@@ -10,7 +10,7 @@ new Swiper(".category", {
   },
   breakpoints: {
     768: {
-      slidesPerView: 4
+      slidesPerView: 3
     }
   }
 });
