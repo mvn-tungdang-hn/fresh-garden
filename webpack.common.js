@@ -4,6 +4,7 @@ module.exports = {
   entry: {
     main: "./src/js/main.js",
     admin: "/src/js/admin.js",
+    client: "/src/js/client.js",
     home: "./src/js/home.js",
     about: "./src/js/about.js",
     product: "./src/js/product.js",

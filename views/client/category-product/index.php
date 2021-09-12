@@ -85,7 +85,7 @@
             <div class="col-sm-12 col-md-6 col-lg-3 mb-3">
               <div class="shadow-sm h-100">
                 <div class="product-image bg-cover" style="
-                      background-image: url(<?php echo $item->thumbnail ?>);
+                      background-image: url(<?php echo $item->thumbnail ?? 'public/images/static/noimage.jpg' ?>);
                     "></div>
                 <div class="p-3 d-flex flex-column">
                   <a href="product/<?php echo $item->id ?>" class="text-decoration-none">

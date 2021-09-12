@@ -8,6 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="public/js/main.js"></script>
+  <script src="public/js/client.js" defer></script>
 </head>
 <?php
 include_once "app/models/CategoryModel.php";
@@ -42,8 +43,29 @@ $categories = $categoryModel->getListCategory("where type = 1");
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav fw-medium">
+          <li class="nav-item d-block d-lg-none">
+            <?php if (!isset($_SESSION['user'])) { ?>
+              <div>
+                <a class="btn bg-transparent" href="sign-in">Đăng nhập</a>
+                <a class="btn bg-transparent" href="sign-in">Đăng ký</a>
+              </div>
+            <?php } else { ?>
+              <div class="dropdown">
+                <button class="btn btn-btn-outline-light btn-lg rounded-circle dropdown-toggle px-0" type="button" id="user-action" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person-circle"></i>
+                </button>
+                <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="user-action">
+                  <li><a class="dropdown-item" href="admin">Admin</a></li>
+                  <li>
+                    <hr class="dropdown-divider bg-secondary" />
+                  </li>
+                  <li><a class="dropdown-item" href="admin/logout" ?>Logout</a></li>
+                </ul>
+              </div>
+            <?php } ?>
+          </li>
           <li class="nav-item">
-            <a class="nav-link active text-uppercase" aria-current="page" href="<?php echo $APP_URL ?>">Trang chủ</a>
+            <a class="nav-link text-uppercase" aria-current="page" href="<?php echo $APP_URL ?>/">Trang chủ</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-uppercase" href="<?php echo $APP_URL ?>/about">Giới thiệu</a>
@@ -84,6 +106,25 @@ $categories = $categoryModel->getListCategory("where type = 1");
           </li>
         </ul>
       </div>
+      <?php if (!isset($_SESSION['user'])) { ?>
+        <div class="d-none d-lg-block">
+          <a class="btn bg-transparent" href="sign-in">Đăng nhập</a>
+          <a class="btn bg-transparent" href="sign-in">Đăng ký</a>
+        </div>
+      <?php } else { ?>
+        <div class="dropdown d-none d-lg-block">
+          <button class="btn btn-btn-outline-light btn-lg rounded-circle dropdown-toggle px-0" type="button" id="user-action" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle"></i>
+          </button>
+          <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="user-action">
+            <li><a class="dropdown-item" href="admin">Admin</a></li>
+            <li>
+              <hr class="dropdown-divider bg-secondary" />
+            </li>
+            <li><a class="dropdown-item" href="admin/logout" ?>Logout</a></li>
+          </ul>
+        </div>
+      <?php } ?>
     </div>
   </nav>
 

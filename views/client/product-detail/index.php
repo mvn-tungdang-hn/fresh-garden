@@ -27,12 +27,12 @@
   <div class="row mb-5">
     <div class="col-sm-6 mb-3">
       <div class="mb-3">
-        <img src="<?php echo $product->thumbnail ?>" class="img-fluid w-100 shadow rounded" alt="">
+        <img src="<?php echo $product->thumbnail ?? 'public/images/static/noimage.jpg' ?>" class="img-fluid w-100 shadow rounded" alt="">
       </div>
       <div class="row px-6">
         <?php foreach ($images as $image) { ?>
           <a data-fancybox="gallery" class="col-3" href="<?php echo $image->thumbnail ?>">
-            <img class="rounded shadow img-fluid" src="<?php echo $image->thumbnail ?>" />
+            <img class="rounded shadow img-fluid" src="<?php echo $image->thumbnail ?? 'public/images/static/noimage.jpg' ?>" />
           </a>
         <?php } ?>
       </div>

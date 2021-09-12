@@ -15,21 +15,9 @@
 <!-- Main categories -->
 <section class="row g-0">
   <?php foreach ($collections as $collection) { ?>
-    <a href="#" class="main-category col-sm-6 position-relative overflow-hidden">
-      <img src="<?php echo $collection->thumbnail ?>" class="img-fluid w-100" alt="..." />
-      <div class="
-            position-absolute
-            top-50
-            start-50
-            translate-middle
-            w-75
-            h-75
-            border border-white
-            d-flex
-            justify-content-center
-            align-items-center
-            flex-column
-          ">
+    <a href="#" class="main-category-2 col-sm-6 position-relative overflow-hidden">
+      <img src="<?php echo $collection->thumbnail ?? 'public/images/static/noimage.jpg' ?>" class="img-fluid w-100" alt="..." />
+      <div class="position-absolute top-50 start-50 translate-middle w-75 h-75 border border-white d-flex justify-content-center align-items-center flex-column">
         <h3 class="fs-1 text-white fw-bold mb-3"><?php echo $collection->title ?></h3>
         <button class="btn btn-secondary rounded-pill">
           <i class="bi bi-hand-thumbs-up pe-2"></i>Xem chi tiết

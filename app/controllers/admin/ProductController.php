@@ -113,7 +113,7 @@ class ProductController extends BaseController
     if ($_FILES['thumbnail']['name'] != '') {
       $fileName = time() . $_FILES['thumbnail']['name'];
       move_uploaded_file($_FILES['thumbnail']['tmp_name'], "public/images/upload/$this->imageFolder/$fileName");
-      $thumbnail = $APP_URL . "/public/images/upload/$this->imageFolder/" . $fileName;
+      $thumbnail = "public/images/upload/$this->imageFolder/" . $fileName;
     }
 
     $this->productModel->addNewProduct([
@@ -163,7 +163,7 @@ class ProductController extends BaseController
     if ($_FILES['thumbnail']['name'] != '') {
       $fileName = time() . $_FILES['thumbnail']['name'];
       move_uploaded_file($_FILES['thumbnail']['tmp_name'], "public/images/upload/$this->imageFolder/$fileName");
-      $thumbnail = $APP_URL . "/public/images/upload/$this->imageFolder/" . $fileName;
+      $thumbnail = "public/images/upload/$this->imageFolder/" . $fileName;
 
       $this->productModel->updateProduct($id, [
         'thumbnail' => $thumbnail,

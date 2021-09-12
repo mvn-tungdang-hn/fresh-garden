@@ -6,7 +6,7 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-3">
+  <div class="col-sm-6 col-xl-3 mb-2">
     <div class="card border-0 shadow-sm">
       <div class="card-body">
         <div class="row">
@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-3">
+  <div class="col-sm-6 col-xl-3 mb-2">
     <div class="card border-0 shadow-sm">
       <div class="card-body">
         <div class="row">
@@ -54,7 +54,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-3">
+  <div class="col-sm-6 col-xl-3 mb-2">
     <div class="card border-0 shadow-sm">
       <div class="card-body">
         <div class="row">
@@ -78,7 +78,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-3">
+  <div class="col-sm-6 col-xl-3 mb-2">
     <div class="card border-0 shadow-sm">
       <div class="card-body">
         <div class="row">

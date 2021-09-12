@@ -59,7 +59,7 @@
           <tr>
             <td><?php echo $item->title ?></td>
             <td>
-              <img src="<?php echo $item->thumbnail ?>" width="60" height="60" style="object-fit: cover;" alt="">
+              <img src="<?php echo $item->thumbnail ?? 'public/images/static/noimage.jpg' ?>" width="60" height="60" style="object-fit: cover;" alt="">
             </td>
             <td><?php echo $item->created_at ?></td>
             <td>

@@ -115,7 +115,7 @@
         <a href="#" class="btn text-white">
           <i class="bi bi-bell-fill"></i>
         </a>
-        <a href="#" class="btn text-white">
+        <a href="<?php echo $APP_URL ?>" class="btn text-white">
           <i class="bi bi-house-door-fill"></i>
         </a>
         <div class="dropdown">

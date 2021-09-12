@@ -17,7 +17,7 @@
     <div class="row mb-4 <?php if ($idxCategory % 2 != 0) { ?>flex-row-reverse<?php } ?>">
       <div class="col-lg-4">
         <a href="category-product/<?php echo $category->id ?>" class="main-category d-block col-sm-6 position-relative overflow-hidden w-100">
-          <img src="<?php echo $category->thumbnail ?>" class="img-fluid w-100" alt="..." />
+          <img src="<?php echo $category->thumbnail ?? 'public/images/static/noimage.jpg' ?>" class="img-fluid w-100" alt="..." />
           <div class="position-absolute top-50 start-50 translate-middle w-75 h-75 border border-white d-flex justify-content-center align-items-center flex-column">
             <h3 class="fs-1 text-white fw-bold mb-3 text-uppercase">
               <?php echo $category->title ?>

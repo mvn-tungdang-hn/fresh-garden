@@ -5,7 +5,7 @@
   <i class="bi bi-brightness-alt-high-fill d-inline-block fs-1 text-primary"></i>
   <h1 class="fs-2 fw-light mb-5">Đăng ký tài khoản</h1>
 </div>
-<form action="">
+<form action="" method="POST" id="form-sign-up">
   <div class="form-floating mb-3">
     <input class="form-control" id="first-name" placeholder="first-name" />
     <label for="first-name">Họ <span class="text-danger">*</span></label>
