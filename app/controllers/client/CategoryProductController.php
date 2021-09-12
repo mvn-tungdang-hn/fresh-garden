@@ -13,10 +13,29 @@ class CategoryProductController extends BaseController
     $this->productModel = new ProductModel();
 
     $categoryId = $_GET['id'] ?? null;
+    $whereSql = "where category_id = $categoryId and status = 1";
+    $page = $_GET['page'] ?? 1;
+    $totalRecord = $this->productModel->getRowCountProduct($whereSql);
+    $limit = 12;
+    $totalPage = ceil($totalRecord / $limit);
+
+    if ($page > $totalPage) {
+      $page = $totalPage;
+    } else if ($page < 1) {
+      $page = 1;
+    }
+
+    $start = ($page - 1) * $limit;
+    $end = $limit + $start;
+    if ($end > $totalRecord) {
+      $end = $totalRecord;
+    }
 
     $result = [
       'category' => $this->categoryModel->getDetailCategory($categoryId),
-      'products' => $this->productModel->getListProduct("where category_id = $categoryId and status = 1")
+      'products' => $this->productModel->getListProduct($whereSql, "limit $start, $limit"),
+      'page' => $page,
+      'totalPage' => $totalPage
     ];
 
     $this->setTemplate("client/category-product/index", $result);

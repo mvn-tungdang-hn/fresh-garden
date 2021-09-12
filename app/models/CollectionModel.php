@@ -6,9 +6,9 @@ class CollectionModel extends Model
   /**
    * Lấy danh sách phần tử
    */
-  public function getListCollection($where = "")
+  public function getListCollection($where = "", $pagination = "")
   {
-    $result = parent::getListAll("Select * from `$this->table` $where order by id asc");
+    $result = parent::getListAll("Select * from `$this->table` $where order by id asc $pagination");
 
     return $result;
   }

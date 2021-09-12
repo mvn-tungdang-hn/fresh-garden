@@ -6,9 +6,9 @@ class BannerModel extends Model
   /**
    * Lấy danh sách phần tử
    */
-  public function getListBanner($where = "")
+  public function getListBanner($where = "", $pagination = "")
   {
-    $result = parent::getListAll("Select * from `$this->table` $where order by display_order asc");
+    $result = parent::getListAll("Select * from `$this->table` $where order by display_order asc $pagination");
 
     return $result;
   }

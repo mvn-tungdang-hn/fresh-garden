@@ -30,7 +30,7 @@
       </div>
       <div class="col-lg-8">
         <div class="swiper category">
-          <div class="swiper-wrapper py-2">
+          <div class="swiper-wrapper pb-2">
             <?php if (count($category->products) > 0) { ?>
               <?php foreach ($category->products as $product) { ?>
                 <div class="swiper-slide h-100">

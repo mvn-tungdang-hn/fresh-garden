@@ -6,9 +6,9 @@ class ProductModel extends Model
   /**
    * Lấy danh sách phần tử
    */
-  public function getListProduct($where = "")
+  public function getListProduct($where = "", $pagination = "")
   {
-    $result = parent::getListAll("Select * from `$this->table` $where order by id asc");
+    $result = parent::getListAll("Select * from `$this->table` $where order by id asc $pagination");
 
     return $result;
   }
@@ -16,9 +16,9 @@ class ProductModel extends Model
   /**
    * Lấy số bản ghi
    */
-  public function getRowCountProduct()
+  public function getRowCountProduct($where = '')
   {
-    $result = parent::getRowCount("Select id from `$this->table`");
+    $result = parent::getRowCount("Select id from `$this->table` $where");
 
     return $result;
   }

@@ -123,19 +123,25 @@
         </div>
         <nav>
           <ul class="pagination justify-content-center">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
+            <?php if ($page > 1 && $totalPage > 1) { ?>
+              <li class="page-item">
+                <a class="page-link text-info" href="category-product/<?php echo $category->id ?>/<?php echo ($page - 1) ?>" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+            <?php } ?>
+            <?php for ($i = 0; $i < $totalPage; $i++) { ?>
+              <li class="page-item">
+                <a class="page-link text-info" href="category-product/<?php echo $category->id ?>/<?php echo ($i + 1) ?>"><?php echo $i + 1 ?></a>
+              </li>
+            <?php } ?>
+            <?php if ($page < $totalPage && $totalPage > 1) { ?>
+              <li class="page-item">
+                <a class="page-link text-info" href="category-product/<?php echo $category->id ?>/<?php echo ($page + 1) ?>" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            <?php } ?>
           </ul>
         </nav>
       <?php } else { ?>
