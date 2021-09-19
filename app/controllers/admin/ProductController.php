@@ -11,7 +11,7 @@ class ProductController extends BaseController
   public $pathList = "products";
   public $pathForm = "product";
   public $imageFolder = "product";
-  public $title = "Sản phẩm";
+  public $title = "Products";
 
   public function __construct()
   {

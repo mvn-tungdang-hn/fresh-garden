@@ -20,7 +20,7 @@
   <div class="box-auth">
     <div class="text-center">
       <div class="mb-3 w-50 mx-auto">
-        <img src="https://freshgarden.vn/pic/Video/log_636790835426168936_HasThumb_Thumb.png" alt="logo" class="img-fluid" />
+        <img src="public/images/static/logo.jpg" width="120" alt="logo" class="img-fluid" />
       </div>
     </div>
     <div class="shadow rounded-3 p-4 bg-white">

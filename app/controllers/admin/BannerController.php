@@ -7,7 +7,7 @@ class BannerController extends BaseController
   public $pathList = "banners";
   public $pathForm = "banner";
   public $imageFolder = "banner";
-  public $title = "Banner quảng cáo";
+  public $title = "Banners";
 
   public function __construct()
   {

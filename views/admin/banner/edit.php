@@ -4,8 +4,8 @@
 <form action="<?php echo $formAction ?>" class="<?php if (isset($detail) && $detail->thumbnail != null) { ?>has-thumbnail<?php } ?>" id="form" method="POST" enctype="multipart/form-data">
   <div class="shadow-sm py-2 bg-white sticky-top mb-4">
     <div class="layout-edit d-flex justify-content-between">
-      <a href="admin/<?php echo $pathList ?>/1" class="btn bg-transparent">Quay lại</a>
-      <button class="btn bg-info text-white" type="submit">Lưu thay đổi</button>
+      <a href="admin/<?php echo $pathList ?>/1" class="btn bg-transparent">Back</a>
+      <button class="btn bg-info text-white" type="submit">Save changes</button>
     </div>
   </div>
 
@@ -13,17 +13,17 @@
     <div class="card border-0 shadow-sm mb-4">
       <div class="card-body">
         <div class="form-custom">
-          <label for="title" class="form-label">Tiêu đề</label>
+          <label for="title" class="form-label">Title</label>
           <input class="form-control" id="title" name="title" placeholder="example" value="<?php echo $detail->title ?? '' ?>" />
         </div>
 
         <div class="form-custom">
-          <label for="link" class="form-label">Đường dẫn</label>
+          <label for="link" class="form-label">Link</label>
           <input class="form-control" id="link" name="link" placeholder="https://example" value="<?php echo $detail->link ?? '' ?>" />
         </div>
 
         <div class="form-upload">
-          <div class="form-upload-label">Ảnh</div>
+          <div class="form-upload-label">Thumbnail</div>
           <label for="thumbnail">
             <div class="form-upload-container">
               <div class="form-upload-image">
@@ -40,7 +40,7 @@
         </div>
 
         <div class="form-custom">
-          <label for="display_order" class="form-label">Thứ tự hiển thị</label>
+          <label for="display_order" class="form-label">Display order</label>
           <input class="form-control" id="display_order" name="display_order" placeholder="example: 1" value="<?php echo $detail->display_order ?? 1 ?>" />
         </div>
 
@@ -48,7 +48,7 @@
           <input type="hidden" name="status" value="0" />
           <input class="form-check-input" type="checkbox" id="status" name="status" <?php if (isset($detail) && $detail->status == 1 || !isset($detail)) { ?>checked <?php } ?> value="1" />
           <label class="form-check-label" for="status">
-            Hiển thị
+            Display
           </label>
         </div>
       </div>

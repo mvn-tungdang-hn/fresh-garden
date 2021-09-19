@@ -7,7 +7,7 @@ class CategoryProductController extends BaseController
   public $pathList = "categories-product";
   public $pathForm = "category-product";
   public $imageFolder = "category";
-  public $title = "Danh mục sản phẩm";
+  public $title = "Categories product";
 
   public function __construct()
   {

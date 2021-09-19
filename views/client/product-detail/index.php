@@ -2,53 +2,48 @@
 <script src="public/js/product-detail.js" defer></script>
 
 <!-- Breadcrumbs -->
-<nav aria-label="breadcrumb" class="py-2 bg-secondary">
-  <ol class="breadcrumb container mb-0 px-2">
+<nav aria-label="breadcrumb" class="py-4">
+  <ol class="breadcrumb container mb-0">
     <li class="breadcrumb-item">
-      <a href="" class="text-decoration-none">Trang chủ</a>
-    </li>
-    <li class="breadcrumb-item">
-      <a href="product" class="text-decoration-none">Sản phẩm</a>
+      <a href="#" class="text-decoration-none">Home</a>
     </li>
     <li class="breadcrumb-item">
       <a href="category-product/<?php echo $category->id ?>" class="text-decoration-none">
         <?php echo $category->title ?>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">
-      <?php echo $product->title ?>
-    </li>
+    <li class="breadcrumb-item active" aria-current="page"><?php echo $product->title ?></li>
   </ol>
 </nav>
 
 <!-- Product -->
-<section class="container py-4">
+<section class="container py-4 bg-white rounded">
   <!-- Product detail -->
   <div class="row mb-5">
     <div class="col-sm-6 mb-3">
       <div class="mb-3">
-        <img src="<?php echo $product->thumbnail ?? 'public/images/static/noimage.jpg' ?>" class="img-fluid w-100 shadow rounded" alt="">
+        <img src="<?php echo $product->thumbnail ?? 'public/images/static/noimage.jpg' ?>" class="img-fluid w-100 shadow" alt="">
       </div>
       <div class="row px-6">
         <?php foreach ($images as $image) { ?>
           <a data-fancybox="gallery" class="col-3" href="<?php echo $image->thumbnail ?>">
-            <img class="rounded shadow img-fluid" src="<?php echo $image->thumbnail ?? 'public/images/static/noimage.jpg' ?>" />
+            <img class="shadow img-fluid" src="<?php echo $image->thumbnail ?? 'public/images/static/noimage.jpg' ?>" />
           </a>
         <?php } ?>
       </div>
     </div>
     <div class="col-sm-6">
       <div class="px-0 px-lg-2">
-        <h1 class="fs-2 text-uppercase">
+        <h1 class="fs-2 fw-bold">
           <?php echo $product->title ?>
         </h1>
         <p>
-          <span class="fs-5 fw-medium">Giá: </span>
+          <span class="fs-5 fw-medium">Price: </span>
           <span class="fw-bold fs-3 text-primary">
             <?php if (isset($product->price)) { ?>
               <span class="text-warning"><?php echo number_format($product->price) ?>đ</span>
             <?php } else { ?>
-              <span class="text-primary">Liên hệ</span>
+              <span class="text-primary">Contact</span>
             <?php } ?>
           </span>
           <?php if (isset($product->original_price)) { ?>
@@ -58,71 +53,73 @@
           <?php } ?>
         </p>
         <p class="fs-5">
-          <span class="fw-medium">Tình trạng: </span>
+          <span class="fw-medium">Remaining stock: </span>
           <?php if ($product->quatity > 0) { ?>
-            <span>Còn hàng</span>
+            <span><?php echo $product->quatity ?></span>
           <?php } else { ?>
-            <span class="text-danger">Hết hàng</span>
+            <span class="text-danger">Sold out</span>
           <?php } ?>
         </p>
-        <p class="fs-5 fw-medium">Mô tả sản phẩm:</p>
-        <p class="border rounded p-3">
+        <p class="fs-5 fw-medium">Description:</p>
+        <div class="border p-3 mb-4">
           <?php echo $product->description ?>
-        </p>
-        <div class="d-flex align-items-center mb-3">
-          <p class="fs-5 fw-medium mb-0">Số lượng:</p>
-          <div class="ps-3 d-flex align-items-center">
-            <button class="
-                      btn btn-outline-dark
-                      rounded-circle
-                      btn-plus
-                      flex-center
-                    " id="btn-dash">
-              <i class="bi bi-dash"></i>
-            </button>
-            <span id="qty" class="px-3 fs-5">1</span>
-            <button class="
-                      btn btn-outline-dark
-                      rounded-circle
-                      btn-plus
-                      flex-center
-                    " id="btn-plus">
-              <i class="bi bi-plus"></i>
-            </button>
-          </div>
         </div>
-        <button class="
-                  btn btn-primary btn-lg
-                  rounded-pill
-                  text-uppercase
-                  fw-bold
-                  text-white
-                ">
-          <i class="bi bi-plus-circle pe-2"></i>Thêm vào giỏ
-        </button>
+        <form action="cart/add" method="POST">
+          <div class="d-flex align-items-center mb-3">
+            <p class="fs-5 fw-medium mb-0">Quantity:</p>
+            <div class="ps-3 d-flex align-items-center">
+              <button type="button" class="btn btn-outline-dark rounded-circle btn-plus flex-center" id="btn-dash">
+                <i class="bi bi-dash"></i>
+              </button>
+              <span id="qty" class="px-3 fs-5">1</span>
+              <button type="button" class="btn btn-outline-dark rounded-circle btn-plus flex-center" id="btn-plus">
+                <i class="bi bi-plus"></i>
+              </button>
+            </div>
+          </div>
+          <input type="text" hidden value="<?php echo $product->id ?>" name="id">
+          <input type="text" hidden value="1" id="qtyInput" name="quatity">
+          <button type="submit" class="btn btn-primary btn-lg text-uppercase text-white">
+            <i class="bi bi-plus-circle pe-2"></i>Add to cart
+          </button>
+          <div class="border mt-4">
+            <div class="p-3 border-bottom">
+              <i class="bi bi-award me-2"></i>
+              <span>Security policy (edit with Customer reassurance module)</span>
+            </div>
+            <div class="p-3 border-bottom">
+              <i class="bi bi-piggy-bank-fill me-2"></i>
+              <span>Delivery policy (edit with Customer reassurance module)</span>
+            </div>
+            <div class="p-3 border-bottom">
+              <i class="bi bi-arrow-return-left me-2"></i>
+              <span>Return policy (edit with Customer reassurance module)</span>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 
   <!-- Product content tabs -->
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <button class="nav-link active text-uppercase fw-bold" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
-        Tổng quan sản phẩm
+      <button class="nav-link active fw-bold ff-kausan" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
+        Content
       </button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link text-uppercase fw-bold" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">
-        Vận chuyển, giao hàng
+      <button class="nav-link fw-bold ff-kausan" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">
+        Reviews
       </button>
     </li>
   </ul>
-  <div class="tab-content p-3 border border-top-0 rounded-bottom" id="myTabContent">
+  <div class="tab-content p-3 border border-top-0" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <?php echo $product->content ?>
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      Đang cập nhật tính năng.
+      Updating...
     </div>
   </div>
 </section>

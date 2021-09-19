@@ -10,7 +10,6 @@ RewriteRule ^home$ /index.php [L]
 RewriteRule ^about$ index.php?controller=About
 
 #product
-RewriteRule ^product$ index.php?controller=Product
 RewriteRule ^product/([0-9]+) index.php?controller=ProductDetail&id=$1
 
 #category-product
@@ -18,6 +17,9 @@ RewriteRule ^category-product/([0-9]+)(/)?([0-9]*)$ index.php?controller=Categor
 
 #cart
 RewriteRule ^cart$ index.php?controller=Cart
+RewriteRule ^cart/add index.php?controller=Cart&action=add
+RewriteRule ^cart/destroy index.php?controller=Cart&action=destroy
+RewriteRule ^cart/delete/([0-9]+) index.php?controller=Cart&action=delete&id=$1
 
 #----------
 #auth

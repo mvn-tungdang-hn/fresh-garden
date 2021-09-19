@@ -2,13 +2,10 @@
 <script src="public/js/category-product.js" defer></script>
 
 <!-- Breadcrumbs -->
-<nav aria-label="breadcrumb" class="py-2 bg-secondary">
-  <ol class="breadcrumb container mb-0 px-2">
+<nav aria-label="breadcrumb" class="py-4">
+  <ol class="breadcrumb container mb-0">
     <li class="breadcrumb-item">
-      <a href="" class="text-decoration-none">Trang chủ</a>
-    </li>
-    <li class="breadcrumb-item">
-      <a href="product" class="text-decoration-none">Sản phẩm</a>
+      <a href="#" class="text-decoration-none">Home</a>
     </li>
     <li class="breadcrumb-item active" aria-current="page">
       <?php echo $category->title ?>
@@ -16,108 +13,115 @@
   </ol>
 </nav>
 
-<section class="container py-4">
-  <h1 class="fw-bold fs-1 mb-4 text-capitalize"><?php echo $category->title ?></h1>
+<section class="container py-4 bg-white rounded">
   <div class="row">
     <div class="col-lg-3">
       <div class="mb-4">
-        <p class="fs-6 text-uppercase mb-1 fw-medium">Giá</p>
-        <div class="d-flex flex-wrap">
-          <span class="
-                    badge
-                    rounded-pill
-                    bg-secondary
-                    fw-normal
-                    pointer
-                    me-2
-                    mb-2
-                    fs-6
-                  ">
-            Dưới 40.000
-          </span>
-          <span class="
-                    badge
-                    rounded-pill
-                    bg-secondary
-                    fw-normal
-                    pointer
-                    me-2
-                    mb-2
-                    fs-6
-                  ">
-            Từ 40.000 - 140.000
-          </span>
-          <span class="
-                    badge
-                    rounded-pill
-                    bg-secondary
-                    fw-normal
-                    pointer
-                    me-2
-                    mb-2
-                    fs-6
-                  ">
-            Từ 140.000 - 240.000
-          </span>
+        <p class="mb-1 fw-bold ff-kausan">Price</p>
+        <div class="form-check text-secondary">
+          <input class="form-check-input" type="checkbox" value="" id="filderPrice1" />
+          <label class="form-check-label" for="filderPrice1">
+            < $40</label>
+        </div>
+        <div class="form-check text-secondary">
+          <input class="form-check-input" type="checkbox" value="" id="filderPrice2" />
+          <label class="form-check-label" for="filderPrice2">
+            $40 - $80</label>
         </div>
       </div>
 
       <div class="mb-4">
-        <p class="fs-6 text-uppercase mb-1 fw-medium">Thương hiệu</p>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-          <label class="form-check-label" for="flexCheckDefault">
-            Default checkbox
+        <p class="mb-1 fw-bold ff-kausan">Brand</p>
+        <div class="form-check text-secondary">
+          <input class="form-check-input" type="checkbox" value="" id="filterBrand1" />
+          <label class="form-check-label" for="filterBrand1">
+            Studio Design
           </label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
-          <label class="form-check-label" for="flexCheckChecked">
-            Checked checkbox
+        <div class="form-check text-secondary">
+          <input class="form-check-input" type="checkbox" value="" id="filterBrand2" checked />
+          <label class="form-check-label" for="filterBrand2">
+            Graphic Corner
+          </label>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <p class="mb-1 fw-bold ff-kausan">Dimension</p>
+        <div class="form-check text-secondary">
+          <input class="form-check-input" type="checkbox" value="" id="filterDemension1" />
+          <label class="form-check-label" for="filterDemension1">
+            40x60cm
+          </label>
+        </div>
+        <div class="form-check text-secondary">
+          <input class="form-check-input" type="checkbox" value="" id="filterDemension2" checked />
+          <label class="form-check-label" for="filterDemension2">
+            60x90cm
           </label>
         </div>
       </div>
     </div>
     <div class="col-lg-9">
+      <div class="bg-light py-2 px-3 row g-0 align-items-center mb-3">
+        <div class="fs-4 col-sm-8">
+          <i class="bi bi-grid-3x2-gap-fill pointer me-2 text-primary"></i>
+          <i class="bi bi-list-ul pointer"></i>
+        </div>
+        <div class="col-sm-4">
+          <div class="row g-0 align-items-center">
+            <label for="sortSelect" class="form-label col-3 mb-0 text-secondary">Sort by:</label>
+            <div class="col-9">
+              <select class="form-select" id="sortSelect" name="sortby">
+                <option selected value="" selected>-- Choose --</option>
+                <option selected value="1">Name, A to Z</option>
+                <option selected value="2">Name, Z to A</option>
+                <option selected value="3">Price, low to high</option>
+                <option selected value="4">Price, high to low</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
       <?php if (count($products) > 0) { ?>
         <div class="row mb-4">
           <?php foreach ($products as $item) { ?>
             <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
-              <div class="shadow-sm h-100">
-                <div class="product-image bg-cover" style="
-                      background-image: url(<?php echo $item->thumbnail ?? 'public/images/static/noimage.jpg' ?>);
-                    "></div>
-                <div class="p-3 d-flex flex-column">
-                  <a href="product/<?php echo $item->id ?>" class="text-decoration-none">
-                    <h5 class="text-truncate">
-                      <?php echo $item->title ?>
-                    </h5>
-                  </a>
-                  <p class="mt-3 flex-grow-1">
-                    <b>Thành phần: </b>
+              <div class="x-product">
+                <div class="x-product-image">
+                  <img src="<?php echo $item->thumbnail ?? 'public/images/static/noimage.jpg' ?>" alt="" />
+                  <div class="x-product-include">
                     <?php echo $item->include ?>
-                  </p>
-                  <div class="mt-4">
-                    <?php if (isset($item->original_price)) { ?>
-                      <p class="mb-1 text-secondary fs-4 text-decoration-line-through">
-                        <?php echo number_format($item->original_price) ?>đ
-                      </p>
-                    <?php } ?>
-                    <p class="fw-bold fs-3 mb-0">
-                      <?php if (isset($item->price)) { ?>
-                        <span class="text-warning"><?php echo number_format($item->price) ?>đ</span>
-                      <?php } else { ?>
-                        <span class="text-primary">Liên hệ</span>
-                      <?php } ?>
-                    </p>
                   </div>
+                </div>
+                <a href="product/<?php echo $item->id ?>">
+                  <h5 class="x-product-title text-truncate">
+                    <?php echo $item->title ?>
+                  </h5>
+                </a>
+                <div class="text-end">
+                  <?php if (isset($item->original_price)) { ?>
+                    <span class="x-product-original-price">
+                      $<?php echo number_format($item->original_price) ?>
+                    </span>
+                  <?php } ?>
+                  <?php if (isset($item->price)) { ?>
+                    <span class="x-product-price">$<?php echo number_format($item->price) ?></span>
+                  <?php } else { ?>
+                    <span class="text-primary">Contact</span>
+                  <?php } ?>
+                </div>
+                <div class="x-product-add">
+                  <button class="btn btn-light">Add to cart</button>
                 </div>
               </div>
             </div>
           <?php } ?>
         </div>
-        <nav>
-          <ul class="pagination justify-content-center">
+
+
+        <nav class="bg-light py-2 px-3">
+          <ul class="pagination justify-content-end mb-0">
             <?php if ($page > 1 && $totalPage > 1) { ?>
               <li class="page-item">
                 <a class="page-link text-info" href="category-product/<?php echo $category->id ?>/<?php echo ($page - 1) ?>" aria-label="Previous">

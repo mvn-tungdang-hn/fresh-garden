@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2021 at 02:07 PM
+-- Generation Time: Sep 12, 2021 at 12:10 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -44,10 +44,10 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `title`, `thumbnail`, `link`, `display_order`, `is_external`, `status`, `created_at`, `updated_at`) VALUES
-(1, '', 'http://localhost/fresh-garden/public/images/upload/banner/banner1.jpg', '', 1, 0, 1, '2021-09-03 08:43:00', '2021-09-03 08:43:00'),
-(2, NULL, 'http://localhost/fresh-garden/public/images/upload/banner/banner2.jpg', NULL, 2, 1, 1, '2021-09-03 08:43:17', '2021-09-03 08:43:17'),
-(3, NULL, 'http://localhost/fresh-garden/public/images/upload/banner/banner3.jpg', NULL, 3, 1, 1, '2021-09-03 08:43:27', '2021-09-03 08:43:27'),
-(6, 'Banner 1', 'http://localhost/fresh-garden/public/images/upload/banner/1631351840thumbnail.png', '', 1, 0, 0, '2021-09-11 09:17:20', '2021-09-11 09:17:20');
+(1, '', 'public/images/upload/banner/banner1.jpg', '', 1, 0, 1, '2021-09-03 08:43:00', '2021-09-03 08:43:00'),
+(2, NULL, 'public/images/upload/banner/banner2.jpg', NULL, 2, 1, 1, '2021-09-03 08:43:17', '2021-09-03 08:43:17'),
+(3, NULL, 'public/images/upload/banner/banner3.jpg', NULL, 3, 1, 1, '2021-09-03 08:43:27', '2021-09-03 08:43:27'),
+(6, 'Banner 1', 'public/images/upload/banner/1631351840thumbnail.png', '', 1, 0, 0, '2021-09-11 09:17:20', '2021-09-11 09:17:20');
 
 -- --------------------------------------------------------
 
@@ -72,11 +72,14 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `title`, `thumbnail`, `parent_id`, `type`, `status`, `display_order`, `created_at`, `updated_at`) VALUES
-(1, 'Bánh Trung thu', 'http://localhost/fresh-garden/public/images/upload/category/1631349401thumbnail.png', 10, 1, 0, 1, '2021-09-03 08:26:54', '2021-09-03 08:26:54'),
-(2, 'Bánh mì tươi', 'http://localhost/fresh-garden/public/images/upload/category/banhtrungthu.jpg', 1, 1, 1, 2, '2021-09-03 08:35:18', '2021-09-03 08:35:18'),
-(3, 'Bánh kem tươi', 'http://localhost/fresh-garden/public/images/upload/category/banhtrungthu.jpg', NULL, 1, 1, 3, '2021-09-03 08:35:41', '2021-09-03 08:35:41'),
-(4, 'Bánh pizza', 'http://localhost/fresh-garden/public/images/upload/category/banhtrungthu.jpg', NULL, 1, 1, 4, '2021-09-03 08:36:05', '2021-09-03 08:36:05'),
-(10, 'Bánh mì chảo', 'http://localhost/fresh-garden/public/images/upload/category/1631349959thumbnail.png', 1, 1, 0, 1, '2021-09-11 08:45:59', '2021-09-11 08:45:59');
+(1, 'Bánh Trung thu', 'public/images/upload/category/1631349401thumbnail.png', 10, 1, 0, 1, '2021-09-03 08:26:54', '2021-09-03 08:26:54'),
+(2, 'Bánh mì tươi', 'public/images/upload/category/banhtrungthu.jpg', 1, 1, 1, 2, '2021-09-03 08:35:18', '2021-09-03 08:35:18'),
+(3, 'Bánh kem tươi', 'public/images/upload/category/banhtrungthu.jpg', NULL, 1, 1, 3, '2021-09-03 08:35:41', '2021-09-03 08:35:41'),
+(4, 'Bánh pizza', 'public/images/upload/category/banhtrungthu.jpg', NULL, 1, 1, 4, '2021-09-03 08:36:05', '2021-09-03 08:36:05'),
+(10, 'Bánh mì chảo', 'public/images/upload/category/1631349959thumbnail.png', 1, 1, 0, 1, '2021-09-11 08:45:59', '2021-09-11 08:45:59'),
+(11, 'Bánh hoa quả', 'public/images/upload/category/1631434102download (1).png', 10, 1, 1, 12, '2021-09-12 08:08:22', '2021-09-12 08:08:22'),
+(12, 'Form title 123', NULL, 2, 1, 1, 12, '2021-09-12 08:10:18', '2021-09-12 08:10:18'),
+(16, 'Form title 123', NULL, NULL, 1, 1, 1, '2021-09-12 08:19:39', '2021-09-12 08:19:39');
 
 -- --------------------------------------------------------
 
@@ -184,9 +187,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `original_price`, `price`, `description`, `content`, `include`, `thumbnail`, `status`, `quatity`, `is_hot`, `views`, `category_id`, `collection_id`, `created_at`, `updated_at`) VALUES
-(1, 'Hộp 4 bánh (Dòng truyền thống)', 350000, 200000, 'Dòng bánh Fresh Garden lan tỏa giá trị truyền thống, giá trị nguyên bản và tích cực về sống chậm, được cảm nhận rõ qua nét thi vị của mùa trăng hiện đại với sự đa dạng sắc vị thơm ngon, vừa quen vừa lạ như nhân đậu xanh táo đỏ, nhân đậu đỏ, nhân sữa dừa, nhân khoai môn, nhân hạt sen mè đen, nhân hạt sen hạt dưa, nhân đậu xanh 1 trứng, nhân thập cẩm 1 trứng', 'Dòng bánh Fresh Garden lan tỏa giá trị truyền thống, giá trị nguyên bản và tích cực về sống chậm, được cảm nhận rõ qua nét thi vị của mùa trăng hiện đại với sự đa dạng sắc vị thơm ngon, vừa quen vừa lạ như nhân đậu xanh táo đỏ, nhân đậu đỏ, nhân sữa dừa, nhân khoai môn, nhân hạt sen mè đen, nhân hạt sen hạt dưa, nhân đậu xanh 1 trứng, nhân thập cẩm 1 trứng', 'Hộp gồm 4 bánh nhân tuỳ chọn truyền thống.', 'http://localhost/fresh-garden/public/images/upload/product/product1.jpg', 1, 10, 1, NULL, 1, 1, '2021-09-03 09:06:07', '2021-09-03 09:06:07'),
-(2, 'Hộp 6 bánh Thu hoa viên (Dòng cao cấp)', 350000, 200000, '<p>Dòng bánh Fresh Garden lan tỏa giá trị truyền thống, giá trị nguyên bản và tích cực về sống chậm, được cảm nhận rõ qua nét thi vị của mùa trăng hiện đại với sự đa dạng sắc vị thơm ngon, vừa quen vừa lạ như nhân đậu xanh táo đỏ, nhân đậu đỏ, nhân sữa dừa, nhân khoai môn, nhân hạt sen mè đen, nhân hạt sen hạt dưa, nhân đậu xanh 1 trứng, nhân thập cẩm 1 trứng</p>', '<p>Dòng bánh Fresh Garden lan tỏa giá trị truyền thống, giá trị nguyên bản và tích cực về sống chậm, được cảm nhận rõ qua nét thi vị của mùa trăng hiện đại với sự đa dạng sắc vị thơm ngon, vừa quen vừa lạ như nhân đậu xanh táo đỏ, nhân đậu đỏ, nhân sữa dừa, nhân khoai môn, nhân hạt sen mè đen, nhân hạt sen hạt dưa, nhân đậu xanh 1 trứng, nhân thập cẩm 1 trứng</p>', '            Hộp gồm 6 bánh nhân tùy chọn dòng cao cấp, có túi đi kèm          ', 'http://localhost/fresh-garden/public/images/upload/product/product1.jpg', 1, 10, 1, NULL, 1, 1, '2021-09-03 09:06:07', '2021-09-03 09:06:07'),
-(5, 'Bánh trứng', 100000, 80000, '<p>1234</p>', '<p>1234</p>', '1234', 'http://localhost/fresh-garden/public/images/upload/product/1631359855thumbnail.png', 1, 10, 1, NULL, 1, 1, '2021-09-11 11:30:55', '2021-09-11 11:30:55');
+(1, 'Hộp 4 bánh (Dòng truyền thống)', 350000, 200000, 'Dòng bánh Fresh Garden lan tỏa giá trị truyền thống, giá trị nguyên bản và tích cực về sống chậm, được cảm nhận rõ qua nét thi vị của mùa trăng hiện đại với sự đa dạng sắc vị thơm ngon, vừa quen vừa lạ như nhân đậu xanh táo đỏ, nhân đậu đỏ, nhân sữa dừa, nhân khoai môn, nhân hạt sen mè đen, nhân hạt sen hạt dưa, nhân đậu xanh 1 trứng, nhân thập cẩm 1 trứng', 'Dòng bánh Fresh Garden lan tỏa giá trị truyền thống, giá trị nguyên bản và tích cực về sống chậm, được cảm nhận rõ qua nét thi vị của mùa trăng hiện đại với sự đa dạng sắc vị thơm ngon, vừa quen vừa lạ như nhân đậu xanh táo đỏ, nhân đậu đỏ, nhân sữa dừa, nhân khoai môn, nhân hạt sen mè đen, nhân hạt sen hạt dưa, nhân đậu xanh 1 trứng, nhân thập cẩm 1 trứng', 'Hộp gồm 4 bánh nhân tuỳ chọn truyền thống.', 'public/images/upload/product/product1.jpg', 1, 10, 1, NULL, 1, 1, '2021-09-03 09:06:07', '2021-09-03 09:06:07'),
+(2, 'Hộp 6 bánh Thu hoa viên (Dòng cao cấp)', 350000, 200000, '<p>Dòng bánh Fresh Garden lan tỏa giá trị truyền thống, giá trị nguyên bản và tích cực về sống chậm, được cảm nhận rõ qua nét thi vị của mùa trăng hiện đại với sự đa dạng sắc vị thơm ngon, vừa quen vừa lạ như nhân đậu xanh táo đỏ, nhân đậu đỏ, nhân sữa dừa, nhân khoai môn, nhân hạt sen mè đen, nhân hạt sen hạt dưa, nhân đậu xanh 1 trứng, nhân thập cẩm 1 trứng</p>', '<p>Dòng bánh Fresh Garden lan tỏa giá trị truyền thống, giá trị nguyên bản và tích cực về sống chậm, được cảm nhận rõ qua nét thi vị của mùa trăng hiện đại với sự đa dạng sắc vị thơm ngon, vừa quen vừa lạ như nhân đậu xanh táo đỏ, nhân đậu đỏ, nhân sữa dừa, nhân khoai môn, nhân hạt sen mè đen, nhân hạt sen hạt dưa, nhân đậu xanh 1 trứng, nhân thập cẩm 1 trứng</p>', '            Hộp gồm 6 bánh nhân tùy chọn dòng cao cấp, có túi đi kèm          ', 'public/images/upload/product/product1.jpg', 1, 10, 1, NULL, 1, 1, '2021-09-03 09:06:07', '2021-09-03 09:06:07'),
+(5, 'Bánh trứng', 100000, 80000, '<p>1234</p>', '<p>1234</p>', '1234', 'public/images/upload/product/1631359855thumbnail.png', 1, 10, 1, NULL, 1, 1, '2021-09-11 11:30:55', '2021-09-11 11:30:55');
 
 -- --------------------------------------------------------
 
@@ -316,7 +319,7 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `collections`
