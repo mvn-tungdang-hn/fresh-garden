@@ -1,4 +1,4 @@
-<title>Giỏ hàng - Fresh garden</title>
+<title>My cart - Highlands</title>
 
 <!-- Breadcrumbs -->
 <nav aria-label="breadcrumb" class="py-4">
@@ -91,7 +91,7 @@
         </div>
         <hr />
         <div class="p-2 text-center">
-          <button class="btn btn-dark text-uppercase px-4 py-2">Process to checkout</button>
+          <a href="checkout" class="btn btn-dark text-uppercase px-4 py-2">Process to checkout</a>
         </div>
       </div>
       <div class="border ff-kausan">
@@ -103,7 +103,7 @@
           <i class="bi bi-piggy-bank-fill me-2"></i>
           <span>Delivery policy (edit with Customer reassurance module)</span>
         </div>
-        <div class="p-3 border-bottom">
+        <div class="p-3">
           <i class="bi bi-arrow-return-left me-2"></i>
           <span>Return policy (edit with Customer reassurance module)</span>
         </div>

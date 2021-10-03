@@ -144,7 +144,7 @@
           </ul>
         </nav>
       <?php } else { ?>
-        <div class="text-center">Không có sản phẩm phù hợp</div>
+        <div class="text-center">No product</div>
       <?php } ?>
     </div>
   </div>

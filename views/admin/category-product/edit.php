@@ -4,7 +4,9 @@
 <form action="<?php echo $formAction ?>" id="form" method="POST" enctype="multipart/form-data">
   <div class="shadow-sm py-2 bg-white sticky-top mb-4">
     <div class="layout-edit d-flex justify-content-between">
-      <a href="admin/<?php echo $pathList ?>/1" class="btn bg-transparent">Back</a>
+      <a href="admin/<?php echo $pathList ?>/1" class="btn bg-transparent">
+        <i class="bi bi-arrow-left pe-1"></i> Back
+      </a>
       <button class="btn bg-info text-white" type="submit">Save changes</button>
     </div>
   </div>

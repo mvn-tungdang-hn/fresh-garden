@@ -44,68 +44,72 @@
       Add new
     </a>
   </div>
-  <div class="table-responsive">
-    <table class="table table-hover align-middle">
-      <thead>
-        <tr>
-          <th style="width: 20%; min-width: 100px">Thumbnail</th>
-          <th style="width: 20%; min-width: 100px">Title</th>
-          <th style="width: 20%; min-width: 100px">Link</th>
-          <th style="width: 20%; min-width: 100px">Created at</th>
-          <th style="width: 10%; min-width: 100px">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($banners as $item) { ?>
+  <?php if (count($banners) > 0) { ?>
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
           <tr>
-            <td>
-              <img src="<?php echo $item->thumbnail ?? 'public/images/static/noimage.jpg' ?>" width="60" height="60" style="object-fit: cover;" alt="">
-            </td>
-            <td><?php echo $item->title ?></td>
-            <td><?php echo $item->link ?></td>
-            <td><?php echo $item->created_at ?></td>
-            <td>
-              <a href="admin/<?php echo $pathForm ?>/edit/<?php echo $item->id ?>" class="text-decoration-none text-info me-2">
-                <i class="bi bi-pencil-square"></i>
-              </a>
-              <button data-id="<?php echo $item->id ?>" data-bs-toggle="modal" data-bs-target="#deleteModal" class="delete-btn text-decoration-none text-danger btn bg-transparent">
-                <i class="bi bi-trash-fill"></i>
-              </button>
-            </td>
+            <th style="width: 20%; min-width: 100px">Thumbnail</th>
+            <th style="width: 20%; min-width: 100px">Title</th>
+            <th style="width: 20%; min-width: 100px">Link</th>
+            <th style="width: 20%; min-width: 100px">Created at</th>
+            <th style="width: 10%; min-width: 100px">Actions</th>
           </tr>
-        <?php } ?>
-      </tbody>
-    </table>
-
-    <div class="d-flex align-items-center justify-content-between px-2">
-      <div class="text-secondary">Showing <?php echo $start + 1 ?> to <?php echo $end ?> of <?php echo $totalRecord ?> entries</div>
-      <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-end">
-          <?php if ($page > 1 && $totalPage > 1) { ?>
-            <li class="page-item">
-              <a class="page-link text-info" href="admin/<?php echo $pathList ?>/<?php echo ($page - 1) ?>" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
+        </thead>
+        <tbody>
+          <?php foreach ($banners as $item) { ?>
+            <tr>
+              <td>
+                <img src="<?php echo $item->thumbnail ?? 'public/images/static/noimage.jpg' ?>" width="60" height="60" style="object-fit: cover;" alt="">
+              </td>
+              <td><?php echo $item->title ?></td>
+              <td><?php echo $item->link ?></td>
+              <td><?php echo $item->created_at ?></td>
+              <td>
+                <a href="admin/<?php echo $pathForm ?>/edit/<?php echo $item->id ?>" class="text-decoration-none text-info me-2">
+                  <i class="bi bi-pencil-square"></i>
+                </a>
+                <button data-id="<?php echo $item->id ?>" data-bs-toggle="modal" data-bs-target="#deleteModal" class="delete-btn text-decoration-none text-danger btn bg-transparent">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </td>
+            </tr>
           <?php } ?>
+        </tbody>
+      </table>
 
-          <?php for ($i = 0; $i < $totalPage; $i++) { ?>
-            <li class="page-item">
-              <a class="page-link text-info" href="admin/<?php echo $pathList ?>/<?php echo ($i + 1) ?>"><?php echo $i + 1 ?></a>
-            </li>
-          <?php } ?>
+      <div class="d-flex align-items-center justify-content-between px-2">
+        <div class="text-secondary">Showing <?php echo $start + 1 ?> to <?php echo $end ?> of <?php echo $totalRecord ?> entries</div>
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-end">
+            <?php if ($page > 1 && $totalPage > 1) { ?>
+              <li class="page-item">
+                <a class="page-link text-info" href="admin/<?php echo $pathList ?>/<?php echo ($page - 1) ?>" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+            <?php } ?>
 
-          <?php if ($page < $totalPage && $totalPage > 1) { ?>
-            <li class="page-item">
-              <a class="page-link text-info" href="admin/<?php echo $pathList ?>/<?php echo ($page + 1) ?>" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          <?php } ?>
-        </ul>
-      </nav>
+            <?php for ($i = 0; $i < $totalPage; $i++) { ?>
+              <li class="page-item">
+                <a class="page-link text-info" href="admin/<?php echo $pathList ?>/<?php echo ($i + 1) ?>"><?php echo $i + 1 ?></a>
+              </li>
+            <?php } ?>
+
+            <?php if ($page < $totalPage && $totalPage > 1) { ?>
+              <li class="page-item">
+                <a class="page-link text-info" href="admin/<?php echo $pathList ?>/<?php echo ($page + 1) ?>" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            <?php } ?>
+          </ul>
+        </nav>
+      </div>
     </div>
-  </div>
+  <?php } else { ?>
+    <div class="p-3 text-center">No record</div>
+  <?php } ?>
 </div>
 
 <!-- Delete Modal -->

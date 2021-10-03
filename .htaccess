@@ -9,6 +9,12 @@ RewriteRule ^home$ /index.php [L]
 #about
 RewriteRule ^about$ index.php?controller=About
 
+#checkout
+RewriteRule ^checkout$ index.php?controller=Checkout
+
+#order-success
+RewriteRule ^order-success$ index.php?controller=OrderSuccess
+
 #product
 RewriteRule ^product/([0-9]+) index.php?controller=ProductDetail&id=$1
 
