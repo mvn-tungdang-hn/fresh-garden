@@ -1,4 +1,4 @@
-<title>Fresh garden</title>
+<title>Trang chủ</title>
 <script src="public/js/home.js" defer></script>
 
 <!-- Banner -->
@@ -19,7 +19,7 @@
 <section class="my-5">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="text-center fs-1 ff-kausan">Collections</h2>
+      <h2 class="text-center fs-1">Bộ sưu tập</h2>
       <p class="text-secondary">Lorem Ipsum is simply dummy text of the printing and typesettin</p>
     </div>
     <div class="row">
@@ -30,7 +30,7 @@
             <div class="position-absolute top-50 start-50 translate-middle w-75 h-75 border border-white d-flex justify-content-center align-items-center flex-column">
               <h3 class="fs-1 text-white fw-bold mb-3"><?php echo $collection->title ?></h3>
               <button class="btn btn-dark">
-                <i class="bi bi-hand-thumbs-up pe-2"></i>Read more
+                <i class="bi bi-hand-thumbs-up pe-2"></i>Xem thêm
               </button>
             </div>
           </div>
@@ -46,7 +46,7 @@
   </div>
   <div class="container translate-middle-y content-about-us">
     <div class="text-center">
-      <h2 class="ff-kausan fs-1">About us</h2>
+      <h2 class="fs-1">Về chúng tôi</h2>
       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
     </div>
     <div class="shadow bg-white">
@@ -56,10 +56,10 @@
         </div>
         <div class="col-sm-6">
           <div class="p-5">
-            <h4 class="text-uppercase mb-3">WHAT'S THE HEALTHIEST BREAD FOR YOUR SANDWICH?</h4>
+            <h4 class="text-uppercase mb-3">Cảm nhận về chúng tôi</h4>
             <p class="text-secondary mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
             </p>
-            <button class="btn btn-outline-dark fw-normal btn-lg text-uppercase fs-6 px-4">Read more</button>
+            <button class="btn btn-outline-dark fw-normal btn-lg text-uppercase fs-6 px-4">Xem thêm</button>
           </div>
         </div>
       </div>
@@ -67,126 +67,88 @@
   </div>
 </section>
 
-<!-- Out products -->
+<!-- Hot products -->
 <section class="mb-5" id="hot-deals">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="text-center ff-kausan fs-1">Hot Deals</h2>
+      <h2 class="text-center fs-1">Sản phẩm nổi bật</h2>
       <p class="text-secondary">Lorem Ipsum is simply dummy text of the printing and typesettin</p>
     </div>
     <div class="row">
-      <div class="col-sm-6">
-        <div class="x-product">
-          <div class="x-product-image">
-            <img src="https://demo1.leotheme.com/bos_highlands_demo/25-large_default/hummingbird-printed-t-shirt.jpg" alt="" />
-            <div class="x-product-include">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+      <?php if (count($hotProducts) > 0) { ?>
+        <?php $firstHotProduct = $hotProducts[0] ?>
+        <div class="col-sm-6">
+          <div class="x-product">
+            <div class="x-product-image">
+              <img src="<?php echo $firstHotProduct->thumbnail ?? 'public/images/static/noimage.jpg' ?>" alt="" />
+              <div class="x-product-include">
+                <?php echo $firstHotProduct->include ?>
+              </div>
             </div>
-          </div>
-          <a href="">
-            <h5 class="x-product-title text-truncate">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-            </h5>
-          </a>
-          <div class="text-end">
-            <span class="x-product-original-price">$23.90</span>
-            <span class="x-product-price">$20.00</span>
-          </div>
-          <div class="x-product-add">
-            <button class="btn btn-light">Add to cart</button>
+            <a href="product/<?php echo $firstHotProduct->id ?>">
+              <h5 class="x-product-title text-truncate">
+                <?php echo $firstHotProduct->title ?>
+              </h5>
+            </a>
+            <div class="text-end">
+              <?php if (isset($firstHotProduct->original_price)) { ?>
+                <span class="x-product-original-price">
+                  <?php echo number_format($firstHotProduct->original_price) ?>đ
+                </span>
+              <?php } ?>
+              <?php if (isset($firstHotProduct->price)) { ?>
+                <span class="x-product-price"><?php echo number_format($firstHotProduct->price) ?>đ</span>
+              <?php } else { ?>
+                <span class="text-primary">Liên hệ</span>
+              <?php } ?>
+            </div>
+            <div class="x-product-add">
+              <button class="btn btn-light">Thêm vào giỏ hàng</button>
+            </div>
+            <div class="x-product-status">
+              <div class="text-danger">Nổi bật!</div>
+            </div>
           </div>
         </div>
-      </div>
+      <?php } ?>
       <div class="col-sm-6">
         <div class="row">
-          <div class="col-sm-6">
-            <div class="x-product">
-              <div class="x-product-image">
-                <img src="https://demo1.leotheme.com/bos_highlands_demo/25-large_default/hummingbird-printed-t-shirt.jpg" alt="" />
-                <div class="x-product-include">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+          <?php for ($i = 1; $i < count($hotProducts) - 1; $i++) { ?>
+            <?php $item = $hotProducts[$i] ?>
+            <div class="col-sm-6">
+              <div class="x-product">
+                <div class="x-product-image">
+                  <img src="<?php echo $item->thumbnail ?? 'public/images/static/noimage.jpg' ?>" alt="" />
+                  <div class="x-product-include">
+                    <?php echo $item->include ?>
+                  </div>
+                </div>
+                <a href="product/<?php echo $item->id ?>">
+                  <h5 class="x-product-title text-truncate">
+                    <?php echo $item->title ?>
+                  </h5>
+                </a>
+                <div class="text-end">
+                  <?php if (isset($item->original_price)) { ?>
+                    <span class="x-product-original-price">
+                      <?php echo number_format($item->original_price) ?>đ
+                    </span>
+                  <?php } ?>
+                  <?php if (isset($item->price)) { ?>
+                    <span class="x-product-price"><?php echo number_format($item->price) ?>đ</span>
+                  <?php } else { ?>
+                    <span class="text-primary">Liên hệ</span>
+                  <?php } ?>
+                </div>
+                <div class="x-product-add">
+                  <button class="btn btn-light">Thêm vào giỏ hàng</button>
+                </div>
+                <div class="x-product-status">
+                  <div class="text-danger">Nổi bật!</div>
                 </div>
               </div>
-              <a href="">
-                <h5 class="x-product-title text-truncate">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                </h5>
-              </a>
-              <div class="text-end">
-                <span class="x-product-original-price">$23.90</span>
-                <span class="x-product-price">$20.00</span>
-              </div>
-              <div class="x-product-add">
-                <button class="btn btn-light">Add to cart</button>
-              </div>
             </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="x-product">
-              <div class="x-product-image">
-                <img src="https://demo1.leotheme.com/bos_highlands_demo/25-large_default/hummingbird-printed-t-shirt.jpg" alt="" />
-                <div class="x-product-include">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                </div>
-              </div>
-              <a href="">
-                <h5 class="x-product-title text-truncate">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                </h5>
-              </a>
-              <div class="text-end">
-                <span class="x-product-original-price">$23.90</span>
-                <span class="x-product-price">$20.00</span>
-              </div>
-              <div class="x-product-add">
-                <button class="btn btn-light">Add to cart</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="x-product">
-              <div class="x-product-image">
-                <img src="https://demo1.leotheme.com/bos_highlands_demo/25-large_default/hummingbird-printed-t-shirt.jpg" alt="" />
-                <div class="x-product-include">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                </div>
-              </div>
-              <a href="">
-                <h5 class="x-product-title text-truncate">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                </h5>
-              </a>
-              <div class="text-end">
-                <span class="x-product-original-price">$23.90</span>
-                <span class="x-product-price">$20.00</span>
-              </div>
-              <div class="x-product-add">
-                <button class="btn btn-light">Add to cart</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="x-product">
-              <div class="x-product-image">
-                <img src="https://demo1.leotheme.com/bos_highlands_demo/25-large_default/hummingbird-printed-t-shirt.jpg" alt="" />
-                <div class="x-product-include">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                </div>
-              </div>
-              <a href="">
-                <h5 class="x-product-title text-truncate">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                </h5>
-              </a>
-              <div class="text-end">
-                <span class="x-product-original-price">$23.90</span>
-                <span class="x-product-price">$20.00</span>
-              </div>
-              <div class="x-product-add">
-                <button class="btn btn-light">Add to cart</button>
-              </div>
-            </div>
-          </div>
+          <?php } ?>
         </div>
       </div>
     </div>
@@ -199,16 +161,16 @@
     <div class="row align-items-end">
       <div class="col-12 col-sm-8">
         <div class="bg-white p-4 mb-5">
-          <h2 class="ff-kausan fs-1 mb-4">Why Choose Us</h2>
+          <h2 class="fs-1 mb-4">Tại sao chọn chúng tôi</h2>
           <p class="text-secondary">This is Photoshop’s version of Lorem Ipsum. Proin gravida nibh vel velit auctorer aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequa ipsum nec sagittis sem nibh id elit.
           </p>
           <ul class="list-group list-group-flush mb-4">
-            <li class="list-group-item ps-0">100% Organic!</li>
-            <li class="list-group-item ps-0">Fast Free Delivery</li>
-            <li class="list-group-item ps-0">Best Shopping Startegies</li>
-            <li class="list-group-item ps-0">More than 15 Years in the business</li>
+            <li class="list-group-item ps-0">100% hữu cơ!</li>
+            <li class="list-group-item ps-0">Giao hàng miễn phí nhanh chóng</li>
+            <li class="list-group-item ps-0">Địa điểm mua sắm tốt nhất</li>
+            <li class="list-group-item ps-0">Hơn 15 năm kinh nghiệm sản xuất và kinh doanh</li>
           </ul>
-          <button class="btn btn-outline-dark fw-normal btn-lg text-uppercase fs-6 px-4">Read more</button>
+          <button class="btn btn-outline-dark fw-normal btn-lg text-uppercase fs-6 px-4">Xem thêm</button>
         </div>
       </div>
       <div class="col-4 d-none d-lg-block">
@@ -218,129 +180,51 @@
   </div>
 </section>
 
-<!-- Sale products -->
+<!-- Sales products -->
 <section class="mb-5">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="text-center ff-kausan fs-1">Sale Products</h2>
+      <h2 class="text-center fs-1">Sản phẩm khuyến mãi</h2>
       <p class="text-secondary">Lorem Ipsum is simply dummy text of the printing and typesettin</p>
     </div>
     <div class="swiper sale-products">
       <div class="swiper-wrapper">
-        <div class="swiper-slide h-100">
-          <div class="x-product">
-            <div class="x-product-image">
-              <img src="https://demo1.leotheme.com/bos_highlands_demo/25-large_default/hummingbird-printed-t-shirt.jpg" alt="" />
-              <div class="x-product-include">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
+        <?php foreach ($salesProducts as $item) { ?>
+          <div class="swiper-slide h-100">
+            <div class="x-product">
+              <div class="x-product-image">
+                <img src="<?php echo $item->thumbnail ?? 'public/images/static/noimage.jpg' ?>" alt="" />
+                <div class="x-product-include">
+                  <?php echo $item->include ?>
+                </div>
+              </div>
+              <a href="product/<?php echo $item->id ?>">
+                <h5 class="x-product-title text-truncate">
+                  <?php echo $item->title ?>
+                </h5>
+              </a>
+              <div class="text-end">
+                <?php if (isset($item->original_price)) { ?>
+                  <span class="x-product-original-price">
+                    <?php echo number_format($item->original_price) ?>đ
+                  </span>
+                <?php } ?>
+                <?php if (isset($item->price)) { ?>
+                  <span class="x-product-price"><?php echo number_format($item->price) ?>đ</span>
+                <?php } else { ?>
+                  <span class="text-primary">Liên hệ</span>
+                <?php } ?>
+              </div>
+              <div class="x-product-add">
+                <button class="btn btn-light">Thêm vào giỏ hàng</button>
+              </div>
+              <div class="x-product-status">
+                <div class="text-danger">Khuyến mãi!</div>
+                <div class="text-success">Mới</div>
               </div>
             </div>
-            <a href="">
-              <h5 class="x-product-title text-truncate">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-              </h5>
-            </a>
-            <div class="text-end">
-              <span class="x-product-original-price">$23.90</span>
-              <span class="x-product-price">$20.00</span>
-            </div>
-            <div class="x-product-add">
-              <button class="btn btn-light">Add to cart</button>
-            </div>
-            <div class="x-product-status">
-              <div class="text-danger">On sale!</div>
-              <div class="text-success">New</div>
-            </div>
           </div>
-        </div>
-        <div class="swiper-slide h-100">
-          <div class="x-product">
-            <div class="x-product-image">
-              <img src="https://demo1.leotheme.com/bos_highlands_demo/25-large_default/hummingbird-printed-t-shirt.jpg" alt="" />
-              <div class="x-product-include">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-              </div>
-            </div>
-            <a href="">
-              <h5 class="x-product-title text-truncate">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-              </h5>
-            </a>
-            <div class="text-end">
-              <span class="x-product-original-price">$23.90</span>
-              <span class="x-product-price">$20.00</span>
-            </div>
-            <div class="x-product-add">
-              <button class="btn btn-light">Add to cart</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide h-100">
-          <div class="x-product">
-            <div class="x-product-image">
-              <img src="https://demo1.leotheme.com/bos_highlands_demo/25-large_default/hummingbird-printed-t-shirt.jpg" alt="" />
-              <div class="x-product-include">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-              </div>
-            </div>
-            <a href="">
-              <h5 class="x-product-title text-truncate">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-              </h5>
-            </a>
-            <div class="text-end">
-              <span class="x-product-original-price">$23.90</span>
-              <span class="x-product-price">$20.00</span>
-            </div>
-            <div class="x-product-add">
-              <button class="btn btn-light">Add to cart</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide h-100">
-          <div class="x-product">
-            <div class="x-product-image">
-              <img src="https://demo1.leotheme.com/bos_highlands_demo/25-large_default/hummingbird-printed-t-shirt.jpg" alt="" />
-              <div class="x-product-include">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-              </div>
-            </div>
-            <a href="">
-              <h5 class="x-product-title text-truncate">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-              </h5>
-            </a>
-            <div class="text-end">
-              <span class="x-product-original-price">$23.90</span>
-              <span class="x-product-price">$20.00</span>
-            </div>
-            <div class="x-product-add">
-              <button class="btn btn-light">Add to cart</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide h-100">
-          <div class="x-product">
-            <div class="x-product-image">
-              <img src="https://demo1.leotheme.com/bos_highlands_demo/25-large_default/hummingbird-printed-t-shirt.jpg" alt="" />
-              <div class="x-product-include">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-              </div>
-            </div>
-            <a href="">
-              <h5 class="x-product-title text-truncate">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-              </h5>
-            </a>
-            <div class="text-end">
-              <span class="x-product-original-price">$23.90</span>
-              <span class="x-product-price">$20.00</span>
-            </div>
-            <div class="x-product-add">
-              <button class="btn btn-light">Add to cart</button>
-            </div>
-          </div>
-        </div>
+        <?php } ?>
       </div>
     </div>
   </div>

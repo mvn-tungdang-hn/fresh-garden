@@ -1,11 +1,11 @@
-<title><?php echo $category->title ?> - Fresh garden</title>
+<title><?php echo $category->title ?></title>
 <script src="public/js/category-product.js" defer></script>
 
 <!-- Breadcrumbs -->
 <nav aria-label="breadcrumb" class="py-4">
   <ol class="breadcrumb container mb-0">
     <li class="breadcrumb-item">
-      <a href="#" class="text-decoration-none">Home</a>
+      <a href="#" class="text-decoration-none">Trang chủ</a>
     </li>
     <li class="breadcrumb-item active" aria-current="page">
       <?php echo $category->title ?>
@@ -17,21 +17,21 @@
   <div class="row">
     <div class="col-lg-3">
       <div class="mb-4">
-        <p class="mb-1 fw-bold ff-kausan">Price</p>
+        <p class="mb-1 fw-bold">Giá</p>
         <div class="form-check text-secondary">
           <input class="form-check-input" type="checkbox" value="" id="filderPrice1" />
           <label class="form-check-label" for="filderPrice1">
-            < $40</label>
+            < 200.000đ</label>
         </div>
         <div class="form-check text-secondary">
           <input class="form-check-input" type="checkbox" value="" id="filderPrice2" />
           <label class="form-check-label" for="filderPrice2">
-            $40 - $80</label>
+            200.000đ - 500.000đ</label>
         </div>
       </div>
 
       <div class="mb-4">
-        <p class="mb-1 fw-bold ff-kausan">Brand</p>
+        <p class="mb-1 fw-bold">Thương hiệu</p>
         <div class="form-check text-secondary">
           <input class="form-check-input" type="checkbox" value="" id="filterBrand1" />
           <label class="form-check-label" for="filterBrand1">
@@ -47,7 +47,7 @@
       </div>
 
       <div class="mb-4">
-        <p class="mb-1 fw-bold ff-kausan">Dimension</p>
+        <p class="mb-1 fw-bold">Kích thước</p>
         <div class="form-check text-secondary">
           <input class="form-check-input" type="checkbox" value="" id="filterDemension1" />
           <label class="form-check-label" for="filterDemension1">
@@ -70,14 +70,14 @@
         </div>
         <div class="col-sm-4">
           <div class="row g-0 align-items-center">
-            <label for="sortSelect" class="form-label col-3 mb-0 text-secondary">Sort by:</label>
+            <label for="sortSelect" class="form-label col-3 mb-0 text-secondary">Lọc theo:</label>
             <div class="col-9">
               <select class="form-select" id="sortSelect" name="sortby">
-                <option selected value="" selected>-- Choose --</option>
-                <option selected value="1">Name, A to Z</option>
-                <option selected value="2">Name, Z to A</option>
-                <option selected value="3">Price, low to high</option>
-                <option selected value="4">Price, high to low</option>
+                <option selected value="" selected>-- Lựa chọn --</option>
+                <option selected value="1">Tên, A -> Z</option>
+                <option selected value="2">Tên, Z -> A</option>
+                <option selected value="3">Giá thấp nhất</option>
+                <option selected value="4">Giá cao nhất</option>
               </select>
             </div>
           </div>
@@ -102,17 +102,17 @@
                 <div class="text-end">
                   <?php if (isset($item->original_price)) { ?>
                     <span class="x-product-original-price">
-                      $<?php echo number_format($item->original_price) ?>
+                      <?php echo number_format($item->original_price) ?>đ
                     </span>
                   <?php } ?>
                   <?php if (isset($item->price)) { ?>
-                    <span class="x-product-price">$<?php echo number_format($item->price) ?></span>
+                    <span class="x-product-price"><?php echo number_format($item->price) ?>đ</span>
                   <?php } else { ?>
-                    <span class="text-primary">Contact</span>
+                    <span class="text-primary">Liên hệ</span>
                   <?php } ?>
                 </div>
                 <div class="x-product-add">
-                  <button class="btn btn-light">Add to cart</button>
+                  <button class="btn btn-light">Thêm vào giỏ hàng</button>
                 </div>
               </div>
             </div>
@@ -144,7 +144,7 @@
           </ul>
         </nav>
       <?php } else { ?>
-        <div class="text-center">No product</div>
+        <div class="text-center">Không có sản phẩm phù hợp.</div>
       <?php } ?>
     </div>
   </div>

@@ -11,7 +11,7 @@ class ProductController extends BaseController
   public $pathList = "products";
   public $pathForm = "product";
   public $imageFolder = "product";
-  public $title = "Products";
+  public $title = "Sản phẩm";
 
   public function __construct()
   {
@@ -123,7 +123,7 @@ class ProductController extends BaseController
       'description' => $_POST['description'],
       'content' => $_POST['content'],
       'include' => $_POST['include'],
-      'quatity' => $_POST['quatity'],
+      'quantity' => $_POST['quantity'],
       'is_hot' => $_POST['is_hot'],
       'category_id' => $_POST['category_id'],
       'collection_id' => $_POST['collection_id'],
@@ -177,7 +177,7 @@ class ProductController extends BaseController
       'description' => $_POST['description'],
       'content' => $_POST['content'],
       'include' => $_POST['include'],
-      'quatity' => $_POST['quatity'],
+      'quantity' => $_POST['quantity'],
       'is_hot' => $_POST['is_hot'],
       'category_id' => $_POST['category_id'],
       'collection_id' => $_POST['collection_id'],

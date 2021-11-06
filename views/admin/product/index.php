@@ -1,4 +1,4 @@
-<title><?php echo $title ?> | Fresh garden</title>
+<title><?php echo $title ?></title>
 
 <div class="text-white my-5">
   <h1 class="fs-2 text-uppercase"><?php echo $title ?></h1>
@@ -18,30 +18,29 @@
 <!-- Search -->
 <div class="card border-0 shadow-sm mb-4">
   <div class="card-header py-3 bg-white">
-    <h5 class="card-title mb-0">Search</h5>
+    <h5 class="card-title mb-0">Tìm kiếm</h5>
   </div>
   <div class="card-body">
     <form action="">
       <div class="row">
         <div class="col-sm-4">
           <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
+            <label for="title" class="form-label">Tiêu đề</label>
             <input type="email" class="form-control" id="title" placeholder="example" />
           </div>
         </div>
       </div>
-      <button class="btn btn-secondary">Search</button>
+      <button class="btn btn-secondary">Tìm kiếm</button>
     </form>
   </div>
 </div>
 
 <!-- Table -->
 <div class="card border-0 shadow-sm">
-  <div class="card-header py-3 bg-white d-flex align-items-center justify-content-between">
-    <h5 class="card-title mb-0 text-capitalize"><?php echo $title ?></h5>
+  <div class="card-header py-3 bg-white d-flex align-items-center justify-content-end">
     <a href="admin/<?php echo $pathForm ?>/create" class="btn btn-info">
       <i class="bi bi-plus-circle me-2"></i>
-      Add new
+      Thêm mới
     </a>
   </div>
   <?php if (count($products) > 0) { ?>
@@ -49,13 +48,13 @@
       <table class="table table-hover align-middle">
         <thead>
           <tr>
-            <th style="width: 15%; min-width: 100px;">Title</th>
-            <th style="width: 15%; min-width: 100px;">Thumbnail</th>
-            <th style="width: 15%; min-width: 120px;">Original price</th>
-            <th style="width: 15%; min-width: 100px;">Price</th>
-            <th style="width: 15%; min-width: 120px;">Quatity</th>
-            <th style="width: 15%; min-width: 100px;">Hot</th>
-            <th style="width: 10%; min-width: 100px;">Actions</th>
+            <th style="width: 15%; min-width: 100px;">Tiêu đề</th>
+            <th style="width: 15%; min-width: 100px;">Ảnh</th>
+            <th style="width: 15%; min-width: 120px;">Giá ban đầu</th>
+            <th style="width: 15%; min-width: 100px;">Giá bán ra</th>
+            <th style="width: 15%; min-width: 120px;">Số lượng còn</th>
+            <th style="width: 15%; min-width: 100px;">Sản phẩm nổi bật</th>
+            <th style="width: 10%; min-width: 100px;"></th>
           </tr>
         </thead>
         <tbody>
@@ -65,11 +64,11 @@
               <td>
                 <img src="<?php echo $item->thumbnail ?? 'public/images/static/noimage.jpg' ?>" width="60" height="60" style="object-fit: cover;" alt="">
               </td>
-              <td>$<?php echo number_format($item->original_price) ?></td>
-              <td>$<?php echo number_format($item->price) ?></td>
-              <td><?php echo $item->quatity ?></td>
+              <td><?php echo number_format($item->original_price) ?>đ</td>
+              <td><?php echo number_format($item->price) ?>đ</td>
+              <td><?php echo $item->quantity ?></td>
               <td><?php if ($item->is_hot == 1) { ?>
-                  <span class="badge bg-danger">Hot</span>
+                  <span class="badge bg-danger">Nổi bật</span>
                 <?php } ?>
               </td>
               <td>
@@ -86,7 +85,7 @@
       </table>
 
       <div class="d-flex align-items-center justify-content-between px-2">
-        <div class="text-secondary">Showing <?php echo $start + 1 ?> to <?php echo $end ?> of <?php echo $totalRecord ?> entries</div>
+        <div class="text-secondary">Hiển thị <?php echo $start + 1 ?> đến <?php echo $end ?> trên tổng số <?php echo $totalRecord ?> bản ghi.</div>
         <nav aria-label="Page navigation">
           <ul class="pagination justify-content-end">
             <?php if ($page > 1 && $totalPage > 1) { ?>
@@ -115,7 +114,7 @@
       </div>
     </div>
   <?php } else { ?>
-    <div class="p-3 text-center">No record</div>
+    <div class="p-3 text-center">Không có bản ghi.</div>
   <?php } ?>
 </div>
 
@@ -124,15 +123,15 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Delete record?</h5>
+        <h5 class="modal-title">Xác nhận xoá</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Are you sure?
+        Bạn có chắc chắn xoá bản ghi này?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirmBtn" data-link="<?php echo $pathForm ?>" href="#" type="button" class="btn btn-info">Save changes</a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <a id="deleteConfirmBtn" data-link="<?php echo $pathForm ?>" href="#" type="button" class="btn btn-info">Xác nhận</a>
       </div>
     </div>
   </div>

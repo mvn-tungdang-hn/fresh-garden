@@ -23,7 +23,7 @@
   <footer class="container-fluid py-2 text-center bg-white border-top">
     <p class="mb-0">
       © 2021 -
-      <a href="admin" class="text-muted text-decoration-none">Fresh Garden</a>
+      <a href="admin" class="text-muted text-decoration-none">Highland</a>
     </p>
   </footer>
 </body>

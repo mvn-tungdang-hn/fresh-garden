@@ -18,7 +18,7 @@
     <div class="px-3 py-2 bg-info">
       <a href="#" class="fw-bold text-decoration-none d-flex align-items-center">
         <i class="bi bi-bar-chart fs-2 me-2 text-white-50"></i>
-        <span class="text-white">Fresh Garden</span>
+        <span class="text-white">Highland</span>
       </a>
     </div>
 
@@ -27,11 +27,11 @@
       <div class="text-center px-2 py-4">
         <img src="https://images.pexels.com/photos/133472/pexels-photo-133472.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="avatar" class="img-fluid avatar rounded-circle shadow-sm" />
         <div class="fw-bold mt-2"><?php echo $_SESSION['user']->email ?></div>
-        <small>Staff</small>
+        <small>Nhân viên</small>
       </div>
       <!-- Nav -->
       <ul class="sidebar-nav" id="sidebarNav">
-        <li class="sidebar-header">Main</li>
+        <li class="sidebar-header">Mục chính</li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="admin">
             <i class="align-middle me-2 bi bi-house-fill fs-5 text-info"></i>
@@ -41,7 +41,7 @@
         <li class="sidebar-item">
           <a class="sidebar-link" href="admin/users/1">
             <i class="align-middle me-2 bi bi-people-fill fs-5 text-info"></i>
-            <span class="align-middle">Users</span>
+            <span class="align-middle">Tài khoản</span>
           </a>
         </li>
         <li class="sidebar-item">
@@ -53,53 +53,53 @@
         <li class="sidebar-item">
           <a class="sidebar-link" href="admin/categories-product/1">
             <i class="align-middle me-2 bi bi-calendar3-range-fill fs-5 text-info"></i>
-            <span class="align-middle">Categories product</span>
+            <span class="align-middle">Danh mục sản phẩm</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="admin/products/1">
             <i class="align-middle me-2 bi bi-cloud-moon-fill fs-5 text-info"></i>
-            <span class="align-middle">Products</span>
+            <span class="align-middle">Sản phẩm</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="admin/categories-news/1">
             <i class="align-middle me-2 bi bi-book-half fs-5 text-info"></i>
-            <span class="align-middle">Categories news</span>
+            <span class="align-middle">Danh mục tin tức</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="admin/news/1">
             <i class="align-middle me-2 bi bi-newspaper fs-5 text-info"></i>
-            <span class="align-middle">News</span>
+            <span class="align-middle">Tin tức</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="admin/orders/1">
             <i class="align-middle me-2 bi bi-basket-fill fs-5 text-info"></i>
-            <span class="align-middle">Orders</span>
+            <span class="align-middle">Đơn hàng</span>
           </a>
         </li>
 
-        <li class="sidebar-header">Settings</li>
+        <li class="sidebar-header">Cài đặt</li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="#">
             <i class="align-middle me-2 bi bi-gear-fill fs-5 text-info"></i>
-            <span class="align-middle">Settings</span>
+            <span class="align-middle">Cài đặt hệ thống</span>
           </a>
         </li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="#">
             <i class="align-middle me-2 bi bi-person-circle fs-5 text-info"></i>
-            <span class="align-middle">Profile</span>
+            <span class="align-middle">Thông tin tài khoản</span>
           </a>
         </li>
 
-        <li class="sidebar-header">Other</li>
+        <li class="sidebar-header">Khác</li>
         <li class="sidebar-item">
           <a class="sidebar-link" href="admin/logout">
             <i class="align-middle me-2 bi bi-box-arrow-right fs-5 text-info"></i>
-            <span class="align-middle">Logout</span>
+            <span class="align-middle">Đăng xuất</span>
           </a>
         </li>
       </ul>
@@ -123,13 +123,13 @@
             <i class="bi bi-gear-fill"></i>
           </button>
           <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="user-action">
-            <li><a class="dropdown-item" href="#">View Profile</a></li>
-            <li><a class="dropdown-item" href="#">Contacts</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Thông tin tài khoản</a></li>
+            <li><a class="dropdown-item" href="#">Liên hệ</a></li>
+            <li><a class="dropdown-item" href="#">Cài đặt hệ thống</a></li>
             <li>
               <hr class="dropdown-divider bg-secondary" />
             </li>
-            <li><a class="dropdown-item" href="admin/logout" ?>Logout</a></li>
+            <li><a class="dropdown-item" href="admin/logout" ?>Đăng xuất</a></li>
           </ul>
         </div>
       </div>
@@ -146,7 +146,7 @@
     <footer class="container-fluid py-2 text-center bg-white border-top">
       <p class="mb-0">
         © 2021 -
-        <a href="admin" class="text-muted text-decoration-none">Fresh Garden</a>
+        <a href="admin" class="text-muted text-decoration-none">Highland</a>
       </p>
     </footer>
   </section>

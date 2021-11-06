@@ -51,11 +51,11 @@ class CartController extends BaseController
   {
     global $APP_URL;
     $id = $_POST['id'] ??  null;
-    $quatity = $_POST['quatity'] ?? 1;
+    $quantity = $_POST['quantity'] ?? 1;
 
     if (isset($_SESSION['cart'][$id])) {
-      $_SESSION['cart'][$id]['quatity'] += $quatity;
-      if ($_SESSION['cart'][$id]['quatity'] == 0) {
+      $_SESSION['cart'][$id]['quantity'] += $quantity;
+      if ($_SESSION['cart'][$id]['quantity'] == 0) {
         $this->deleteCartItem($id);
       }
     } else {
@@ -66,8 +66,8 @@ class CartController extends BaseController
         'thumbnail' => $product->thumbnail,
         'original_price' => $product->original_price,
         'price' => $product->price,
-        'quatity' => $quatity,
-        'total' => $quatity * $product->price
+        'quantity' => $quantity,
+        'total' => $quantity * $product->price
       );
     }
 

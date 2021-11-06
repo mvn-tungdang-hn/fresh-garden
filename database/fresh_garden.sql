@@ -152,7 +152,7 @@ CREATE TABLE `order_details` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `price` int(11) NOT NULL,
-  `quatity` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -173,7 +173,7 @@ CREATE TABLE `products` (
   `include` varchar(255) DEFAULT NULL,
   `thumbnail` text DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
-  `quatity` int(11) NOT NULL DEFAULT 0,
+  `quantity` int(11) NOT NULL DEFAULT 0,
   `is_hot` tinyint(4) NOT NULL DEFAULT 0,
   `views` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
@@ -186,7 +186,7 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `title`, `original_price`, `price`, `description`, `content`, `include`, `thumbnail`, `status`, `quatity`, `is_hot`, `views`, `category_id`, `collection_id`, `created_at`, `updated_at`) VALUES
+INSERT INTO `products` (`id`, `title`, `original_price`, `price`, `description`, `content`, `include`, `thumbnail`, `status`, `quantity`, `is_hot`, `views`, `category_id`, `collection_id`, `created_at`, `updated_at`) VALUES
 (1, 'Hộp 4 bánh (Dòng truyền thống)', 350000, 200000, 'Dòng bánh Fresh Garden lan tỏa giá trị truyền thống, giá trị nguyên bản và tích cực về sống chậm, được cảm nhận rõ qua nét thi vị của mùa trăng hiện đại với sự đa dạng sắc vị thơm ngon, vừa quen vừa lạ như nhân đậu xanh táo đỏ, nhân đậu đỏ, nhân sữa dừa, nhân khoai môn, nhân hạt sen mè đen, nhân hạt sen hạt dưa, nhân đậu xanh 1 trứng, nhân thập cẩm 1 trứng', 'Dòng bánh Fresh Garden lan tỏa giá trị truyền thống, giá trị nguyên bản và tích cực về sống chậm, được cảm nhận rõ qua nét thi vị của mùa trăng hiện đại với sự đa dạng sắc vị thơm ngon, vừa quen vừa lạ như nhân đậu xanh táo đỏ, nhân đậu đỏ, nhân sữa dừa, nhân khoai môn, nhân hạt sen mè đen, nhân hạt sen hạt dưa, nhân đậu xanh 1 trứng, nhân thập cẩm 1 trứng', 'Hộp gồm 4 bánh nhân tuỳ chọn truyền thống.', 'public/images/upload/product/product1.jpg', 1, 10, 1, NULL, 1, 1, '2021-09-03 09:06:07', '2021-09-03 09:06:07'),
 (2, 'Hộp 6 bánh Thu hoa viên (Dòng cao cấp)', 350000, 200000, '<p>Dòng bánh Fresh Garden lan tỏa giá trị truyền thống, giá trị nguyên bản và tích cực về sống chậm, được cảm nhận rõ qua nét thi vị của mùa trăng hiện đại với sự đa dạng sắc vị thơm ngon, vừa quen vừa lạ như nhân đậu xanh táo đỏ, nhân đậu đỏ, nhân sữa dừa, nhân khoai môn, nhân hạt sen mè đen, nhân hạt sen hạt dưa, nhân đậu xanh 1 trứng, nhân thập cẩm 1 trứng</p>', '<p>Dòng bánh Fresh Garden lan tỏa giá trị truyền thống, giá trị nguyên bản và tích cực về sống chậm, được cảm nhận rõ qua nét thi vị của mùa trăng hiện đại với sự đa dạng sắc vị thơm ngon, vừa quen vừa lạ như nhân đậu xanh táo đỏ, nhân đậu đỏ, nhân sữa dừa, nhân khoai môn, nhân hạt sen mè đen, nhân hạt sen hạt dưa, nhân đậu xanh 1 trứng, nhân thập cẩm 1 trứng</p>', '            Hộp gồm 6 bánh nhân tùy chọn dòng cao cấp, có túi đi kèm          ', 'public/images/upload/product/product1.jpg', 1, 10, 1, NULL, 1, 1, '2021-09-03 09:06:07', '2021-09-03 09:06:07'),
 (5, 'Bánh trứng', 100000, 80000, '<p>1234</p>', '<p>1234</p>', '1234', 'public/images/upload/product/1631359855thumbnail.png', 1, 10, 1, NULL, 1, 1, '2021-09-11 11:30:55', '2021-09-11 11:30:55');

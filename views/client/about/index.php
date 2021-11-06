@@ -1,13 +1,13 @@
-<title>About Us - Fresh garden</title>
+<title>Giới thiệu</title>
 <script src="public/js/about.js" defer></script>
 
 <!-- Breadcrumbs -->
 <nav aria-label="breadcrumb" class="py-4">
   <ol class="breadcrumb container mb-0">
     <li class="breadcrumb-item">
-      <a href="#" class="text-decoration-none">Home</a>
+      <a href="#" class="text-decoration-none">Trang chủ</a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">About Us</li>
+    <li class="breadcrumb-item active" aria-current="page">Giới thiệu</li>
   </ol>
 </nav>
 
@@ -16,13 +16,9 @@
   <div class="container">
     <div class="row align-items-center mb-4">
       <div class="col-sm-6">
-        <h2 class="text-uppercase fw-bold fs-1 ff-kausan">Delivery</h2>
+        <h2 class="text-uppercase fw-bold fs-1">GIỚI THIỆU CHUNG</h2>
         <p class="pre-line">
-          Packages are generally dispatched within 2 days after receipt of payment and are shipped via UPS with tracking and drop-off without signature. If you prefer delivery by UPS Extra with required signature, an additional cost will be applied, so please contact us before choosing this method. Whichever shipment choice you make, we will provide you with a link to track your package online.
-
-          Shipping fees include handling and packing fees as well as postage costs. Handling fees are fixed, whereas transport fees vary according to total weight of the shipment. We advise you to group your items in one order. We cannot group two distinct orders placed separately, and shipping fees will apply to each of them. Your package will be dispatched at your own risk, but special care is taken to protect fragile objects.
-
-          Boxes are amply sized and your items are well-protected.
+          Highland bánh và cà phê khởi nguồn từ năm 2011 là thương hiệu sản xuất và bán bánh với slogan "Bánh tươi mỗi ngày". Những năm đầu, sản phẩm chủ lực của Highland là bánh kem và bánh mỳ tươi. Trong mỗi dịp lễ hay sinh nhật, bánh kem của Highland luôn là một trong những lựa chọn hàng đầu, bởi độ ngọt vừa phải, mẫu bánh đẹp, giá thành hợp lý. Bên cạnh đó, đồng hành mỗi ngày của khách hàng là các sản phẩm bánh mỳ tươi dinh dưỡng, thơm ngon. Giờ đây, Highland không chỉ được biết đến là thương hiệu của các sản phẩm bánh ngon, mà bên cạnh đó là cả đồ uống ngon. Đằng sau thành công của Highland là đội ngũ nhân viên tâm huyết, luôn nỗ lực, chăm chỉ làm việc hết mình, cùng sự sáng tạo, miệt mài làm việc, không ngừng đam mê để có thể đưa ra những sản phẩm không chỉ ngon và đẹp mắt mà còn tốt cho sức khỏe cho khách hàng.
         </p>
       </div>
       <div class="col-sm-6">
@@ -31,11 +27,9 @@
     </div>
     <div class="row flex-lg-row-reverse align-items-center mb-4">
       <div class="col-sm-6">
-        <h2 class="text-uppercase fw-bold fs-1 ff-kausan">Legal Notice</h2>
+        <h2 class="text-uppercase fw-bold fs-1">LỊCH SỬ RA ĐỜI</h2>
         <p class="pre-line">
-          Concept and production:
-
-          This Online store was created using Prestashop Shopping Cart Software,check out PrestaShop's ecommerce blog for news and advices about selling online and running your ecommerce website.
+          Năm 2018 là dấu mốc đánh dấu Highland đã có 60 cửa hàng ở các thành phố lớn Hà Nội, Hải Phòng, Hồ Chí Minh. Hãy cùng Highland nhìn lại những dấu mốc phát triển bạn nhé. Ngày 1/12/2010, cửa hàng bánh Highland đầu tiên được khai trương tại 50 Nguyễn Chí Thanh, Hà Nội. Sau 1 năm, Highland đã sở hữu 5 cửa hàng. Đến năm 2015, với sự quyết tâm đồng lòng của các thành viên, 30 cửa hàng Highland đã có mặt tại Hà Nội. Những chiếc bánh Highland tươi ngon không chỉ chiếm được lòng tin của thực khách Hà thành mà còn chiếm được sự yêu mến của thực khách Sài Thành. Vì thế mà năm 2016, 5 cửa hàng Highland đã có mặt tại TP. Hồ Chí Minh. Đến năm 2018, Fresh Garden ngày càng vươn xa hơn khi đã cán mốc 60 cửa hàng và đã có cửa hàng đầu tiên tại Hải Phòng. Với sự ủng hộ từ phía khách hàng, dự kiến Fresh Garden sẽ liên tục phát triển và mở rộng hơn nữa trong thời gian tới.
         </p>
       </div>
       <div class="col-sm-6">
@@ -44,10 +38,9 @@
     </div>
     <div class="row align-items-center mb-4">
       <div class="col-sm-6">
-        <h2 class="text-uppercase fw-bold fs-1 ff-kausan">Terms and conditions of use</h2>
+        <h2 class="text-uppercase fw-bold fs-1">TẦM NHÌN</h2>
         <p class="pre-line">
-          Rule 1
-          Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Fresh Garden luôn giữ vững giá trị chất lượng, tạo đà vươn lên là thương hiệu cửa hàng bánh tươi và cà phê dẫn dắt thị trường nội địa Việt Nam.
         </p>
       </div>
       <div class="col-sm-6">
@@ -57,14 +50,9 @@
     <div class="row flex-lg-row-reverse align-items-center mb-4">
       <div class="col-sm-6">
         <div class="p-lg-4">
-          <h2 class="text-uppercase fw-bold fs-1 ff-kausan">Secure payment</h2>
+          <h2 class="text-uppercase fw-bold fs-1">SỨ MỆNH</h2>
           <p class="pre-line">
-            Secure payment
-            Our secure payment
-            With SSL
-
-            Using Visa/Mastercard/Paypal
-            About this service
+            Mang đến cho khách hàng những sản phẩm chất lượng và tiện lợi.
           </p>
         </div>
       </div>

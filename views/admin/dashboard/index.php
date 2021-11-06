@@ -1,8 +1,8 @@
-<title>Dashboard - Fresh garden</title>
+<title>Dashboard</title>
 
 <div class="text-white my-5">
-  <h1 class="fs-2">Welcome back, Linda!</h1>
-  <p>You have 24 new messages and 5 new notifications.</p>
+  <h1 class="fs-2">Highland!</h1>
+  <p>Bạn có 25 tin nhắn và 5 thông báo.</p>
 </div>
 
 <div class="row">

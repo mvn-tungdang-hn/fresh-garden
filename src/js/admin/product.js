@@ -19,7 +19,7 @@ $().ready(function () {
       price: {
         digits: true
       },
-      quatity: {
+      quantity: {
         digits: true
       },
       display_order: {
