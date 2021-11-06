@@ -43,7 +43,7 @@
                     </div>
                   </td>
                   <td>
-                    <span class="fw-medium fs-5">$<?php echo number_format($cart['price']) ?></span>
+                    <span class="fw-medium fs-5">$<?php echo number_format($cart['price']) ?>đ</span>
                     <small class="text-decoration-line-through text-secondary">
                       <?php echo number_format($cart['original_price']) ?>đ
                     </small>

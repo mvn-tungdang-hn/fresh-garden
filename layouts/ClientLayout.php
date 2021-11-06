@@ -35,7 +35,10 @@ $categories = $categoryModel->getListCategory("where type = 1");
             <i class="bi bi-person-circle"></i>
           </button>
           <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="user-action" style="z-index: 1200">
-            <li><a class="dropdown-item" href="admin">Admin</a></li>
+            <?php if ($_SESSION['user']->role == 2) { ?>
+              <li><a class="dropdown-item" href="admin">Admin</a></li>
+            <?php } ?>
+            <li><a class="dropdown-item" href="my/orders" ?>Đơn hàng đã đặt</a></li>
             <li>
               <hr class="dropdown-divider bg-secondary" />
             </li>
@@ -69,7 +72,10 @@ $categories = $categoryModel->getListCategory("where type = 1");
                   <i class="bi bi-person-circle"></i>
                 </button>
                 <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="user-action">
-                  <li><a class="dropdown-item" href="admin">Admin</a></li>
+                  <?php if ($_SESSION['user']->role == 2) { ?>
+                    <li><a class="dropdown-item" href="admin">Admin</a></li>
+                  <?php } ?>
+                  <li><a class="dropdown-item" href="my/orders" ?>Đơn hàng đã đặt</a></li>
                   <li>
                     <hr class="dropdown-divider bg-secondary" />
                   </li>
@@ -112,7 +118,10 @@ $categories = $categoryModel->getListCategory("where type = 1");
           </li>
           <li class="nav-item ms-auto">
             <button class="btn bg-transparent fs-4 mx-3"><i class="bi bi-search"></i></button>
-            <a href="cart" class="btn btn-primary fs-4 text-white"><i class="bi bi-basket3"></i></a>
+            <a href="cart" class="btn btn-primary fs-4 text-white">
+              <i class="bi bi-basket3"></i>
+              <span><?php echo isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0 ?></span>
+            </a>
           </li>
         </ul>
       </div>

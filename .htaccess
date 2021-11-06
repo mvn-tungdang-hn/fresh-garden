@@ -27,6 +27,9 @@ RewriteRule ^cart/add index.php?controller=Cart&action=add
 RewriteRule ^cart/destroy index.php?controller=Cart&action=destroy
 RewriteRule ^cart/delete/([0-9]+) index.php?controller=Cart&action=delete&id=$1
 
+#about
+RewriteRule ^my/orders$ index.php?controller=MyOrder
+
 #----------
 #auth
 
@@ -67,6 +70,11 @@ RewriteRule ^admin/product/do_create$ admin.php?controller=Product&action=do_cre
 RewriteRule ^admin/product/edit/([0-9]+)$ admin.php?controller=Product&action=show&id=$1
 RewriteRule ^admin/product/update/([0-9]+)$ admin.php?controller=Product&action=update&id=$1
 RewriteRule ^admin/product/delete/([0-9]+)$ admin.php?controller=Product&action=delete&id=$1
+
+#product
+RewriteRule ^admin/orders/([0-9]+)$ admin.php?controller=Order&page=$1
+RewriteRule ^admin/order/view/([0-9]+)$ admin.php?controller=Order&action=view&id=$1
+RewriteRule ^admin/order/update_status/([0-9]+)$ admin.php?controller=Order&action=update_status&id=$1
 
 #404
 ErrorDocument 404 http://localhost/fresh-garden/

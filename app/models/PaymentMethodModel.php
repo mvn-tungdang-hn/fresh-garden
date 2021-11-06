@@ -12,4 +12,13 @@ class PaymentMethodModel extends Model
 
     return $result;
   }
+
+  /**
+   * Lấy thông tin phần tử
+   */
+  public function getDetailPaymentMethod($id)
+  {
+    $result = parent::getRecord("Select * from `$this->table` where id = $id");
+    return $result;
+  }
 }

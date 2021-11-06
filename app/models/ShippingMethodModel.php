@@ -12,4 +12,13 @@ class ShippingMethodModel extends Model
 
     return $result;
   }
+
+  /**
+   * Lấy thông tin phần tử
+   */
+  public function getDetailShippingMethod($id)
+  {
+    $result = parent::getRecord("Select * from `$this->table` where id = $id");
+    return $result;
+  }
 }

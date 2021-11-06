@@ -102,9 +102,13 @@
                 <span class="text-primary">Liên hệ</span>
               <?php } ?>
             </div>
-            <div class="x-product-add">
-              <button class="btn btn-light">Thêm vào giỏ hàng</button>
-            </div>
+            <form action="cart/add" method="POST">
+              <input type="text" hidden value="<?php echo $item->id ?>" name="id">
+              <input type="text" hidden value="1" name="quantity">
+              <div class="x-product-add">
+                <button type="submit" class="btn btn-light">Thêm vào giỏ hàng</button>
+              </div>
+            </form>
             <div class="x-product-status">
               <div class="text-danger">Nổi bật!</div>
             </div>
@@ -140,9 +144,13 @@
                     <span class="text-primary">Liên hệ</span>
                   <?php } ?>
                 </div>
-                <div class="x-product-add">
-                  <button class="btn btn-light">Thêm vào giỏ hàng</button>
-                </div>
+                <form action="cart/add" method="POST">
+                  <input type="text" hidden value="<?php echo $item->id ?>" name="id">
+                  <input type="text" hidden value="1" name="quantity">
+                  <div class="x-product-add">
+                    <button type="submit" class="btn btn-light">Thêm vào giỏ hàng</button>
+                  </div>
+                </form>
                 <div class="x-product-status">
                   <div class="text-danger">Nổi bật!</div>
                 </div>
@@ -215,9 +223,13 @@
                   <span class="text-primary">Liên hệ</span>
                 <?php } ?>
               </div>
-              <div class="x-product-add">
-                <button class="btn btn-light">Thêm vào giỏ hàng</button>
-              </div>
+              <form action="cart/add" method="POST">
+                <input type="text" hidden value="<?php echo $item->id ?>" name="id">
+                <input type="text" hidden value="1" name="quantity">
+                <div class="x-product-add">
+                  <button type="submit" class="btn btn-light">Thêm vào giỏ hàng</button>
+                </div>
+              </form>
               <div class="x-product-status">
                 <div class="text-danger">Khuyến mãi!</div>
                 <div class="text-success">Mới</div>
