@@ -1,5 +1,6 @@
 <title><?php echo $category->title ?></title>
 <script src="public/js/category-product.js" defer></script>
+<?php global $APP_URL; ?>
 
 <!-- Breadcrumbs -->
 <nav aria-label="breadcrumb" class="py-4">
@@ -72,12 +73,11 @@
           <div class="row g-0 align-items-center">
             <label for="sortSelect" class="form-label col-3 mb-0 text-secondary">Lọc theo:</label>
             <div class="col-9">
-              <select class="form-select" id="sortSelect" name="sortby">
-                <option selected value="" selected>-- Lựa chọn --</option>
-                <option selected value="1">Tên, A -> Z</option>
-                <option selected value="2">Tên, Z -> A</option>
-                <option selected value="3">Giá thấp nhất</option>
-                <option selected value="4">Giá cao nhất</option>
+              <select class="form-select" id="sortSelect" name="sortBy">
+                <option value="1">Tên, A -> Z</option>
+                <option value="2">Tên, Z -> A</option>
+                <option value="3">Giá thấp nhất</option>
+                <option value="4">Giá cao nhất</option>
               </select>
             </div>
           </div>

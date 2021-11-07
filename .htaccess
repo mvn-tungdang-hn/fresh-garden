@@ -19,7 +19,7 @@ RewriteRule ^order-success$ index.php?controller=OrderSuccess
 RewriteRule ^product/([0-9]+) index.php?controller=ProductDetail&id=$1
 
 #category-product
-RewriteRule ^category-product/([0-9]+)(/)?([0-9]*)$ index.php?controller=CategoryProduct&id=$1&page=$3
+RewriteRule ^category-product/([^/]+) index.php?controller=CategoryProduct&id=$1&page=$2&sortBy=$3
 
 #cart
 RewriteRule ^cart$ index.php?controller=Cart
@@ -27,8 +27,9 @@ RewriteRule ^cart/add index.php?controller=Cart&action=add
 RewriteRule ^cart/destroy index.php?controller=Cart&action=destroy
 RewriteRule ^cart/delete/([0-9]+) index.php?controller=Cart&action=delete&id=$1
 
-#about
+#my order
 RewriteRule ^my/orders$ index.php?controller=MyOrder
+RewriteRule ^my/order/cancel_order/([0-9]+)$ index.php?controller=MyOrder&action=cancel_order&id=$1
 
 #----------
 #auth
@@ -71,7 +72,7 @@ RewriteRule ^admin/product/edit/([0-9]+)$ admin.php?controller=Product&action=sh
 RewriteRule ^admin/product/update/([0-9]+)$ admin.php?controller=Product&action=update&id=$1
 RewriteRule ^admin/product/delete/([0-9]+)$ admin.php?controller=Product&action=delete&id=$1
 
-#product
+#order
 RewriteRule ^admin/orders/([0-9]+)$ admin.php?controller=Order&page=$1
 RewriteRule ^admin/order/view/([0-9]+)$ admin.php?controller=Order&action=view&id=$1
 RewriteRule ^admin/order/update_status/([0-9]+)$ admin.php?controller=Order&action=update_status&id=$1

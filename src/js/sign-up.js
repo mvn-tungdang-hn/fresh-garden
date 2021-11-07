@@ -10,10 +10,10 @@ $().ready(function () {
 
   form.validate({
     rules: {
-      firstName: {
+      first_name: {
         required: true
       },
-      lastName: {
+      last_name: {
         required: true
       },
       email: {
@@ -22,7 +22,7 @@ $().ready(function () {
       password: {
         required: true
       },
-      passwordConfirm: {
+      "confirm-password": {
         equalTo: "#password"
       }
     }

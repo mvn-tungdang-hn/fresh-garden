@@ -30,9 +30,9 @@ class OrderModel extends Model
   /**
    * Lấy số bản ghi
    */
-  public function getRowCountOrder()
+  public function getRowCountOrder($where = "")
   {
-    $result = parent::getRowCount("Select id from `$this->table`");
+    $result = parent::getRowCount("Select id from `$this->table` $where");
 
     return $result;
   }

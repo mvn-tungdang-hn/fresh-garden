@@ -16,9 +16,9 @@ class UserModel extends Model
   /**
    * Lấy số bản ghi
    */
-  public function getRowCountUser()
+  public function getRowCountUser($where = "")
   {
-    $result = parent::getRowCount("Select id from `$this->table`");
+    $result = parent::getRowCount("Select id from `$this->table` $where");
 
     return $result;
   }

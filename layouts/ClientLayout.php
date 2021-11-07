@@ -27,7 +27,7 @@ $categories = $categoryModel->getListCategory("where type = 1");
       <?php if (!isset($_SESSION['user'])) { ?>
         <div>
           <a class="text-secondary" href="sign-in">Đăng nhập</a>
-          <a class="text-secondary ms-4" href="sign-in">Đăng ký</a>
+          <a class="text-secondary ms-4" href="sign-up">Đăng ký</a>
         </div>
       <?php } else { ?>
         <div class="dropdown">
@@ -64,7 +64,7 @@ $categories = $categoryModel->getListCategory("where type = 1");
             <?php if (!isset($_SESSION['user'])) { ?>
               <div>
                 <a class="btn bg-transparent" href="sign-in">Đăng nhập</a>
-                <a class="btn bg-transparent" href="sign-in">Đăng ký</a>
+                <a class="btn bg-transparent" href="sign-up">Đăng ký</a>
               </div>
             <?php } else { ?>
               <div class="dropdown">
