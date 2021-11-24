@@ -64,6 +64,14 @@ RewriteRule ^admin/category-product/edit/([0-9]+)$ admin.php?controller=Category
 RewriteRule ^admin/category-product/update/([0-9]+)$ admin.php?controller=CategoryProduct&action=update&id=$1
 RewriteRule ^admin/category-product/delete/([0-9]+)$ admin.php?controller=CategoryProduct&action=delete&id=$1
 
+#category-news 
+RewriteRule ^admin/categories-news/([0-9]+)$ admin.php?controller=CategoryNews&page=$1
+RewriteRule ^admin/category-news/create$ admin.php?controller=CategoryNews&action=create
+RewriteRule ^admin/category-news/do_create$ admin.php?controller=CategoryNews&action=do_create
+RewriteRule ^admin/category-news/edit/([0-9]+)$ admin.php?controller=CategoryNews&action=show&id=$1
+RewriteRule ^admin/category-news/update/([0-9]+)$ admin.php?controller=CategoryNews&action=update&id=$1
+RewriteRule ^admin/category-news/delete/([0-9]+)$ admin.php?controller=CategoryNews&action=delete&id=$1
+
 #product
 RewriteRule ^admin/products/([0-9]+)$ admin.php?controller=Product&page=$1
 RewriteRule ^admin/product/create$ admin.php?controller=Product&action=create
@@ -71,6 +79,14 @@ RewriteRule ^admin/product/do_create$ admin.php?controller=Product&action=do_cre
 RewriteRule ^admin/product/edit/([0-9]+)$ admin.php?controller=Product&action=show&id=$1
 RewriteRule ^admin/product/update/([0-9]+)$ admin.php?controller=Product&action=update&id=$1
 RewriteRule ^admin/product/delete/([0-9]+)$ admin.php?controller=Product&action=delete&id=$1
+
+#news
+RewriteRule ^admin/news/([0-9]+)$ admin.php?controller=News&page=$1
+RewriteRule ^admin/news/create$ admin.php?controller=News&action=create
+RewriteRule ^admin/news/do_create$ admin.php?controller=News&action=do_create
+RewriteRule ^admin/news/edit/([0-9]+)$ admin.php?controller=News&action=show&id=$1
+RewriteRule ^admin/news/update/([0-9]+)$ admin.php?controller=News&action=update&id=$1
+RewriteRule ^admin/news/delete/([0-9]+)$ admin.php?controller=News&action=delete&id=$1
 
 #order
 RewriteRule ^admin/orders/([0-9]+)$ admin.php?controller=Order&page=$1

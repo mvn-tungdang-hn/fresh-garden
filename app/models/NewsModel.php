@@ -1,14 +1,14 @@
 <?php
-class CategoryModel extends Model
+class NewsModel extends Model
 {
-  public $table = 'categories';
+  public $table = 'news';
 
   /**
    * Lấy danh sách phần tử
    */
-  public function getListCategory($where = "", $pagination = "")
+  public function getListNews($where = "", $pagination = "", $order = "id desc")
   {
-    $result = parent::getListAll("Select * from `$this->table` $where order by display_order asc $pagination");
+    $result = parent::getListAll("Select * from `$this->table` $where order by $order $pagination");
 
     return $result;
   }
@@ -16,9 +16,9 @@ class CategoryModel extends Model
   /**
    * Lấy số bản ghi
    */
-  public function getRowCountCategory()
+  public function getRowCountNews($where = '')
   {
-    $result = parent::getRowCount("Select id from `$this->table`");
+    $result = parent::getRowCount("Select id from `$this->table` $where");
 
     return $result;
   }
@@ -26,7 +26,7 @@ class CategoryModel extends Model
   /**
    * Lấy thông tin phần tử
    */
-  public function getDetailCategory($id)
+  public function getDetailNews($id)
   {
     $result = parent::getRecord("Select * from `$this->table` where id = $id");
     return $result;
@@ -35,7 +35,7 @@ class CategoryModel extends Model
   /**
    * Thêm mới phần tử
    */
-  public function addNewCategory($fields)
+  public function addNewNews($fields)
   {
     $values = [];
     foreach ($fields as $key => $val) {
@@ -51,7 +51,7 @@ class CategoryModel extends Model
   /**
    * Update phần tử
    */
-  public function updateCategory($id, $fields)
+  public function updateNews($id, $fields)
   {
     $values = [];
     foreach ($fields as $key => $val) {
@@ -67,16 +67,8 @@ class CategoryModel extends Model
   /**
    * Xoá phần tử
    */
-  public function deleteCategory($id)
+  public function deleteNews($id)
   {
     return parent::execute("Delete from `$this->table` where id = $id");
-  }
-
-  /* Lấy danh sách category product gồm cả sản phẩm */
-  public function getListCategoryWithProducts()
-  {
-    $result = parent::getListAll("Select categories.id as categoryId, categories.title as categoryTitle, categories.thumbnail as categoryThumbnail, products.id, products.title, products.thumbnail, products.include, products.original_price, products.price from categories inner join products on categories.id = products.category_id");
-
-    return $result;
   }
 }

@@ -1,13 +1,13 @@
 <?php
 include_once "app/models/CategoryModel.php";
 
-class CategoryProductController extends BaseController
+class CategoryNewsController extends BaseController
 {
   public $categoryModel;
-  public $pathList = "categories-product";
-  public $pathForm = "category-product";
+  public $pathList = "categories-news";
+  public $pathForm = "category-news";
   public $imageFolder = "category";
-  public $title = "Danh mục sản phẩm";
+  public $title = "Danh mục tin tức";
 
   public function __construct()
   {
@@ -18,22 +18,22 @@ class CategoryProductController extends BaseController
 
     switch ($action) {
       case 'create':
-        $this->redirectCreateCategoryProduct();
+        $this->redirectCreateCategoryNews();
         break;
       case 'do_create':
-        $this->createCategoryProduct();
+        $this->createCategoryNews();
         break;
       case 'show':
-        $this->showCategoryProduct($id);
+        $this->showCategoryNews($id);
         break;
       case 'update':
-        $this->updateCategoryProduct($id);
+        $this->updateCategoryNews($id);
         break;
       case 'delete':
-        $this->deleteCategoryProduct($id);
+        $this->deleteCategoryNews($id);
         break;
       default:
-        $this->getListCategoryProduct();
+        $this->getListCategoryNews();
         break;
     }
   }
@@ -41,7 +41,7 @@ class CategoryProductController extends BaseController
   /**
    * Lấy danh sách phần tử
    */
-  public function getListCategoryProduct()
+  public function getListCategoryNews()
   {
     $page = $_GET['page'] ?? 1;
     $keyword = $_POST['keyword'] ?? '';
@@ -62,7 +62,7 @@ class CategoryProductController extends BaseController
     }
 
     $result = [
-      'categories' => $this->categoryModel->getListCategory("where type = 1 and title like '%$keyword%'", "limit $start, $limit"),
+      'categories' => $this->categoryModel->getListCategory("where type = 2 and title like '%$keyword%'", "limit $start, $limit"),
       'page' => $page,
       'totalPage' => $totalPage,
       'totalRecord' => $totalRecord,
@@ -82,14 +82,14 @@ class CategoryProductController extends BaseController
   /**
    * Mở trang thêm phần tử
    */
-  public function redirectCreateCategoryProduct()
+  public function redirectCreateCategoryNews()
   {
     $result = [
       'formAction' => "admin/$this->pathForm/do_create",
       'title' => $this->title,
       'pathForm' => $this->pathForm,
       'pathList' => $this->pathList,
-      'categories' => $this->categoryModel->getListCategory("where type = 1"),
+      'categories' => $this->categoryModel->getListCategory("where type = 2"),
     ];
 
     $this->setTemplate("admin/$this->pathForm/edit", $result);
@@ -99,7 +99,7 @@ class CategoryProductController extends BaseController
   /**
    * Thêm phần tử
    */
-  public function createCategoryProduct()
+  public function createCategoryNews()
   {
     global $APP_URL;
 
@@ -126,7 +126,7 @@ class CategoryProductController extends BaseController
   /**
    * Hiển thị chi tiết phần tử
    */
-  public function showCategoryProduct($id)
+  public function showCategoryNews($id)
   {
     $result = [
       'formAction' => "admin/$this->pathForm/update/$id",
@@ -134,7 +134,7 @@ class CategoryProductController extends BaseController
       'detail' => $this->categoryModel->getDetailCategory($id),
       'pathForm' => $this->pathForm,
       'pathList' => $this->pathList,
-      'categories' => $this->categoryModel->getListCategory("where id != $id && type = 1"),
+      'categories' => $this->categoryModel->getListCategory("where id != $id && type = 2"),
     ];
 
     $this->setTemplate("admin/$this->pathForm/edit", $result);
@@ -144,7 +144,7 @@ class CategoryProductController extends BaseController
   /**
    * Cập nhật phần tử
    */
-  public function updateCategoryProduct($id)
+  public function updateCategoryNews($id)
   {
     global $APP_URL;
 
@@ -172,7 +172,7 @@ class CategoryProductController extends BaseController
   /**
    * Xoá phần tử
    */
-  public function deleteCategoryProduct($id)
+  public function deleteCategoryNews($id)
   {
     global $APP_URL;
 

@@ -1,16 +1,19 @@
 <?php
+include_once "app/models/NewsModel.php";
 include_once "app/models/CategoryModel.php";
 
-class CategoryProductController extends BaseController
+class NewsController extends BaseController
 {
+  public $newsModel;
   public $categoryModel;
-  public $pathList = "categories-product";
-  public $pathForm = "category-product";
-  public $imageFolder = "category";
-  public $title = "Danh mục sản phẩm";
+  public $pathList = "news";
+  public $pathForm = "news";
+  public $imageFolder = "news";
+  public $title = "Tin tức";
 
   public function __construct()
   {
+    $this->newsModel = new NewsModel();
     $this->categoryModel = new CategoryModel();
 
     $action = $_GET['action'] ?? null;
@@ -18,22 +21,22 @@ class CategoryProductController extends BaseController
 
     switch ($action) {
       case 'create':
-        $this->redirectCreateCategoryProduct();
+        $this->redirectCreateNews();
         break;
       case 'do_create':
-        $this->createCategoryProduct();
+        $this->createNews();
         break;
       case 'show':
-        $this->showCategoryProduct($id);
+        $this->showNews($id);
         break;
       case 'update':
-        $this->updateCategoryProduct($id);
+        $this->updateNews($id);
         break;
       case 'delete':
-        $this->deleteCategoryProduct($id);
+        $this->deleteNews($id);
         break;
       default:
-        $this->getListCategoryProduct();
+        $this->getListNews();
         break;
     }
   }
@@ -41,11 +44,11 @@ class CategoryProductController extends BaseController
   /**
    * Lấy danh sách phần tử
    */
-  public function getListCategoryProduct()
+  public function getListNews()
   {
     $page = $_GET['page'] ?? 1;
     $keyword = $_POST['keyword'] ?? '';
-    $totalRecord = $this->categoryModel->getRowCountCategory();
+    $totalRecord = $this->newsModel->getRowCountNews();
     $limit = 10;
     $totalPage = ceil($totalRecord / $limit);
 
@@ -62,7 +65,7 @@ class CategoryProductController extends BaseController
     }
 
     $result = [
-      'categories' => $this->categoryModel->getListCategory("where type = 1 and title like '%$keyword%'", "limit $start, $limit"),
+      'news' => $this->newsModel->getListNews("where title like '%$keyword%'", "limit $start, $limit"),
       'page' => $page,
       'totalPage' => $totalPage,
       'totalRecord' => $totalRecord,
@@ -82,14 +85,14 @@ class CategoryProductController extends BaseController
   /**
    * Mở trang thêm phần tử
    */
-  public function redirectCreateCategoryProduct()
+  public function redirectCreateNews()
   {
     $result = [
       'formAction' => "admin/$this->pathForm/do_create",
       'title' => $this->title,
       'pathForm' => $this->pathForm,
       'pathList' => $this->pathList,
-      'categories' => $this->categoryModel->getListCategory("where type = 1"),
+      'categories' => $this->categoryModel->getListCategory("where type = 2"),
     ];
 
     $this->setTemplate("admin/$this->pathForm/edit", $result);
@@ -99,7 +102,7 @@ class CategoryProductController extends BaseController
   /**
    * Thêm phần tử
    */
-  public function createCategoryProduct()
+  public function createNews()
   {
     global $APP_URL;
 
@@ -111,12 +114,13 @@ class CategoryProductController extends BaseController
       $thumbnail = "public/images/upload/$this->imageFolder/" . $fileName;
     }
 
-    $this->categoryModel->addNewCategory([
+    $this->newsModel->addNewNews([
       'title' => $_POST['title'],
-      'parent_id' => $_POST['parent_id'],
-      'type' => $_POST['type'],
-      'status' => $_POST['status'],
-      'display_order' => $_POST['display_order'],
+      'description' => $_POST['description'],
+      'content' => $_POST['content'],
+      'author' => $_POST['author'],
+      'source' => $_POST['source'],
+      'category_id' => $_POST['category_id'],
       'thumbnail' => $thumbnail,
     ]);
 
@@ -126,15 +130,15 @@ class CategoryProductController extends BaseController
   /**
    * Hiển thị chi tiết phần tử
    */
-  public function showCategoryProduct($id)
+  public function showNews($id)
   {
     $result = [
       'formAction' => "admin/$this->pathForm/update/$id",
       'title' => $this->title,
-      'detail' => $this->categoryModel->getDetailCategory($id),
+      'detail' => $this->newsModel->getDetailNews($id),
       'pathForm' => $this->pathForm,
       'pathList' => $this->pathList,
-      'categories' => $this->categoryModel->getListCategory("where id != $id && type = 1"),
+      'categories' => $this->categoryModel->getListCategory("where type = 2"),
     ];
 
     $this->setTemplate("admin/$this->pathForm/edit", $result);
@@ -144,7 +148,7 @@ class CategoryProductController extends BaseController
   /**
    * Cập nhật phần tử
    */
-  public function updateCategoryProduct($id)
+  public function updateNews($id)
   {
     global $APP_URL;
 
@@ -153,17 +157,18 @@ class CategoryProductController extends BaseController
       move_uploaded_file($_FILES['thumbnail']['tmp_name'], "public/images/upload/$this->imageFolder/$fileName");
       $thumbnail = "public/images/upload/$this->imageFolder/" . $fileName;
 
-      $this->categoryModel->updateCategory($id, [
+      $this->newsModel->updateNews($id, [
         'thumbnail' => $thumbnail,
       ]);
     }
 
-    $this->categoryModel->updateCategory($id, [
+    $this->newsModel->updateNews($id, [
       'title' => $_POST['title'],
-      'parent_id' => $_POST['parent_id'],
-      'type' => $_POST['type'],
-      'status' => $_POST['status'],
-      'display_order' => $_POST['display_order'],
+      'description' => $_POST['description'],
+      'content' => $_POST['content'],
+      'author' => $_POST['author'],
+      'source' => $_POST['source'],
+      'category_id' => $_POST['category_id'],
     ]);
 
     header("location:$APP_URL/admin/$this->pathList/1");
@@ -172,11 +177,11 @@ class CategoryProductController extends BaseController
   /**
    * Xoá phần tử
    */
-  public function deleteCategoryProduct($id)
+  public function deleteNews($id)
   {
     global $APP_URL;
 
-    $this->categoryModel->deleteCategory($id);
+    $this->newsModel->deleteNews($id);
 
     header("location:$APP_URL/admin/$this->pathList/1");
   }

@@ -39,7 +39,9 @@ class ProductModel extends Model
   {
     $values = [];
     foreach ($fields as $key => $val) {
-      $values[] = "`$key`='$val'";
+      if ($val != null) {
+        $values[] = "`$key`='$val'";
+      }
     }
     $sql = "Insert into `$this->table` set " . implode(',', $values);
 
@@ -53,7 +55,9 @@ class ProductModel extends Model
   {
     $values = [];
     foreach ($fields as $key => $val) {
-      $values[] = "`$key`='$val'";
+      if ($val != null) {
+        $values[] = "`$key`='$val'";
+      }
     }
     $sql = "Update `$this->table` set " . implode(',', $values) . " where id = $id";
 
