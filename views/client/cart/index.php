@@ -43,7 +43,7 @@
                     </div>
                   </td>
                   <td>
-                    <span class="fw-medium fs-5">$<?php echo number_format($cart['price']) ?>đ</span>
+                    <span class="fw-medium fs-5"><?php echo number_format($cart['price']) ?>đ</span>
                     <small class="text-decoration-line-through text-secondary">
                       <?php echo number_format($cart['original_price']) ?>đ
                     </small>
@@ -74,11 +74,7 @@
       <div class="border p-3 mb-3">
         <div class="d-flex justify-content-between align-items-center mb-1">
           <div class="fw-medium">Tạm tính</div>
-          <div class="text-muted">888.888đ</div>
-        </div>
-        <div class="d-flex justify-content-between align-items-center mb-4">
-          <div class="fw-medium">Phí giao hàng</div>
-          <div class="text-muted">30.000đ</div>
+          <div class="text-muted"><?php echo isset($_SESSION['totalMoney']) ? number_format($_SESSION['totalMoney']) : 0 ?>đ</div>
         </div>
 
         <div class="d-flex justify-content-between align-items-center mb-1">
@@ -87,7 +83,7 @@
         </div>
         <div class="d-flex justify-content-between align-items-center mb-1">
           <div class="fw-medium">Thành tiền</div>
-          <div class="text-warning fw-bold fs-4">888.888đ</div>
+          <div class="text-warning fw-bold fs-4"><?php echo isset($_SESSION['totalMoney']) ? number_format($_SESSION['totalMoney']) : 0 ?></div>
         </div>
         <hr />
         <div class="text-center">

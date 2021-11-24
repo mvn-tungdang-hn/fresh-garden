@@ -13,6 +13,7 @@ class CategoryProductController extends BaseController
     $this->productModel = new ProductModel();
 
     $categoryId = $_GET['id'] ?? null;
+    $sortBy = $_POST['sortBy'] ?? "id desc";
     $whereSql = "where category_id = $categoryId and status = 1";
     $page = $_GET['page'] ?? 1;
     $totalRecord = $this->productModel->getRowCountProduct($whereSql);
@@ -33,9 +34,10 @@ class CategoryProductController extends BaseController
 
     $result = [
       'category' => $this->categoryModel->getDetailCategory($categoryId),
-      'products' => $this->productModel->getListProduct($whereSql, "limit $start, $limit"),
+      'products' => $this->productModel->getListProduct($whereSql, "limit $start, $limit", $sortBy),
       'page' => $page,
-      'totalPage' => $totalPage
+      'totalPage' => $totalPage,
+      'sortBy' => $sortBy
     ];
 
     $this->setTemplate("client/category-product/index", $result);

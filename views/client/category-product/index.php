@@ -62,25 +62,31 @@
           </label>
         </div>
       </div>
+
+      <div class="mb-4">
+        <label for="customRangePrice" class="form-label fw-bold">Khoảng giá</label>
+        <input type="range" class="form-range" min="0" step="1" id="customRangePrice">
+      </div>
     </div>
     <div class="col-lg-9">
       <div class="bg-light py-2 px-3 row g-0 align-items-center mb-3">
-        <div class="fs-4 col-sm-8">
+        <div class="fs-4 col-sm-6">
           <i class="bi bi-grid-3x2-gap-fill pointer me-2 text-primary"></i>
           <i class="bi bi-list-ul pointer"></i>
         </div>
-        <div class="col-sm-4">
-          <div class="row g-0 align-items-center">
-            <label for="sortSelect" class="form-label col-3 mb-0 text-secondary">Lọc theo:</label>
-            <div class="col-9">
+        <div class="col-sm-6">
+          <form method="POST" action="" class="row g-0 align-items-center justify-content-end">
+            <div class="col-9 d-flex">
               <select class="form-select" id="sortSelect" name="sortBy">
-                <option value="1">Tên, A -> Z</option>
-                <option value="2">Tên, Z -> A</option>
-                <option value="3">Giá thấp nhất</option>
-                <option value="4">Giá cao nhất</option>
+                <option value="id desc" <?php if ($sortBy == "id desc") { ?> selected <?php } ?>>Ngày tạo gần nhất</option>
+                <option value="title asc" <?php if ($sortBy == "title desc") { ?> selected <?php } ?>>Tên, A -> Z</option>
+                <option value="title desc" <?php if ($sortBy == "title asc") { ?> selected <?php } ?>>Tên, Z -> A</option>
+                <option value="price asc" <?php if ($sortBy == "price asc") { ?> selected <?php } ?>>Giá thấp nhất</option>
+                <option value="price desc" <?php if ($sortBy == "price desc") { ?> selected <?php } ?>>Giá cao nhất</option>
               </select>
+              <button class="btn btn-primary" style="white-space: nowrap">Sắp xếp</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <?php if (count($products) > 0) { ?>

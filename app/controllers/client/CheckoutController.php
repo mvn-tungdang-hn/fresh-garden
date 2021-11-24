@@ -49,6 +49,8 @@ class CheckoutController extends BaseController
         $totalMoney += $item['total'];
       }
 
+      $totalMoney += $_POST["shippingMethod"] == 1 ? 30000 : 50000;
+
 
       $order = $this->order->addNewOrder([
         "user_id" => $userId,

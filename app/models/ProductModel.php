@@ -6,9 +6,9 @@ class ProductModel extends Model
   /**
    * Lấy danh sách phần tử
    */
-  public function getListProduct($where = "", $pagination = "")
+  public function getListProduct($where = "", $pagination = "", $order = "id desc")
   {
-    $result = parent::getListAll("Select * from `$this->table` $where order by id asc $pagination");
+    $result = parent::getListAll("Select * from `$this->table` $where order by $order $pagination");
 
     return $result;
   }

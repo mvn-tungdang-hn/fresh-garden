@@ -47,7 +47,9 @@ class OrderController extends BaseController
    */
   public function getListOrder()
   {
-    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $page = $_GET['page'] ?? 1;
+    $orderId = $_POST['orderId'] ?? "";
+    $userId = $_POST['userId'] ?? "";
     $totalRecord = $this->orderModel->getRowCountOrder();
     $limit = 10;
     $totalPage = ceil($totalRecord / $limit);
@@ -64,8 +66,17 @@ class OrderController extends BaseController
       $end = $totalRecord;
     }
 
+    $whereSql = "";
+    if ($orderId != "" && $userId == "") {
+      $whereSql = "where id = $orderId";
+    } else if ($orderId == "" && $userId != "") {
+      $whereSql = "where user_id = $userId";
+    } else if ($orderId != "" && $userId != "") {
+      $whereSql = "where id = $orderId and user_id = $userId";
+    }
+
     $result = [
-      'orders' => $this->orderModel->getListOrder("", "limit $start, $limit"),
+      'orders' => $this->orderModel->getListOrder($whereSql, "limit $start, $limit"),
       'page' => $page,
       'totalPage' => $totalPage,
       'totalRecord' => $totalRecord,
@@ -75,6 +86,8 @@ class OrderController extends BaseController
       'pathList' => $this->pathList,
       'pathForm' => $this->pathForm,
       'title' => $this->title,
+      'orderId' => $orderId,
+      'userId' => $userId
     ];
 
     $this->setTemplate("admin/$this->pathForm/index", $result);

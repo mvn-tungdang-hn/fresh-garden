@@ -49,7 +49,8 @@ class ProductController extends BaseController
    */
   public function getListProduct()
   {
-    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $page = $_GET['page'] ?? 1;
+    $keyword = $_POST['keyword'] ?? '';
     $totalRecord = $this->productModel->getRowCountProduct();
     $limit = 10;
     $totalPage = ceil($totalRecord / $limit);
@@ -67,7 +68,7 @@ class ProductController extends BaseController
     }
 
     $result = [
-      'products' => $this->productModel->getListProduct("", "limit $start, $limit"),
+      'products' => $this->productModel->getListProduct("where title like '%$keyword%'", "limit $start, $limit"),
       'page' => $page,
       'totalPage' => $totalPage,
       'totalRecord' => $totalRecord,
@@ -77,6 +78,7 @@ class ProductController extends BaseController
       'pathList' => $this->pathList,
       'pathForm' => $this->pathForm,
       'title' => $this->title,
+      'keyword' => $keyword
     ];
 
     $this->setTemplate("admin/$this->pathForm/index", $result);

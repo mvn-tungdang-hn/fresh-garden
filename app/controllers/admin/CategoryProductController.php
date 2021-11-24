@@ -43,7 +43,8 @@ class CategoryProductController extends BaseController
    */
   public function getListCategoryProduct()
   {
-    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $page = $_GET['page'] ?? 1;
+    $keyword = $_POST['keyword'] ?? '';
     $totalRecord = $this->categoryModel->getRowCountCategory();
     $limit = 10;
     $totalPage = ceil($totalRecord / $limit);
@@ -61,7 +62,7 @@ class CategoryProductController extends BaseController
     }
 
     $result = [
-      'categories' => $this->categoryModel->getListCategory("where type = 1", "limit $start, $limit"),
+      'categories' => $this->categoryModel->getListCategory("where type = 1 and title like '%$keyword%'", "limit $start, $limit"),
       'page' => $page,
       'totalPage' => $totalPage,
       'totalRecord' => $totalRecord,
@@ -71,6 +72,7 @@ class CategoryProductController extends BaseController
       'pathList' => $this->pathList,
       'pathForm' => $this->pathForm,
       'title' => $this->title,
+      'keyword' => $keyword
     ];
 
     $this->setTemplate("admin/$this->pathForm/index", $result);

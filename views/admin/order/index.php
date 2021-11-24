@@ -21,12 +21,16 @@
     <h5 class="card-title mb-0">Tìm kiếm</h5>
   </div>
   <div class="card-body">
-    <form action="">
+    <form action="" method="POST">
       <div class="row">
         <div class="col-sm-4">
           <div class="mb-3">
-            <label for="title" class="form-label">Mã đơn hàng</label>
-            <input type="email" class="form-control" id="title" placeholder="example" />
+            <label for="orderId" class="form-label">Mã đơn hàng</label>
+            <input class="form-control" id="orderId" placeholder="example" name="orderId" value="<?php echo isset($orderId) ? $orderId : '' ?>" />
+          </div>
+          <div class="mb-3">
+            <label for="userId" class="form-label">Mã khách hàng</label>
+            <input class="form-control" id="userId" placeholder="example" name="userId" value="<?php echo isset($userId) ? $userId : '' ?>" />
           </div>
         </div>
       </div>

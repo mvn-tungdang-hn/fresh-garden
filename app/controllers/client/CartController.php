@@ -55,9 +55,11 @@ class CartController extends BaseController
 
     if (isset($_SESSION['cart'][$id])) {
       $_SESSION['cart'][$id]['quantity'] += $quantity;
+      $_SESSION['cart'][$id]['total'] = $_SESSION['cart'][$id]['quantity'] * $_SESSION['cart'][$id]['price'];
       if ($_SESSION['cart'][$id]['quantity'] == 0) {
         $this->deleteCartItem($id);
       }
+      $this->calculateTotalMoney();
     } else {
       $product = $this->model->getRecord("Select * from products where id = $id");
       $_SESSION['cart'][$id] = array(
@@ -69,6 +71,7 @@ class CartController extends BaseController
         'quantity' => $quantity,
         'total' => $quantity * $product->price
       );
+      $this->calculateTotalMoney();
     }
 
     header("location:$APP_URL/cart");
@@ -82,6 +85,7 @@ class CartController extends BaseController
     global $APP_URL;
 
     unset($_SESSION['cart']);
+    unset($_SESSION['totalMoney']);
     header("location:$APP_URL/cart");
   }
 
@@ -94,6 +98,20 @@ class CartController extends BaseController
     $id = $_GET['id'] ??  null;
 
     unset($_SESSION['cart'][$id]);
+    $this->calculateTotalMoney();
     header("location:$APP_URL/cart");
+  }
+
+  /**
+   * Tính tổng giá trị đơn hàng
+   */
+  public function calculateTotalMoney()
+  {
+    $sum = 0;
+    foreach ($_SESSION['cart'] as $value) {
+      $sum += $value['total'];
+    }
+
+    $_SESSION['totalMoney'] = $sum;
   }
 }

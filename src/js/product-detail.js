@@ -34,11 +34,15 @@ Fancybox.bind('[data-fancybox="gallery"]', {
 const btnPlus = document.querySelector("#btn-plus"),
   btnDash = document.querySelector("#btn-dash"),
   qty = document.querySelector("#qty"),
-  qtyInput = document.querySelector("#qtyInput");
+  qtyInput = document.querySelector("#qtyInput"),
+  quantityResult = document.querySelector("#quantityResult").textContent;
 
 const updateQty = (value) => {
   const oldValue = Number(qty.textContent);
-  if (oldValue === 1 && value < 0) {
+  if (
+    (oldValue === 1 && value < 0) ||
+    (oldValue === Number(quantityResult) && value > 0)
+  ) {
     return;
   }
   const newValue = oldValue + value;

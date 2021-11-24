@@ -55,7 +55,7 @@
         <p class="fs-5">
           <span class="fw-medium">Số lượng còn: </span>
           <?php if ($product->quantity > 0) { ?>
-            <span><?php echo $product->quantity ?></span>
+            <span id="quantityResult"><?php echo $product->quantity ?></span>
           <?php } else { ?>
             <span class="text-danger">Bán hết</span>
           <?php } ?>

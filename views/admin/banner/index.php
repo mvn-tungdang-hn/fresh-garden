@@ -21,16 +21,15 @@
     <h5 class="card-title mb-0">Tìm kiếm</h5>
   </div>
   <div class="card-body">
-    <form action="">
+    <form action="" method="POST">
       <div class="row">
         <div class="col-sm-4">
           <div class="mb-3">
-            <label for="title" class="form-label">Tiêu đề</label>
-            <input type="email" class="form-control" id="title" placeholder="example" />
+            <input class="form-control" id="keyword" placeholder="Tiêu đề, link..." name="keyword" value="<?php echo isset($keyword) ? $keyword : '' ?>" />
           </div>
         </div>
       </div>
-      <button class="btn btn-secondary">Tìm kiếm</button>
+      <button type="submit" class="btn btn-secondary">Tìm kiếm</button>
     </form>
   </div>
 </div>

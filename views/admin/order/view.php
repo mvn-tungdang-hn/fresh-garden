@@ -61,7 +61,7 @@
         </div>
         <div class="row">
           <div class="col-3">Phương thức vận chuyển</div>
-          <div class="col-9"><?php echo $shippingMethod->title ?></div>
+          <div class="col-9"><?php echo $shippingMethod->title ?> - <?php echo number_format($shippingMethod->price) ?>đ</div>
         </div>
         <div class="row">
           <div class="col-3">Trạng thái</div>
@@ -124,7 +124,7 @@
                     </div>
                   </td>
                   <td>
-                    <span class="fw-medium fs-5">$<?php echo number_format($item->order_detail_price) ?>đ</span>
+                    <span class="fw-medium fs-5"><?php echo number_format($item->order_detail_price) ?>đ</span>
                   </td>
                   <td><?php echo $item->order_detail_quantity ?></td>
                   <td>

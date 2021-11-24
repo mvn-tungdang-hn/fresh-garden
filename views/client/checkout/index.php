@@ -117,11 +117,13 @@
             <div id="collapsePayment" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionCheckout">
               <div class="accordion-body">
                 <?php foreach ($paymentMethods as $item) { ?>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="paymentMethod" id="payment-<?php echo $item->id ?>" <?php if ($item->id == 1) { ?> checked <?php } ?> value="<?php echo $item->id ?>">
-                    <label class="form-check-label" for="payment-<?php echo $item->id ?>">
-                      <?php echo $item->title ?>
-                    </label>
+                  <div class="mb-2 bg-light p-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="paymentMethod" id="payment-<?php echo $item->id ?>" <?php if ($item->id == 1) { ?> checked <?php } ?> value="<?php echo $item->id ?>">
+                      <label class="form-check-label" for="payment-<?php echo $item->id ?>">
+                        <?php echo $item->title ?>
+                      </label>
+                    </div>
                   </div>
                 <?php } ?>
               </div>
@@ -133,7 +135,7 @@
         <div class="border p-3 mb-3">
           <div class="d-flex justify-content-between align-items-center mb-1">
             <div class="fw-medium">Tạm tính</div>
-            <div class="text-muted">888.888đ</div>
+            <div class="text-muted"><?php echo isset($_SESSION['totalMoney']) ? number_format($_SESSION['totalMoney']) : 0 ?>đ</div>
           </div>
           <div class="d-flex justify-content-between align-items-center mb-4">
             <div class="fw-medium">Phí giao hàng</div>
@@ -146,7 +148,7 @@
           </div>
           <div class="d-flex justify-content-between align-items-center mb-1">
             <div class="fw-medium">Thành tiền</div>
-            <div class="text-warning fw-bold fs-4">888.888đ</div>
+            <div class="text-warning fw-bold fs-4"><?php echo isset($_SESSION['totalMoney']) ? number_format($_SESSION['totalMoney']) : 0 ?>đ</div>
           </div>
         </div>
         <div class="border">

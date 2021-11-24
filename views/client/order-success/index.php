@@ -6,7 +6,7 @@
     <h1 class="fs-3">
       <i class="bi bi-check-lg pe-2 text-success"></i>Cảm ơn bạn đã mua hàng tại Highland
     </h1>
-    <p class="text-muted">Đơn hàng của bạn đã được tiếp nhận. Bạn có thể xem tại <a href="#">Đơn hàng của tôi</a>. Thông tin chi tiết về đơn hàng đã được gửi đến địa chỉ email của bạn.</p>
+    <p class="text-muted">Đơn hàng của bạn đã được tiếp nhận. Bạn có thể xem tại <a href="my/orders">Đơn hàng của tôi</a>. Thông tin chi tiết về đơn hàng đã được gửi đến địa chỉ email của bạn.</p>
   </div>
 
   <div class="text-center">
