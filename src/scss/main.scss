@@ -443,6 +443,22 @@ label.error {
   }
 }
 
+.x-news {
+  position: relative;
+  &-image {
+    position: relative;
+    padding-bottom: 56.25%;
+    img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
 #hot-deals {
   margin-top: -200px;
 }
@@ -482,4 +498,10 @@ label.error {
     white-space: pre-line;
     word-break: break-all;
   }
+}
+
+#form-search {
+  position: absolute;
+  right: 0;
+  min-width: 200px;
 }

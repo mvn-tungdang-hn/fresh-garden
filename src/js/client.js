@@ -8,3 +8,12 @@ sidebarLinks.forEach((link) => {
     link.classList.add("active");
   }
 });
+
+/* Form search */
+const btnToggle = document.querySelector("#toggle-form-search");
+const formSearch = document.querySelector("#form-search");
+
+btnToggle.addEventListener("click", () => {
+  formSearch.classList.toggle("d-none");
+  formSearch.querySelector("input").focus();
+});

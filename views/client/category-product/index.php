@@ -129,7 +129,6 @@
           <?php } ?>
         </div>
 
-
         <nav class="bg-light py-2 px-3">
           <ul class="pagination justify-content-end mb-0">
             <?php if ($page > 1 && $totalPage > 1) { ?>

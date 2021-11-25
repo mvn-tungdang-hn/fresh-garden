@@ -14,7 +14,8 @@
 include_once "app/models/CategoryModel.php";
 $categoryModel = new CategoryModel();
 
-$categories = $categoryModel->getListCategory("where type = 1");
+$categoriesProduct = $categoryModel->getListCategory("where type = 1");
+$categoriesNews = $categoryModel->getListCategory("where type = 2");
 ?>
 
 <body class="d-flex flex-column min-vh-100 layout-client">
@@ -91,11 +92,11 @@ $categories = $categoryModel->getListCategory("where type = 1");
             <a class="nav-link text-uppercase px-lg-4" href="<?php echo $APP_URL ?>/about">Giới thiệu</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdownMenuLinkProduct" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Sản phẩm
             </a>
-            <ul class="dropdown-menu border-0 shadow-sm rounded-0" aria-labelledby="navbarDropdownMenuLink">
-              <?php foreach ($categories as $item) { ?>
+            <ul class="dropdown-menu border-0 shadow-sm rounded-0" aria-labelledby="navbarDropdownMenuLinkProduct">
+              <?php foreach ($categoriesProduct as $item) { ?>
                 <li>
                   <a class="dropdown-item text-capitalize" href="<?php echo $APP_URL ?>/category-product/<?php echo $item->id ?>">
                     <?php echo $item->title ?>
@@ -104,20 +105,30 @@ $categories = $categoryModel->getListCategory("where type = 1");
               <?php } ?>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-uppercase px-lg-4" href="#">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-uppercase px-lg-4" href="#">Tin tức</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-uppercase" href="#" id="navbarDropdownMenuLinkNews" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Tin tức
+            </a>
+            <ul class="dropdown-menu border-0 shadow-sm rounded-0" aria-labelledby="navbarDropdownMenuLinkNews">
+              <?php foreach ($categoriesNews as $item) { ?>
+                <li>
+                  <a class="dropdown-item text-capitalize" href="<?php echo $APP_URL ?>/category-news/<?php echo $item->id ?>">
+                    <?php echo $item->title ?>
+                  </a>
+                </li>
+              <?php } ?>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link text-uppercase px-lg-4" href="#">Liên hệ</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-uppercase px-lg-4" href="#">Thư viện</a>
-          </li>
-          <li class="nav-item ms-auto">
-            <button class="btn bg-transparent fs-4 mx-3"><i class="bi bi-search"></i></button>
+          <li class="nav-item ms-auto d-flex">
+            <div class="position-relative">
+              <button class="btn bg-transparent fs-4 mx-3" id="toggle-form-search"><i class="bi bi-search"></i></button>
+              <form action="search" method="POST" id="form-search" class="d-none shadow-sm">
+                <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm" name="keyword" />
+              </form>
+            </div>
             <a href="cart" class="btn btn-primary fs-4 text-white">
               <i class="bi bi-basket3"></i>
               <span><?php echo isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0 ?></span>

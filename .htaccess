@@ -1,10 +1,7 @@
 RewriteEngine On
 
 #----------
-#client
-
-#home
-RewriteRule ^home$ /index.php [L]
+#client 
 
 #about
 RewriteRule ^about$ index.php?controller=About
@@ -19,7 +16,16 @@ RewriteRule ^order-success$ index.php?controller=OrderSuccess
 RewriteRule ^product/([0-9]+) index.php?controller=ProductDetail&id=$1
 
 #category-product
-RewriteRule ^category-product/([^/]+) index.php?controller=CategoryProduct&id=$1&page=$2&sortBy=$3
+RewriteRule ^category-product/([^/]+) index.php?controller=CategoryProduct&id=$1&page=$2
+
+#category-news
+RewriteRule ^category-news/([^/]+) index.php?controller=CategoryNews&id=$1&page=$2
+
+#news
+RewriteRule ^news/([0-9]+) index.php?controller=NewsDetail&id=$1
+
+#search
+RewriteRule ^search index.php?controller=Search
 
 #cart
 RewriteRule ^cart$ index.php?controller=Cart
