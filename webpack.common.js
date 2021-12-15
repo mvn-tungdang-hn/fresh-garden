@@ -16,6 +16,7 @@ module.exports = {
     "admin-category-product": "./src/js/admin/category-product.js",
     "admin-banner": "./src/js/admin/banner.js",
     "admin-product": "./src/js/admin/product.js",
+    food: "./src/js/admin/food.js",
     "admin-news": "./src/js/admin/news.js"
   },
   output: {

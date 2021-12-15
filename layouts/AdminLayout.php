@@ -80,6 +80,18 @@
             <span class="align-middle">Đơn hàng</span>
           </a>
         </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="admin/foods/1">
+            <i class="align-middle me-2 bi bi-layout-wtf fs-5 text-info"></i>
+            <span class="align-middle">Món ăn</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="admin/bills/1">
+            <i class="align-middle me-2 bi bi-receipt fs-5 text-info"></i>
+            <span class="align-middle">Hóa Đơn</span>
+          </a>
+        </li>
 
         <li class="sidebar-header">Cài đặt</li>
         <li class="sidebar-item">
