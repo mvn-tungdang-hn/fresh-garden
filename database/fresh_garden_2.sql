@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2021 at 04:03 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Generation Time: Dec 15, 2021 at 04:53 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -76,6 +76,30 @@ INSERT INTO `categories` (`id`, `title`, `thumbnail`, `parent_id`, `type`, `stat
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `chitiethoadon`
+--
+
+CREATE TABLE `chitiethoadon` (
+  `MaChiTietHoaDon` int(11) NOT NULL,
+  `MaHoaDon` int(11) NOT NULL,
+  `MaMonAn` int(11) NOT NULL,
+  `DonGia` int(11) NOT NULL,
+  `SoLuongMua` int(14) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `chitiethoadon`
+--
+
+INSERT INTO `chitiethoadon` (`MaChiTietHoaDon`, `MaHoaDon`, `MaMonAn`, `DonGia`, `SoLuongMua`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 500000, 2, '2021-12-15 14:37:58', '2021-12-15 14:37:58'),
+(2, 1, 2, 45000, 33, '2021-12-15 14:37:58', '2021-12-15 14:37:58');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `collections`
 --
 
@@ -97,6 +121,83 @@ INSERT INTO `collections` (`id`, `title`, `status`, `thumbnail`, `created_at`, `
 (2, 'Trưa', 1, 'http://localhost/fresh-garden/public/images/upload/collection/collection2.jpg', '2021-09-03 10:54:52', '2021-09-03 10:54:52'),
 (3, 'Chiều', 1, 'http://localhost/fresh-garden/public/images/upload/collection/collection3.jpg', '2021-09-03 10:55:00', '2021-09-03 10:55:00'),
 (4, 'Tối', 1, 'http://localhost/fresh-garden/public/images/upload/collection/collection4.jpg', '2021-09-03 10:55:08', '2021-09-03 10:55:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hoadon`
+--
+
+CREATE TABLE `hoadon` (
+  `MaHoaDon` int(11) NOT NULL,
+  `MaBanAn` int(11) DEFAULT NULL,
+  `MaNhanVien` int(11) NOT NULL,
+  `NgayLap` date NOT NULL,
+  `TongTien` int(11) NOT NULL,
+  `TrangThai` tinyint(4) NOT NULL,
+  `LoaiHoaDon` tinyint(4) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `hoadon`
+--
+
+INSERT INTO `hoadon` (`MaHoaDon`, `MaBanAn`, `MaNhanVien`, `NgayLap`, `TongTien`, `TrangThai`, `LoaiHoaDon`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, '2021-12-15', 50000, 1, 2, '2021-12-15 13:30:02', '2021-12-15 13:30:02'),
+(2, 1, 1, '2021-12-14', 120000, 2, 1, '2021-12-15 13:30:02', '2021-12-15 13:30:02'),
+(3, 1, 1, '2021-12-15', 70000, 2, 1, '2021-12-15 14:50:52', '2021-12-15 14:50:52'),
+(4, 1, 1, '2021-12-13', 800000, 2, 2, '2021-12-15 14:50:52', '2021-12-15 14:50:52'),
+(5, 1, 1, '2021-12-01', 520000, 1, 1, '2021-12-15 14:50:52', '2021-12-15 14:50:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loaidanhmuc`
+--
+
+CREATE TABLE `loaidanhmuc` (
+  `MaLoaiDanhMuc` int(11) NOT NULL,
+  `TenDanhMuc` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `loaidanhmuc`
+--
+
+INSERT INTO `loaidanhmuc` (`MaLoaiDanhMuc`, `TenDanhMuc`) VALUES
+(1, 'Hải Sản'),
+(2, 'Tươi Sống');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `monan`
+--
+
+CREATE TABLE `monan` (
+  `MaMonAn` int(11) NOT NULL,
+  `MaLoaiDanhMuc` int(11) NOT NULL,
+  `TenMonAn` varchar(50) NOT NULL,
+  `HinhAnh` varchar(50) DEFAULT NULL,
+  `MoTa` varchar(50) DEFAULT NULL,
+  `DonGia` int(11) NOT NULL,
+  `SoLuongCon` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `monan`
+--
+
+INSERT INTO `monan` (`MaMonAn`, `MaLoaiDanhMuc`, `TenMonAn`, `HinhAnh`, `MoTa`, `DonGia`, `SoLuongCon`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Cua Alaska', NULL, 'Vua của các loài cua', 500000, 10, '2021-12-15 11:41:35', '2021-12-15 11:41:35'),
+(2, 2, 'Sushi', 'public/images/upload/food/1639576592heremap.png', 'Sushi đến từ Nhật Bản          ', 45000, 200, '2021-12-15 11:41:35', '2021-12-15 11:41:35'),
+(7, 2, 'Sườn xào chua ngọt', 'public/images/upload/food/1639576464bg.jpg', 'Món ăn vui vẻ', 70000, 120, '2021-12-15 13:54:24', '2021-12-15 13:54:24'),
+(8, 1, 'Tôm Hùm', 'public/images/upload/food/1639579525heremap.png', 'Tôm Hùm Alaska                      ', 500000, 10, '2021-12-15 14:45:25', '2021-12-15 14:45:25'),
+(9, 2, 'Cơm rang', NULL, '   Cơm rang văn phòng', 40000, 120, '2021-12-15 14:47:30', '2021-12-15 14:47:30');
 
 -- --------------------------------------------------------
 
@@ -304,10 +405,39 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `chitiethoadon`
+--
+ALTER TABLE `chitiethoadon`
+  ADD PRIMARY KEY (`MaChiTietHoaDon`),
+  ADD KEY `MaHoaDon` (`MaHoaDon`,`MaMonAn`),
+  ADD KEY `MaMonAn` (`MaMonAn`);
+
+--
 -- Indexes for table `collections`
 --
 ALTER TABLE `collections`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hoadon`
+--
+ALTER TABLE `hoadon`
+  ADD PRIMARY KEY (`MaHoaDon`),
+  ADD KEY `MaBanAn` (`MaBanAn`,`MaNhanVien`);
+
+--
+-- Indexes for table `loaidanhmuc`
+--
+ALTER TABLE `loaidanhmuc`
+  ADD PRIMARY KEY (`MaLoaiDanhMuc`) USING BTREE;
+
+--
+-- Indexes for table `monan`
+--
+ALTER TABLE `monan`
+  ADD PRIMARY KEY (`MaMonAn`),
+  ADD KEY `MaLoaidDanhMuc` (`MaLoaiDanhMuc`),
+  ADD KEY `MaLoaidDanhMuc_2` (`MaLoaiDanhMuc`);
 
 --
 -- Indexes for table `news`
@@ -382,10 +512,34 @@ ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
+-- AUTO_INCREMENT for table `chitiethoadon`
+--
+ALTER TABLE `chitiethoadon`
+  MODIFY `MaChiTietHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `collections`
 --
 ALTER TABLE `collections`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `hoadon`
+--
+ALTER TABLE `hoadon`
+  MODIFY `MaHoaDon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `loaidanhmuc`
+--
+ALTER TABLE `loaidanhmuc`
+  MODIFY `MaLoaiDanhMuc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `monan`
+--
+ALTER TABLE `monan`
+  MODIFY `MaMonAn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -440,6 +594,19 @@ ALTER TABLE `users`
 --
 
 --
+-- Constraints for table `chitiethoadon`
+--
+ALTER TABLE `chitiethoadon`
+  ADD CONSTRAINT `chitiethoadon_ibfk_1` FOREIGN KEY (`MaHoaDon`) REFERENCES `hoadon` (`MaHoaDon`),
+  ADD CONSTRAINT `chitiethoadon_ibfk_2` FOREIGN KEY (`MaMonAn`) REFERENCES `monan` (`MaMonAn`);
+
+--
+-- Constraints for table `monan`
+--
+ALTER TABLE `monan`
+  ADD CONSTRAINT `monan_ibfk_1` FOREIGN KEY (`MaLoaiDanhMuc`) REFERENCES `loaidanhmuc` (`MaLoaiDanhMuc`);
+
+--
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
@@ -471,44 +638,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-CREATE TABLE `LoaiDanhMuc` (
-  `MaLoaiDanhMuc` int(11) NOT NULL,
-  `TenDanhMuc` varchar(50) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE `MonAn` (
-  `MaMonAn` int(11) NOT NULL,
-  `MaLoaiDanhMuc` int(11) NOT NULL,
-  `TenMonAn` varchar(50) NOT NULL,
-  `HinhAnh` varchar(50) DEFAULT NULL,
-  `MoTa` varchar(50) DEFAULT NULL,
-  `DonGia` int NOT NULL,
-  `SoLuongCon` int NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE `HoaDon` (
-  `MaHoaDon` int(11) NOT NULL,
-  `MaBanAn` int(11) DEFAULT NULL,
-  `MaNhanVien` int(11) NOT NULL,
-  `NgayLap` date NOT NULL,
-  `TongTien` int(11) NOT NULL,
-  `TrangThai` tinyint(4) NOT NULL,
-  `LoaiHoaDon` tinyint(4) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE `ChiTietHoaDon` (
-  `MaChiTietHoaDon` int(11) NOT NULL,
-  `MaHoaDon` int(11) NOT NULL,
-  `MaMonAn` int(11) NOT NULL,
-  `DonGia` int(11) NOT NULL,
-  `SoLuongMua` int(14) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

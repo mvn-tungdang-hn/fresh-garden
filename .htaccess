@@ -99,5 +99,18 @@ RewriteRule ^admin/orders/([0-9]+)$ admin.php?controller=Order&page=$1
 RewriteRule ^admin/order/view/([0-9]+)$ admin.php?controller=Order&action=view&id=$1
 RewriteRule ^admin/order/update_status/([0-9]+)$ admin.php?controller=Order&action=update_status&id=$1
 
+#monan
+RewriteRule ^admin/foods/([0-9]+)$ admin.php?controller=Food&page=$1
+RewriteRule ^admin/food/create$ admin.php?controller=Food&action=create
+RewriteRule ^admin/food/do_create$ admin.php?controller=Food&action=do_create
+RewriteRule ^admin/food/edit/([0-9]+)$ admin.php?controller=Food&action=show&id=$1
+RewriteRule ^admin/food/update/([0-9]+)$ admin.php?controller=Food&action=update&id=$1
+RewriteRule ^admin/food/delete/([0-9]+)$ admin.php?controller=Food&action=delete&id=$1
+
+#hoadon
+RewriteRule ^admin/bills/([0-9]+)$ admin.php?controller=Bill&page=$1
+RewriteRule ^admin/bill/create$ admin.php?controller=Bill&action=create
+RewriteRule ^admin/bill/do_create$ admin.php?controller=Bill&action=do_create
+
 #404
 ErrorDocument 404 http://localhost/fresh-garden/
